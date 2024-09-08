@@ -1,0 +1,25 @@
+.signUpForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+}
+
+form {
+    display: flex;
+    flex-direction: column;   /* Stack form elements vertically */
+    width: 300px;             /* Optional: set form width */
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+
+  .signUpBtn {
+    height: 35px;
+    background-color: darkgray;
+    border-radius: 18px;
+    font-size: 16px;
+    font: bolder;
+  }
