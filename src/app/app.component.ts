@@ -7,6 +7,7 @@ import { CommonModule, NgIf, NgStyle } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { config } from './app.config.server';
+import { response } from 'express';
 
 
 @Component({
@@ -30,8 +31,8 @@ export class AppComponent {
       '/app/api/register', 
       formData, 
       { responseType: 'json' }
-    ).subscribe(config => {
-      console.log(config);
+    ).subscribe(response => {
+      console.log(response);
     });
     
   }
