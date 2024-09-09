@@ -1,5 +1,9 @@
 const express = require('express');
+const cors = require('cors'); // Import CORS middleware
 const { body, validationResult } = require('express-validator');
+app.use(cors({
+    origin:'https://user-registeration-application-git-main-suhailumars-projects.vercel.app/api/register', // Replace with your frontend URL
+  }));
 
 const app = express();
 
