@@ -34,8 +34,4 @@ app.post(
   }
 );
 
-
-
-
-
-module.exports = app;
+module.exports = app

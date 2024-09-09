@@ -26,10 +26,13 @@ export class AppComponent {
 
   onSubmit(): void{
     const formData = this.signUpForm.value
-   this.http.post<unknown>('/api/register',formData,{responseType: 'json'}).subscribe(config => {
-    console.log(config); 
-    
-   })
+    this.http.post<unknown>(
+      'https://user-registeration-application-git-main-suhailumars-projects.vercel.app/api/register', 
+      formData, 
+      { responseType: 'json' }
+    ).subscribe(config => {
+      console.log(config);
+    });
     
   }
 }
