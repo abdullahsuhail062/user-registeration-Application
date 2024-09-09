@@ -28,7 +28,7 @@ export class AppComponent {
   onSubmit(): void{
     const formData = this.signUpForm.value
     this.http.post<unknown>(
-      '/register', 
+      '/api/register', 
       formData, 
       { responseType: 'json' }
     ).subscribe(response => {

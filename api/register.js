@@ -11,7 +11,7 @@ app.use(express.json());
 
 // Registration route with validation
 app.post(
-  '/register',
+  '/api/register',
   [
     // Username must be at least 3 characters long
     body('username').isLength({ min: 3 }).withMessage('Username must be at least 3 characters long'),
