@@ -26,7 +26,7 @@ app.post(
     // Handle validation errors
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ error: 'validate your credentials' });
+      return res.status(400).json({ errors: errors.array() });
     }
 
     // If validation passes, extract user data
