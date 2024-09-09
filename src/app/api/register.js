@@ -49,7 +49,7 @@ const app = express();
 app.use(express.json());
 
 // User registration endpoint
-app.post('https:/api/register', (req, res) => {
+app.post('/api/register', (req, res) => {
   const {username, email, password } = req.body;
 
   // Add logic to save user to the database (e.g., MongoDB, MySQL)
