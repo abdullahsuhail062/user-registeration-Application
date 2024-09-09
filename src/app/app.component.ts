@@ -4,10 +4,11 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule, NgIf, NgStyle } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { config } from './app.config.server';
 import { response } from 'express';
+
 
 
 @Component({
@@ -21,6 +22,7 @@ import { response } from 'express';
 @Injectable({providedIn: 'root'})
 export class AppComponent {
   signUpForm: FormGroup
+  formErrors: any = {};
   constructor(private http: HttpClient){
     this.signUpForm = new FormGroup({username: new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z0-9]*')]), email: new FormControl('',[Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@example\.(com|org|net)$/)]),password: new FormControl('',[Validators.required,Validators.minLength(6),Validators.pattern('^[a-zA-Z0-9]*')]),confirmPassword: new FormControl('',[Validators.required,Validators.minLength(6)])})
   }
@@ -33,7 +35,22 @@ export class AppComponent {
       { responseType: 'json' }
     ).subscribe(response => {
       console.log(response);
-    });
-    
+    },
+    (error: HttpErrorResponse) => {
+      if (error.status === 400 && error.error.errors) {
+        this.handleValidationErrors(error.error.errors); // Handle server validation errors
+      } else {
+        console.error('An unexpected error occurred', error);
+      }
+    }
+  );
+}
+
+// Method to handle validation errors returned from the server
+handleValidationErrors(errors: any[]) {
+  this.formErrors = {}; // Clear previous errors
+  errors.forEach(err => {
+    this.formErrors[err.param] = err.msg; // Associate errors with form controls
+  });   
   }
 }

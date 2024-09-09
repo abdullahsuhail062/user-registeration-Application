@@ -6,6 +6,7 @@
     <mat-error *ngIf="signUpForm.get('username')?.invalid && signUpForm.get('username')?.touched">
       Username is required
     </mat-error>
+    <mat-error *ngIf="formErrors">{{formErrors}}</mat-error>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
