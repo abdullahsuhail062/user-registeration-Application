@@ -54,7 +54,7 @@ app.post('/api/register', (req, res) => {
 
   // Add logic to save user to the database (e.g., MongoDB, MySQL)
   // For now, just return a success response
-  if (username,email && password) {
+  if (username&&email && password) {
     res.status(200).json({ message: 'User registered successfully' });
   } else {
     res.status(400).json({ error: 'Email and password are required' });
