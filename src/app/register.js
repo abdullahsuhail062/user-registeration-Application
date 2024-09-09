@@ -1,34 +1,13 @@
-// const express = require('express');
-// const { body, validationResult } = require('express-validator');
-// const app = express();
-
-// // Middleware to parse JSON bodies
-// app.use(express.json());
-
-// // User registration endpoint
-// app.post('/api/register', (req, res) => {
-//   const {username,email, password } = req.body;
-
-//   // Add logic to save user to the database (e.g., MongoDB, MySQL)
-//   // For now, just return a success response
-//   if (username &&email && password) {
-//     res.status(200).json({ message: 'User registered successfully' });
-//   } else {
-//     res.status(400).json({ error: 'Email and password are required' });
-//   }
-// });
-
-// module.exports = app;
-
-
-
 const express = require('express');
 const { body, validationResult } = require('express-validator');
 
-const router = express.Router();
+const app = express();
+
+// Middleware to parse JSON request bodies
+app.use(express.json());
 
 // Registration route with validation
-router.post(
+app.post(
   '/api/register',
   [
     // Username must be at least 3 characters long
@@ -55,4 +34,8 @@ router.post(
   }
 );
 
-module.exports = router;
+
+
+
+
+module.exports = app;
