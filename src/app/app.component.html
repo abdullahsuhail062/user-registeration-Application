@@ -3,12 +3,11 @@
   <mat-form-field appearance="fill">
     <mat-label>Username</mat-label>
     <input matInput placeholder="Enter your username" formControlName="username">
-    <mat-error *ngIf="formErrors.userName === 'Username must be at least 3 characters long'">{{formErrors.userName}}</mat-error>
-    <!-- <mat-error *ngIf="signUpForm.get('username')?.invalid && signUpForm.get('username')?.touched">
+    <mat-error *ngIf="signUpForm.get('username')?.invalid && signUpForm.get('username')?.touched">
       Username is required
-    </mat-error> -->
+    </mat-error>
+    <mat-error *ngIf="formErrors.userName === 'Username must be at least 3 characters long'">{{formErrors.userName}}</mat-error>
   </mat-form-field>
-
   <mat-form-field appearance="fill">
     <mat-label>Email</mat-label>
     <input matInput type="email" placeholder="Enter your email" formControlName="email">
