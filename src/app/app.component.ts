@@ -63,8 +63,14 @@ export class AppComponent {
 // Method to handle validation errors returned from the server
 handleValidationErrors(errors: any[]) {
   this.formErrors = {}; // Clear previous errors
-  errors.forEach(err => {  
-    this.username =err.msg
+  errors.forEach(err => {
+    if (err.msg === 'Please provide the username') {
+      this.username =err.msg
+      
+    }else if (err.msg === 'Username must be at least 3 characters long') {
+      this.username =err.msg
+      
+    }
    
     
 
