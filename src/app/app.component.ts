@@ -63,36 +63,14 @@ handleValidationErrors(errors: any[]) {
   errors.forEach(err => {
     if (err.msg.includes('Username must be at least 3 characters long')) {
       this.formErrors.userName = err.msg // Assign error message to the username
-      console.log(this.formErrors.userName);
+      
 
-    }
-    //this.formErrors[err.param] = err.msg; // Associate errors with form controls
+    }else {this.formErrors.salice()}
     
   });   
   }
 
   }
   
-//     (error: HttpErrorResponse) => {
-//       if (error.status === 400 && error.error.errors) {
-//         this.handleValidationErrors(error.error.errors); // Handle server validation errors
-//         console.log(this.handleValidationErrors(error.error.errors));
-        
-//       } else {
-//         console.error('An unexpected error occurred', error);
-//       }
-//     }
-    
-//   });
-// }
-
-// // Method to handle validation errors returned from the server
-// handleValidationErrors(errors: any[]) {
-//   this.formErrors = {}; // Clear previous errors
-//   errors.forEach(err => {
-//     this.formErrors[err.param] = err.msg; // Associate errors with form controls
-//   });   
-//   }
-
 
 
