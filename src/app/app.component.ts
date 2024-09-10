@@ -62,11 +62,12 @@ export class AppComponent {
 handleValidationErrors(errors: any[]) {
   this.formErrors = {}; // Clear previous errors
   errors.forEach(err => {
-    if (err.param === 'username') {
-      this.formErrors.username = err.msg; // Assign error message to the username
+    if (err.includes('Username must be at least 3 characters long')) {
+      this.formErrors.username = err // Assign error message to the username
+      console.log(this.formErrors.username);
+
     }
     //this.formErrors[err.param] = err.msg; // Associate errors with form controls
-    console.log(this.formErrors);
     
   });   
   }
