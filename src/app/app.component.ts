@@ -61,6 +61,8 @@ export class AppComponent {
 handleValidationErrors(errors: any[]) {
   this.formErrors = {}; // Clear previous errors
   errors.forEach(err => {  
+    console.log(err);
+    
     if (err.param === 'Please provide the username') {
       this.formErrors.userName = err.msg // Assign error message to the username
       console.log(this.formErrors.userName);
