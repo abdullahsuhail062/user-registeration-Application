@@ -24,7 +24,7 @@ import { AsyncCompleter } from 'node:readline';
 @Injectable({providedIn: 'root'})
 export class AppComponent {
   signUpForm: FormGroup
-  formErrors: any = {emptyUserNameHandler: '', charactersLengthUsernameHandler: ''};
+  formErrors: any = {userName: ''};
   constructor(private http: HttpClient){
     this.signUpForm = new FormGroup({username: new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z0-9]*')]), email: new FormControl('',[Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@example\.(com|org|net)$/)]),password: new FormControl('',[Validators.required,Validators.minLength(6),Validators.pattern('^[a-zA-Z0-9]*')]),confirmPassword: new FormControl('',[Validators.required,Validators.minLength(6)])})
   }
@@ -62,24 +62,15 @@ handleValidationErrors(errors: any[]) {
   this.formErrors = {}; // Clear previous errors
   errors.forEach(err => {  
     if (err.param === 'Please provide the username') {
-      this.formErrors.emptyUserNameHandler = err.msg // Assign error message to the username
-      console.log(this.formErrors.emptyUserNameHandler);
+      this.formErrors.userName = err.msg // Assign error message to the username
       
       
     } else if(err.param === 'Username must be at least 3 characters long'){
-      this.formErrors.charactersLengthUsernameHandler = err.msg
-      console.log(this.formErrors.charactersLengthUsernameHandler);
+      this.formErrors.userName = err.msg
       
     }
    
-    
-
-    // if (err.param ==='username') {
       
-    // }
-      
-
-    
   });   
   }
 
