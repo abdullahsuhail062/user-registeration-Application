@@ -25,11 +25,12 @@ import { AsyncCompleter } from 'node:readline';
 export class AppComponent {
   signUpForm: FormGroup
   formErrors: any = {userName: ''};
-  username: any
+  username: FormControl
   constructor(private http: HttpClient){
-    this.username = new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z0-9]*')])
-    this.signUpForm = new FormGroup({email: new FormControl('',[Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@example\.(com|org|net)$/)]),password: new FormControl('',[Validators.required,Validators.minLength(6),Validators.pattern('^[a-zA-Z0-9]*')]),confirmPassword: new FormControl('',[Validators.required,Validators.minLength(6)])})
-  }
+    this.signUpForm = new FormGroup({username: new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z0-9]*')])
+      ,email: new FormControl('',[Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@example\.(com|org|net)$/)]),password: new FormControl('',[Validators.required,Validators.minLength(6),Validators.pattern('^[a-zA-Z0-9]*')]),confirmPassword: new FormControl('',[Validators.required,Validators.minLength(6)])})
+  this.username = new FormControl('')
+    }
 
   onSubmit(): void{
     const formData = this.signUpForm.value
@@ -63,7 +64,7 @@ export class AppComponent {
 handleValidationErrors(errors: any[]) {
   this.formErrors = {}; // Clear previous errors
   errors.forEach(err => {  
-    this.username.err.msg
+    this.username =err.msg
    
     
 
