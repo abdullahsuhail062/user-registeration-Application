@@ -65,7 +65,6 @@ handleValidationErrors(errors: any[]) {
     if (err.msg.includes('Username must be at least 3 characters long')) {
       this.formErrors.userName = err.msg // Assign error message to the username
       console.log(this.formErrors.userName);
-      alert(this.formErrors.userName)
 
     }
     //this.formErrors[err.param] = err.msg; // Associate errors with form controls
