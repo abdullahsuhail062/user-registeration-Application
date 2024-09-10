@@ -35,12 +35,14 @@ export class AppComponent {
       formData, 
       { responseType: 'json' }
     ).subscribe({next: (data) => {
-      alert(data)
+      console.log(data);
+      
       this.signUpForm.reset()
       
       
     }, error: (error) => {
-      alert(error)
+    console.log(error);
+    
     }})
     
 
