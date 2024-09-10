@@ -8,6 +8,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { config } from './app.config.server';
 import { response } from 'express';
+import { error } from 'node:console';
 
 
 
@@ -33,26 +34,46 @@ export class AppComponent {
       '/api/register', 
       formData, 
       { responseType: 'json' }
-    ).subscribe(response => {
-      console.log(response);
-    },
-    (error: HttpErrorResponse) => {
-      if (error.status === 400 && error.error.errors) {
-        this.handleValidationErrors(error.error.errors); // Handle server validation errors
-        console.log(this.handleValidationErrors(error.error.errors));
-        
-      } else {
-        console.error('An unexpected error occurred', error);
-      }
-    }
-  );
-}
+    ).subscribe({next: (data) => {
+      alert(data)
+      this.signUpForm.reset()
+      
+      
+    }, error: (error) => {
+      alert(error)
+    }})
+    
 
-// Method to handle validation errors returned from the server
-handleValidationErrors(errors: any[]) {
-  this.formErrors = {}; // Clear previous errors
-  errors.forEach(err => {
-    this.formErrors[err.param] = err.msg; // Associate errors with form controls
-  });   
-  }
-}
+
+
+
+
+
+
+
+
+  }}
+  
+//     (error: HttpErrorResponse) => {
+//       if (error.status === 400 && error.error.errors) {
+//         this.handleValidationErrors(error.error.errors); // Handle server validation errors
+//         console.log(this.handleValidationErrors(error.error.errors));
+        
+//       } else {
+//         console.error('An unexpected error occurred', error);
+//       }
+//     }
+    
+//   });
+// }
+
+// // Method to handle validation errors returned from the server
+// handleValidationErrors(errors: any[]) {
+//   this.formErrors = {}; // Clear previous errors
+//   errors.forEach(err => {
+//     this.formErrors[err.param] = err.msg; // Associate errors with form controls
+//   });   
+//   }
+
+
+
