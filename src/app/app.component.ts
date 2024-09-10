@@ -63,11 +63,13 @@ handleValidationErrors(errors: any[]) {
   errors.forEach(err => {  
     if (err.param === 'Please provide the username') {
       this.formErrors.emptyUserNameHandler = err.msg // Assign error message to the username
-      console.log(this.formErrors);
+      console.log(this.formErrors.emptyUserNameHandler);
       
       
     } else if(err.param === 'Username must be at least 3 characters long'){
       this.formErrors.charactersLengthUsernameHandler = err.msg
+      console.log(this.formErrors.charactersLengthUsernameHandler);
+      
     }
    
     
