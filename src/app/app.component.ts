@@ -38,7 +38,6 @@ export class AppComponent {
     ).subscribe({next: (data) => {
       console.log(data);
       
-      this.signUpForm.reset()
       
       
     }, error: (error) => {
