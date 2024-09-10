@@ -25,8 +25,10 @@ import { AsyncCompleter } from 'node:readline';
 export class AppComponent {
   signUpForm: FormGroup
   formErrors: any = {userName: ''};
+  username: any
   constructor(private http: HttpClient){
-    this.signUpForm = new FormGroup({username: new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z0-9]*')]), email: new FormControl('',[Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@example\.(com|org|net)$/)]),password: new FormControl('',[Validators.required,Validators.minLength(6),Validators.pattern('^[a-zA-Z0-9]*')]),confirmPassword: new FormControl('',[Validators.required,Validators.minLength(6)])})
+    this.username = new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z0-9]*')])
+    this.signUpForm = new FormGroup({email: new FormControl('',[Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@example\.(com|org|net)$/)]),password: new FormControl('',[Validators.required,Validators.minLength(6),Validators.pattern('^[a-zA-Z0-9]*')]),confirmPassword: new FormControl('',[Validators.required,Validators.minLength(6)])})
   }
 
   onSubmit(): void{
@@ -61,24 +63,53 @@ export class AppComponent {
 handleValidationErrors(errors: any[]) {
   this.formErrors = {}; // Clear previous errors
   errors.forEach(err => {  
+    this.username.err.msg
+   
     
-    if (err.msg === 'Username must be at least 3 characters long') {
-      this.formErrors.userName = err.msg // Assign error message to the username
-      console.log(this.formErrors.userName);
+
+
+
+  });   
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // if (err.msg === 'Username must be at least 3 characters long') {
+    //   this.formErrors.userName = err.msg // Assign error message to the 
+    //   console.log(this.formErrors.userName);
       
       
       
-    } else if(err.msg === 'Please provide the username'){
-      this.formErrors.userName = err.msg
-      console.log(this.formErrors.userName);
+    // } else if(err.msg === 'Please provide the '){
+    //   this.formErrors.userName = err.msg
+    //   console.log(this.formErrors.userName);
       
-    }
+    // }
    
       
-  });   
-  }
-
-  }
-  
+ 
 
 
