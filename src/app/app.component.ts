@@ -63,6 +63,8 @@ handleValidationErrors(errors: any[]) {
   this.formErrors = {}; // Clear previous errors
   errors.forEach(err => {  
     this.formErrors.userName = err.msg // Assign error message to the username
+    console.log(this.formErrors.userName);
+    
 
     // if (err.param ==='username') {
       
