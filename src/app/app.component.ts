@@ -37,7 +37,6 @@ export class AppComponent {
       { responseType: 'json' }
     ).subscribe({next: (data) => {
       console.log(data);
-      this.formErrors.userName = ''
       
       
       
@@ -64,6 +63,8 @@ handleValidationErrors(errors: any[]) {
   errors.forEach(err => {  
     if (err.param === 'Please provide the username') {
       this.formErrors.emptyUserNameHandler = err.msg // Assign error message to the username
+      console.log(this.formErrors);
+      
       
     } else if(err.param === 'Username must be at least 3 characters long'){
       this.formErrors.charactersLengthUsernameHandler = err.msg
