@@ -4,7 +4,7 @@
     <mat-label>Username</mat-label>
     <input matInput placeholder="Enter your username" formControlName="username">
     <mat-error *ngIf="signUpForm.get('username')?.invalid && signUpForm.get('username')?.touched ">
-      Username is required
+      {{formErrors.userName}}
     </mat-error>
     
       <mat-error *ngIf="formErrors.userName ==='Username must be at least 3 characters long'">
