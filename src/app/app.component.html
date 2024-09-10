@@ -1,6 +1,6 @@
 <div class="signUpForm">
 <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
-  <mat-form-field appearance="outline">
+  <mat-form-field appearance="fill">
     <mat-label>Username</mat-label>
     <input matInput placeholder="Enter your username" formControlName="username">
     <mat-error *ngIf="formErrors.userName">{{formErrors.userName}}</mat-error>
