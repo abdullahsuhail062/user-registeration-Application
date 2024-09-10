@@ -1,9 +1,9 @@
 <div class="signUpForm">
 <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
-  <mat-form-field appearance="fill">
+  <mat-form-field appearance="outline">
     <mat-label>Username</mat-label>
     <input matInput placeholder="Enter your username" formControlName="username">
-    <mat-error *ngIf="formErrors.username">Username must be at least 3 characters long </mat-error>
+    <mat-error *ngIf="formErrors.userName">Username must be at least 3 characters long </mat-error>
     <!-- <mat-error *ngIf="signUpForm.get('username')?.invalid && signUpForm.get('username')?.touched">
       Username is required
     </mat-error> -->

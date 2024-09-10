@@ -24,7 +24,7 @@ import { AsyncCompleter } from 'node:readline';
 @Injectable({providedIn: 'root'})
 export class AppComponent {
   signUpForm: FormGroup
-  formErrors: any = {username: ''};
+  formErrors: any = {userName: ''};
   constructor(private http: HttpClient){
     this.signUpForm = new FormGroup({username: new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z0-9]*')]), email: new FormControl('',[Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@example\.(com|org|net)$/)]),password: new FormControl('',[Validators.required,Validators.minLength(6),Validators.pattern('^[a-zA-Z0-9]*')]),confirmPassword: new FormControl('',[Validators.required,Validators.minLength(6)])})
   }
@@ -63,8 +63,8 @@ handleValidationErrors(errors: any[]) {
   this.formErrors = {}; // Clear previous errors
   errors.forEach(err => {
     if (err.msg.includes('Username must be at least 3 characters long')) {
-      this.formErrors.username = err.msg // Assign error message to the username
-      console.log(this.formErrors.username);
+      this.formErrors.userName = err.msg // Assign error message to the username
+      console.log(this.formErrors.userName);
 
     }
     //this.formErrors[err.param] = err.msg; // Associate errors with form controls
