@@ -62,7 +62,10 @@ export class AppComponent {
 handleValidationErrors(errors: any[]) {
   this.formErrors = {}; // Clear previous errors
   errors.forEach(err => {  
-    this.formErrors.userName = err.msg // Assign error message to the username
+    if (err.param ==='username') {
+      this.formErrors.userName = err.msg // Assign error message to the username
+      
+    }
       
 
     

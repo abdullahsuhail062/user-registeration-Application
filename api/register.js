@@ -17,7 +17,7 @@ app.post(
    // body('username').isLength({ min: 3 }).withMessage('Username must be at least 3 characters long'),
    body('username')
    .trim() // Removes extra whitespace from both sides of the string
-   .notEmpty().withMessage('Please provide the username') // Ensure the username is not empty
+   .notEmpty().withMessage('Please provide the username').bail() // Ensure the username is not empty
    .isLength({ min: 3 }).withMessage('Username must be at least 3 characters long'), // Ensure username is at least 3 characters long
     // Email must be a valid email format
     body('email').isEmail().withMessage('Please provide a valid email address'),
