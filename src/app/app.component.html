@@ -2,11 +2,11 @@
 <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
   <mat-form-field appearance="fill">
     <mat-label>Username</mat-label>
+    <div *ngIf="formErrors.userName">{{formErrors.userName}}</div>
     <input matInput placeholder="Enter your username" formControlName="username">
     <mat-error *ngIf="signUpForm.get('username')?.invalid && signUpForm.get('username')?.touched ">
       Username is required
     </mat-error>
-    <div *ngIf="formErrors.userName">{{formErrors.userName}}></div>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
