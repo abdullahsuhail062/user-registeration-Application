@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 import { config } from './app.config.server';
 import { response } from 'express';
 import { error } from 'node:console';
+import { AsyncCompleter } from 'node:readline';
 
 
 
@@ -43,6 +44,7 @@ export class AppComponent {
     }, error: (error) => {
     console.log(error);
     
+    }, complete: () => { console.log('request completed!');
     }})
     
 
