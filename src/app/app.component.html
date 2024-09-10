@@ -6,8 +6,10 @@
     <mat-error *ngIf="signUpForm.get('username')?.invalid && signUpForm.get('username')?.touched ">
       Username is required
     </mat-error>
+    <div *ngIf="formErrors.username?.includes('Username must be at least 3 characters long')">
+      <mat-error>Username must be at least 3 characters long</mat-error>
+    </div>
   </mat-form-field>
-  <div *ngIf="formErrors.userName.value.length <1" style="font-size: 12px;">Username must be at least 3 characters long</div>
 
 
   <mat-form-field appearance="fill">
