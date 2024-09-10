@@ -44,7 +44,6 @@ export class AppComponent {
     }, error: (error) => {
       if (error.status === 400 && error.error.errors) {
         this.handleValidationErrors(error.error.errors); // Handle server validation errors
-        console.log(this.handleValidationErrors(error.error.errors));
         
       } else {
         console.error('An unexpected error occurred', error);
@@ -64,6 +63,8 @@ handleValidationErrors(errors: any[]) {
   this.formErrors = {}; // Clear previous errors
   errors.forEach(err => {
     this.formErrors[err.param] = err.msg; // Associate errors with form controls
+    console.log(this.formErrors);
+    
   });   
   }
 
