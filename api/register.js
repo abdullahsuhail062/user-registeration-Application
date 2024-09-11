@@ -86,4 +86,6 @@ app.post('/api/register', (req, res) => {
   return res.status(200).json({ message: 'All fields are valid' });
 });
 
+module.exports = app;
+
 // Start the server
