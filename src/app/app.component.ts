@@ -24,6 +24,7 @@ import { AsyncCompleter } from 'node:readline';
 @Injectable({providedIn: 'root'})
 export class AppComponent {
   signUpForm: FormGroup
+  usernameObj: {username: any}={username: ''}
   formErrors: any = {username: ''};
   constructor(private http: HttpClient){
     this.signUpForm = new FormGroup({username: new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z0-9]*')])
@@ -32,11 +33,12 @@ export class AppComponent {
 
 
   onSubmit(): void{
-    const formData = this.signUpForm.value
 
+    const formData = this.signUpForm.value
+     this.usernameObj= {username: this.signUpForm.get('username')?.value}
     this.http.post<unknown>(
-      '/api/register', 
-      formData, 
+      '/api/register',{username:Object.assign({}, this.usernameObj.username), 
+      formData}, 
       { responseType: 'json' }
     ).subscribe({next: (data) => {
       console.log(data);
@@ -68,14 +70,13 @@ handleValidationErrors(errors: any[]) {
     const errorMessage =err.msg
     if (err.msg === 'Please provide the username') {
     const extractValue =  this.signUpForm.get('username')?.setErrors({ serverError: errorMessage });
-    console.log(extractValue);
     
     
       
       
     }else if (err.msg === 'Username must be at least 3 characters long') {
       this.signUpForm.get('username')?.setErrors({ serverError: errorMessage });
-      //console.log(username);
+      console.log(this.usernameObj.username);
       
 
       
