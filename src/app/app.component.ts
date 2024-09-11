@@ -60,12 +60,12 @@ export class AppComponent {
     if (errors && typeof errors === 'object') {
       // Iterate over each error in the object
       Object.entries(errors).forEach(([field, errorMessage]) => {
+        console.log(`Setting error for ${field}: ${errorMessage}`);
         // Set the error on the corresponding form control
         const control = this.signUpForm.get(field);
         if (control) {
           control.setErrors({ serverError: errorMessage });
           control.markAsTouched();  // Make sure the field is marked as touched to show the error
-          console.log(control);
           
         }
       });
