@@ -55,7 +55,7 @@ export class AppComponent {
     } 
     })
   }
-  handleServerSideValidationErrors(errors: any) {
+  handleServerSideValidationErrors(errors: any[]) {
     // Check if errors is an object with key-value pairs for each field
     if (errors && typeof errors === 'object') {
       // Iterate over each error in the object
