@@ -55,44 +55,36 @@ export class AppComponent {
     } 
     })
   }
+  handleServerSideValidationErrors(errors: any) {
+    // Check if errors is an object with key-value pairs for each field
+    if (errors && typeof errors === 'object') {
+      // Iterate over each error in the object
+      Object.entries(errors).forEach(([field, errorMessage]) => {
+        // Set the error on the corresponding form control
+        const control = this.signUpForm.get(field);
+        if (control) {
+          control.setErrors({ serverError: errorMessage });
+          control.markAsTouched();  // Make sure the field is marked as touched to show the error
+        }
+      });
+    } else {
+      console.error('Unexpected error format:', errors);
+    }
+  }
   
-  handleServerSideValidationErrors(errors: any[]){
-         const errorMessage = errors
-         if (errors.includes('Username must be at least 3 characters long')) {
-          this.signUpForm.get('username')?.setErrors({serverError: errorMessage})
-          this.signUpForm.get('username')?.markAsTouched()
-         }else if (errors.includes('A valid emial is required')) {
-
-    this.signUpForm.get('email')?.setErrors({serverError: errorMessage})
-    this.signUpForm.get('email')?.markAsTouched()
-          
-         }else if (errors.includes('Password must be at least 6 characters long')) {
-          
-    this.signUpForm.get('password')?.setErrors({serverError: errorMessage})
-    this.signUpForm.get('password')?.markAsTouched()
 
 
-         }
 
-   
 
 
 
     
-// errors.forEach((err) => {
-//   if (err.errors === 'Username must be at least 3 characters long') {
-//     const errorMessage = err.errors
- 
 
-
-    
-//    }
-//  })
 
   }
 
 
-}
+
 
 
 
