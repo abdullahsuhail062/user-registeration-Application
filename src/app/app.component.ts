@@ -46,8 +46,8 @@ export class AppComponent {
       
       
     }, error: (error) => {
-      if (error.status === 400 && error.errors) {
-        this.handleServerSideValidationErrors(error.errors)
+      if (error.status === 400 && error.error.errors) {
+        this.handleServerSideValidationErrors(error.error.errors)
         
       } else {
         console.error('An unexpected error occurred', error);
