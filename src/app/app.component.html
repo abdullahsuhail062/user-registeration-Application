@@ -17,6 +17,7 @@
     <mat-error *ngIf="signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched">
       A valid email is required
     </mat-error>
+    <mat-error *ngIf="signUpForm.get('email')?.hasError('serverError')">A valid email is required</mat-error>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
@@ -25,6 +26,7 @@
     <mat-error *ngIf="signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched">
       Password is required
     </mat-error>
+    <mat-error *ngIf="signUpForm.get('password')?.hasError('serverError')">password must be at least 6 characters long</mat-error>
   </mat-form-field>
 
   <mat-form-field appearance="fill">

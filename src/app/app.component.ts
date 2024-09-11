@@ -61,6 +61,14 @@ export class AppComponent {
 
     this.signUpForm.get('username')?.setErrors({serverError: errorMessage})
     this.signUpForm.get('username')?.markAsTouched()
+    this.signUpForm.get('email')?.setErrors({serverError: errorMessage})
+    this.signUpForm.get('email')?.markAsTouched()
+    this.signUpForm.get('password')?.setErrors({serverError: errorMessage})
+    this.signUpForm.get('password')?.markAsTouched()
+
+
+
+
     
 // errors.forEach((err) => {
 //   if (err.errors === 'Username must be at least 3 characters long') {
