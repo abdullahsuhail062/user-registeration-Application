@@ -24,7 +24,6 @@ import { AsyncCompleter } from 'node:readline';
 @Injectable({providedIn: 'root'})
 export class AppComponent {
   signUpForm: FormGroup
-  usernameObj: {username: any}={username: ''}
   formErrors: any = {username: ''};
   constructor(private http: HttpClient){
     this.signUpForm = new FormGroup({username: new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z0-9]*')])
@@ -35,9 +34,9 @@ export class AppComponent {
   onSubmit(): void{
 
     const formData = this.signUpForm.value
-     this.usernameObj= {username: this.signUpForm.get('username')?.value}
+     const username = this.signUpForm.get('username')?.value
     this.http.post<unknown>(
-      '/api/register',{username:Object.assign({}, this.usernameObj.username), 
+      '/api/register',{username,
       formData}, 
       { responseType: 'json' }
     ).subscribe({next: (data) => {
@@ -47,7 +46,9 @@ export class AppComponent {
       
     }, error: (error) => {
       if (error.status === 400 && error.error.errors) {
-        this.handleValidationErrors(error.error.errors); // Handle server validation errors
+        const errorMessage =error.error.errors
+        this.signUpForm.get('username')?.setErrors({serverErrors: errorMessage})
+        //this.handleValidationErrors(error.error.errors); // Handle server validation errors
         
       } else {
         console.error('An unexpected error occurred', error);
@@ -62,25 +63,23 @@ export class AppComponent {
 
 
 
-// Method to handle validation errors returned from the server
+//Method to handle validation errors returned from the server
 handleValidationErrors(errors: any[]) {
   this.formErrors = {}; // Clear previous errors
   //const username = this.signUpForm.get('username')?.value;
   errors.forEach(err => {
     const errorMessage =err.msg
     if (err.msg === 'Please provide the username') {
-    const extractValue =  this.signUpForm.get('username')?.setErrors({ serverError: errorMessage });
+    this.signUpForm.get('username')?.setErrors({ serverError: errorMessage });
     
     
       
-      
-    }else if (err.msg === 'Username must be at least 3 characters long') {
-      this.signUpForm.get('username')?.setErrors({ serverError: errorMessage });
-      console.log(this.usernameObj.username);
       
 
       
-    }
+
+      
+}
    
     
 
