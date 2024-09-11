@@ -46,8 +46,8 @@ export class AppComponent {
       
       
     }, error: (error) => {
-      if (error.status === 400 && error.error.errors) {
-        this.handleServerSideValidationErrors(error.error.errors)
+      if (error.status === 400 && error.errors) {
+        this.handleServerSideValidationErrors(error.errors)
         
       } else {
         console.error('An unexpected error occurred', error);
@@ -57,12 +57,11 @@ export class AppComponent {
   }
   
   handleServerSideValidationErrors(errors: any[]){
-   console.log(errors) 
 errors.forEach((err) => {
   if (err.errors === 'Username must be at least 3 characters long') {
     const errorMessage = err.errors
     this.signUpForm.get('username')?.setErrors({serverError: errorMessage})
-    console.log(errorMessage);
+    this.signUpForm.get('username')?.markAsTouched()
     
 
 
