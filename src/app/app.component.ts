@@ -58,14 +58,23 @@ export class AppComponent {
   
   handleServerSideValidationErrors(errors: any[]){
          const errorMessage = errors
+         if (errors.includes('Username must be at least 3 characters long')) {
+          this.signUpForm.get('username')?.setErrors({serverError: errorMessage})
+          this.signUpForm.get('username')?.markAsTouched()
+         }else if (errors.includes('A valid emial is required')) {
 
-    this.signUpForm.get('username')?.setErrors({serverError: errorMessage})
-    this.signUpForm.get('username')?.markAsTouched()
     this.signUpForm.get('email')?.setErrors({serverError: errorMessage})
     this.signUpForm.get('email')?.markAsTouched()
+          
+         }else if (errors.includes('Password must be at least 6 characters long')) {
+          
     this.signUpForm.get('password')?.setErrors({serverError: errorMessage})
     this.signUpForm.get('password')?.markAsTouched()
 
+
+         }
+
+   
 
 
 
