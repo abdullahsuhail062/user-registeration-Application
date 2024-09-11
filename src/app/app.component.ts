@@ -24,16 +24,17 @@ import { AsyncCompleter } from 'node:readline';
 @Injectable({providedIn: 'root'})
 export class AppComponent {
   signUpForm: FormGroup
-  formErrors: any = {userName: ''};
-  username: FormControl
+  formErrors: any = {username: ''};
   constructor(private http: HttpClient){
     this.signUpForm = new FormGroup({username: new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z0-9]*')])
       ,email: new FormControl('',[Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@example\.(com|org|net)$/)]),password: new FormControl('',[Validators.required,Validators.minLength(6),Validators.pattern('^[a-zA-Z0-9]*')]),confirmPassword: new FormControl('',[Validators.required,Validators.minLength(6)])})
-  this.username = new FormControl('')
     }
+
 
   onSubmit(): void{
     const formData = this.signUpForm.value
+    const username = this.signUpForm.get('username')?.value;
+
     this.http.post<unknown>(
       '/api/register', 
       formData, 
@@ -64,11 +65,13 @@ export class AppComponent {
 handleValidationErrors(errors: any[]) {
   this.formErrors = {}; // Clear previous errors
   errors.forEach(err => {
+    const errorMessage =err.msg
     if (err.msg === 'Please provide the username') {
-      this.username =err.msg
+      this.signUpForm.get('username')?.setErrors({ serverError: errorMessage });
       
     }else if (err.msg === 'Username must be at least 3 characters long') {
-      this.username =err.msg
+      this.signUpForm.get('username')?.setErrors({ serverError: errorMessage });
+
       
     }
    
