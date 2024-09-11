@@ -59,8 +59,8 @@ export class AppComponent {
   handleServerSideValidationErrors(errors: any[]){
     
 errors.forEach((err) => {
-  if (err.msg === 'Please provide the username') {
-    const errorMessage = err.msg
+  if (err.errors === 'Username must be at least 3 characters long') {
+    const errorMessage = err.errors
     this.signUpForm.get('username')?.setErrors({serverError: errorMessage})
     console.log(errorMessage);
     
