@@ -52,9 +52,6 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-// Mock existing usernames and emails for validation
-const existingUsernames = ['john_doe', 'jane_smith', 'user123'];
-const existingEmails = ['john@example.com', 'jane@example.com'];
 
 // Middleware to parse JSON request bodies
 app.use(bodyParser.json());
@@ -67,17 +64,13 @@ app.post('/api/register', (req, res) => {
   // 1. Validate Username
   if (!username || username.length < 3) {
     errors.username = 'Username must be at least 3 characters long';
-  } else if (existingUsernames.includes(username)) {
-    errors.username = 'Username already exists';
   }
 
-  // // 2. Validate Email
-  // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  // if (!email || !emailRegex.test(email)) {
-  //   errors.email = 'Invalid email address';
-  // } else if (existingEmails.includes(email)) {
-  //   errors.email = 'Email already in use';
-  // }
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!email || !emailRegex.test(email)) {
+    errors.email = 'Invalid email address';
+  }
+  
 
   // 3. Validate Password
   if (!password || password.length < 6) {
