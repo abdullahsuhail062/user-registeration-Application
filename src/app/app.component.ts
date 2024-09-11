@@ -33,7 +33,6 @@ export class AppComponent {
 
   onSubmit(): void{
     const formData = this.signUpForm.value
-    const username = this.signUpForm.get('username')?.value;
 
     this.http.post<unknown>(
       '/api/register', 
@@ -64,6 +63,7 @@ export class AppComponent {
 // Method to handle validation errors returned from the server
 handleValidationErrors(errors: any[]) {
   this.formErrors = {}; // Clear previous errors
+  const username = this.signUpForm.get('username')?.value;
   errors.forEach(err => {
     const errorMessage =err.msg
     if (err.msg === 'Please provide the username') {
@@ -71,6 +71,8 @@ handleValidationErrors(errors: any[]) {
       
     }else if (err.msg === 'Username must be at least 3 characters long') {
       this.signUpForm.get('username')?.setErrors({ serverError: errorMessage });
+      console.log(username);
+      
 
       
     }
