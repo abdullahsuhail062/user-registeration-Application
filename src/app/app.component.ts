@@ -34,9 +34,8 @@ export class AppComponent {
   onSubmit(): void{
 
     const formData = this.signUpForm.value
-     const username = this.signUpForm.get('username')?.value
     this.http.post<unknown>(
-      '/api/register',{username,
+      '/api/register',{
       formData}, 
       { responseType: 'json' }
     ).subscribe({next: (data) => {
@@ -48,47 +47,16 @@ export class AppComponent {
       if (error.status === 400 && error.error.errors) {
         const errorMessage =error.error.errors
         this.signUpForm.get('username')?.setErrors({serverErrors: errorMessage})
-        //this.handleValidationErrors(error.error.errors); // Handle server validation errors
         
       } else {
         console.error('An unexpected error occurred', error);
       }
-    }
-    
-  
-    
-    
+    } 
     })
-  }  
-
-
-
-//Method to handle validation errors returned from the server
-handleValidationErrors(errors: any[]) {
-  this.formErrors = {}; // Clear previous errors
-  //const username = this.signUpForm.get('username')?.value;
-  errors.forEach(err => {
-    const errorMessage =err.msg
-    if (err.msg === 'Please provide the username') {
-    this.signUpForm.get('username')?.setErrors({ serverError: errorMessage });
-    
-    
-      
-      
-
-      
-
-      
-}
-   
-    
-
-
-
-  });   
+  }      
 }
 
-}
+
 
 
 
