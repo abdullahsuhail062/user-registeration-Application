@@ -45,17 +45,29 @@ export class AppComponent {
       
     }, error: (error) => {
       if (error.status === 400 && error.error.errors) {
-        const errorMessage =error.error.errors
-        this.signUpForm.get('username')?.setErrors({serverErrors: errorMessage})
-        console.log(errorMessage);
-        
+        this.handleServerSideValidationErrors(error.error.errors)
         
       } else {
         console.error('An unexpected error occurred', error);
       }
     } 
     })
-  }      
+  }
+  
+  handleServerSideValidationErrors(errors: any[]){
+errors.forEach((err) => {
+  if (err.msg === 'username') {
+    const errorMessage = err.msg
+    this.signUpForm.get('username')?.setErrors({serverErrors: errorMessage})
+
+
+    
+  }
+})
+
+  }
+
+
 }
 
 
