@@ -37,7 +37,7 @@ export class AppComponent {
 
     const formData = this.signUpForm.value
     this.http.post<unknown>(
-      '/api/register',{
+      '/api/register',{username: this.signUpForm.get('username')?.value,
       formData}, 
       { responseType: 'json' }
     ).subscribe({next: (data) => {
