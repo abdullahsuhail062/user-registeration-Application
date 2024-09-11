@@ -67,7 +67,11 @@ handleValidationErrors(errors: any[]) {
   errors.forEach(err => {
     const errorMessage =err.msg
     if (err.msg === 'Please provide the username') {
-      this.signUpForm.get('username')?.setErrors({ serverError: errorMessage });
+    const extractValue =  this.signUpForm.get('username')?.setErrors({ serverError: errorMessage });
+    console.log(extractValue);
+    
+    
+      
       
     }else if (err.msg === 'Username must be at least 3 characters long') {
       this.signUpForm.get('username')?.setErrors({ serverError: errorMessage });
