@@ -59,7 +59,7 @@ export class AppComponent {
 errors.forEach((err) => {
   if (err.msg === 'Please provide the username') {
     const errorMessage = err.msg
-    this.signUpForm.get('username')?.setErrors({serverErrors: errorMessage})
+    this.signUpForm.get('username')?.setErrors({serverError: errorMessage})
     console.log(errorMessage);
     
 
