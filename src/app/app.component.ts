@@ -65,6 +65,8 @@ export class AppComponent {
         if (control) {
           control.setErrors({ serverError: errorMessage });
           control.markAsTouched();  // Make sure the field is marked as touched to show the error
+          console.log(control);
+          
         }
       });
     } else {
