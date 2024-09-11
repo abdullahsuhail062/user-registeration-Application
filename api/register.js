@@ -71,13 +71,13 @@ app.post('/api/register', (req, res) => {
     errors.username = 'Username already exists';
   }
 
-  // 2. Validate Email
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!email || !emailRegex.test(email)) {
-    errors.email = 'Invalid email address';
-  } else if (existingEmails.includes(email)) {
-    errors.email = 'Email already in use';
-  }
+  // // 2. Validate Email
+  // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  // if (!email || !emailRegex.test(email)) {
+  //   errors.email = 'Invalid email address';
+  // } else if (existingEmails.includes(email)) {
+  //   errors.email = 'Email already in use';
+  // }
 
   // 3. Validate Password
   if (!password || password.length < 6) {
