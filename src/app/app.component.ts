@@ -55,6 +55,8 @@ export class AppComponent {
   }
   
   handleServerSideValidationErrors(errors: any[]){
+    console.log(errors);
+    
 errors.forEach((err) => {
   if (err.msg === 'username') {
     const errorMessage = err.msg
