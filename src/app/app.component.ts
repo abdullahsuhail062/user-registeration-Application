@@ -47,6 +47,8 @@ export class AppComponent {
       if (error.status === 400 && error.error.errors) {
         const errorMessage =error.error.errors
         this.signUpForm.get('username')?.setErrors({serverErrors: errorMessage})
+        console.log(errorMessage);
+        
         
       } else {
         console.error('An unexpected error occurred', error);
