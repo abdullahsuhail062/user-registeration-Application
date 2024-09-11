@@ -57,8 +57,8 @@ export class AppComponent {
   handleServerSideValidationErrors(errors: any[]){
     
 errors.forEach((err) => {
-  if (err.path === 'username') {
-    const errorMessage = err.path
+  if (err.msg === 'Please provide the username') {
+    const errorMessage = err.msg
     this.signUpForm.get('username')?.setErrors({serverErrors: errorMessage})
     console.log(errorMessage);
     
