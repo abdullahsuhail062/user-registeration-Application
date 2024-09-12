@@ -29,18 +29,9 @@ export class AppComponent {
   formErrors: any = {username: ''};
   constructor(private http: HttpClient){
     this.signUpForm = new FormGroup({username: new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z0-9]*')])
-      ,email: new FormControl('',[Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@example\.(com|org|net)$/)]),password: new FormControl('',[Validators.required,Validators.minLength(6),Validators.pattern('^[a-zA-Z0-9]*')]),confirmPassword: new FormControl('',[Validators.required, ])},{validators:this.passwordsMatchValidator}) 
+      ,email: new FormControl('',[Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@example\.(com|org|net)$/)]),password: new FormControl('',[Validators.required,Validators.minLength(6),Validators.pattern('^[a-zA-Z0-9]*')]),confirmPassword: new FormControl('',[Validators.required ])}) 
     }
 
-// Custom validator function to check if passwords match
- passwordsMatchValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
-  const formGroup = control as FormGroup;
-  const password = this.signUpForm.get('password')?.value;
-  const confirmPassword = this.signUpForm.get('confirmPassword')?.value;
-
-  // Check if passwords match
-  return password === confirmPassword ? null : { passwordsMismatch: true };
-};
 
     
     
@@ -86,15 +77,7 @@ export class AppComponent {
       console.error('Unexpected error format:', errors);
     }
   }
-  
-
-
-
-
-
-
-    
-
+ 
 
   }
 
