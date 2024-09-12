@@ -38,6 +38,10 @@ export class AppComponent {
 
 
   onSubmit(): void{
+    this.passwordsMisMatchValidator()
+    if (this.signUpForm.valid) {
+      
+    
 
     const formData = this.signUpForm.value
     this.http.post<unknown>(
@@ -59,6 +63,7 @@ export class AppComponent {
     } 
     })
   }
+  }
   handleServerSideValidationErrors(errors: any[]) {
     // Check if errors is an object with key-value pairs for each field
     if (errors && typeof errors === 'object') {
@@ -77,7 +82,11 @@ export class AppComponent {
       console.error('Unexpected error format:', errors);
     }
   }
- 
+      passwordsMisMatchValidator():any{
+        const password = this.signUpForm.get('password')?.value
+        const confirmPassword =this.signUpForm.get('confirmPassword')?.value
+        return confirmPassword !== password? this.signUpForm.get('confirmPassword')?.setErrors({mismatchPasswordsError: 'Passwords do not match'}): false
+      }
 
   }
 
