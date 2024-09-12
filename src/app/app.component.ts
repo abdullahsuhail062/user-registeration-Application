@@ -9,7 +9,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { from, Observable } from 'rxjs';
 import { config } from './app.config.server';
 import { response } from 'express';
-
+import { MatIconModule } from '@angular/material/icon'; // Import MatIconModule
 import { error } from 'node:console';
 import { AsyncCompleter } from 'node:readline';
 
@@ -19,12 +19,13 @@ import { AsyncCompleter } from 'node:readline';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet,MatFormFieldModule,
-    MatInputModule,ReactiveFormsModule,CommonModule,NgIf,NgStyle],
+    MatInputModule,ReactiveFormsModule,CommonModule,NgIf,NgStyle,MatIconModule,],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 @Injectable({providedIn: 'root'})
 export class AppComponent {
+  hide: boolean = true
   signUpForm: FormGroup
   formErrors: any = {username: ''};
   constructor(private http: HttpClient){
@@ -86,6 +87,10 @@ export class AppComponent {
         const password = this.signUpForm.get('password')?.value
         const confirmPassword =this.signUpForm.get('confirmPassword')?.value
         return confirmPassword !== password? this.signUpForm.get('confirmPassword')?.setErrors({mismatchPasswordsError: 'Passwords do not match'}): false
+      }
+
+      togglePasswordVisibility(): boolean{
+        return this.hide= !this.hide
       }
 
   }
