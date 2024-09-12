@@ -32,12 +32,13 @@
   <mat-form-field appearance="fill">
     <mat-label>Confirm Password</mat-label>
     <input matInput type="password" placeholder="Confirm Password" formControlName="confirmPassword">
-    <mat-error *ngIf="signUpForm.get('confirmPassword')?.invalid && signUpForm.get('confirmPassword')?.touched&& !signUpForm.get('confirmPassword')?.value === signUpForm.get('password')?.value">
+    <mat-error *ngIf="signUpForm.get('confirmPassword')?.invalid && signUpForm.get('confirmPassword')?.touched">
      Confirm password is required
     </mat-error>
-    <mat-error *ngIf="signUpForm.get('confirmPassword')?.value !== signUpForm.get('password')?.value && signUpForm.get('confirmPassword')?.touched">
+    <mat-error *ngIf="signUpForm.get('confirmPassword')?.touched && signUpForm.get('password')?.value !== signUpForm.get('confirmPassword')?.value">
       Passwords do not match
     </mat-error>
+    
     
   </mat-form-field>
 
