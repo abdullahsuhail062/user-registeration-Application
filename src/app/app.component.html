@@ -14,7 +14,7 @@
   <mat-form-field appearance="fill">
     <mat-label>Email</mat-label>
     <input matInput type="email" placeholder="Enter your email" formControlName="email">
-    <mat-error *ngIf="signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched">
+    <mat-error *ngIf="signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched && !signUpForm.get('email')?.getError('serverError')">
       A valid email is required
     </mat-error>
     <mat-error *ngIf="signUpForm.get('email')?.hasError('serverError')">{{signUpForm.get('email')?.getError('serverError')}}</mat-error>
@@ -23,7 +23,7 @@
   <mat-form-field appearance="fill">
     <mat-label>Password</mat-label>
     <input matInput type="password" placeholder="Enter your password" formControlName="password">
-    <mat-error *ngIf="signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched">
+    <mat-error *ngIf="signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched && !signUpForm.get('password')?.getError('serverError')">
       Password is required
     </mat-error>
     <mat-error *ngIf="signUpForm.get('password')?.hasError('serverError')">{{signUpForm.get('password')?.getError('serverError')}}</mat-error>
