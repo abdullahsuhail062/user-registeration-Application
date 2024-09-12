@@ -66,7 +66,7 @@ app.post('/api/register', (req, res) => {
     errors.username = 'Username must be at least 3 characters long';
   }
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const emailRegex =  /^[a-zA-Z0-9._%+-]+@example\.com$/;
   if (!email || !emailRegex.test(email)) {
     errors.email = 'Invalid email address';
   }
