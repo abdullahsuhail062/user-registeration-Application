@@ -8,7 +8,6 @@ import { CommonModule, NgIf, NgStyle } from '@angular/common';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { from, Observable } from 'rxjs';
 import { config } from './app.config.server';
-import { response } from 'express';
 import { MatIconModule } from '@angular/material/icon'; // Import MatIconModule
 import { error } from 'node:console';
 import { AsyncCompleter } from 'node:readline';
@@ -18,7 +17,7 @@ import { AsyncCompleter } from 'node:readline';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,MatFormFieldModule,
+  imports: [RouterOutlet,MatInputModule,
     MatInputModule,ReactiveFormsModule,CommonModule,NgIf,NgStyle,MatIconModule,],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
