@@ -122,18 +122,7 @@ export class AppComponent {
 
 
 
-    // if (err.msg === 'Username must be at least 3 characters long') {
-    //   this.formErrors.userName = err.msg // Assign error message to the 
-    //   console.log(this.formErrors.userName);
-      
-      
-      
-    // } else if(err.msg === 'Please provide the '){
-    //   this.formErrors.userName = err.msg
-    //   console.log(this.formErrors.userName);
-      
-    // }
-   
+    
       
  
 
