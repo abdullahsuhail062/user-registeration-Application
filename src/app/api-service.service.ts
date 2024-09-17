@@ -26,23 +26,18 @@ formData: {username: string} ={username: 'Abu Abdullah'}
 
 // Error handling function
 private handleError(error: HttpErrorResponse) {
-  let errorMessage = '';
+  if (error.status === 400) {
+    console.error('Bad Request:', error.message);
+  } else if (error.status === 401) {
+    console.error('Unauthorized:', error.message);
+  } else if (error.status === 500) {
+    console.error('Server Error:', error.message);
+  } else {
+    console.error('Unexpected Error:', error.message);
+  }
+  return throwError(() => error);
 
-  if (error.error instanceof ErrorEvent) {
-    // Client-side or network error occurred
-    errorMessage = `Client-side error: ${error.error.message}`;
-  } else if (error.error ===null) {
-        // Server-side error occurred
-    errorMessage = `Server returned code: ${error.status}, error message is: ${error.message}`;
-  
-  } {
-    }
-
-  // Log the error (you can also use more advanced logging mechanisms)
-  console.error(errorMessage);
-
-  // Return a user-friendly message or rethrow the error
-  return throwError(() => new Error(errorMessage));
+ 
 }
 }
   

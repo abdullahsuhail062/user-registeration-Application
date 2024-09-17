@@ -1,6 +1,7 @@
 import { Component,Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
+
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule, NgIf, NgStyle } from '@angular/common';
@@ -38,10 +39,10 @@ export class AppComponent {
   onSubmit(): void{
     this.apiService.registerUser().subscribe({next: (data) => {console.log(data);
     }, error: (error) => {
-      if (error.status(405)) {
+      
         console.log('opps! this is a server side error!', error);
         
-      }
+      
       
         
       
