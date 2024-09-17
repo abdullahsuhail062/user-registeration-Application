@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class ApiServiceService {
  environment ={production: true, apiUrl: 'https://user-registeration-server-app.vercel.app' }
 
-  private apiUrl = environment.apiUrl;
+  private apiUrl = this.environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 
