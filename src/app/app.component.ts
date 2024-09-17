@@ -38,8 +38,11 @@ export class AppComponent {
   onSubmit(): void{
     this.apiService.registerUser().subscribe({next: (data) => {console.log(data);
     }, error: (error) => {
+      if (error.status(405)) {
+        console.log('opps! this is a server side error!', error);
+        
+      }
       
-        console.log(error.message);
         
       
 
