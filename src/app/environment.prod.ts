@@ -1,3 +1,3 @@
 
-  export const environment ={production: true, apiUrl: process.env['CLIENT_SIDE_KEY'] }
+  export const environment ={production: true, apiUrl: 'https://user-registeration-server-9f1goigvp-suhailumars-projects.vercel.app' }
 
