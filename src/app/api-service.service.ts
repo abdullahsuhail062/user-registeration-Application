@@ -1,19 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from './environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiServiceService {
- environment ={production: true, apiUrl: 'https://user-registeration-server-app.vercel.app' }
 
-  private apiUrl = this.environment.apiUrl;
+  private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 
   registerUser(formData: { username: string }): Observable<any> {
-    const url = `${this.apiUrl}/api/register`;
-    return this.http.post<any>(url, formData, { responseType: 'json' });
+    
+    return this.http.post<any>('apiUrl/api/register', formData, { responseType: 'json' });
   }
 }
