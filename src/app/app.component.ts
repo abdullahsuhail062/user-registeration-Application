@@ -38,7 +38,7 @@ export class AppComponent {
   onSubmit(): void{
     this.apiService.registerUser({username: 'Abu Abdullah'}).subscribe({next: (data) => {console.log(data);
     }, error: (error) => {
-      if (error.status(405)) {
+      if (error ===Object) {
         console.log(error);
 
       }
