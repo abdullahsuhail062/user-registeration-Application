@@ -29,10 +29,12 @@ private handleError(error: HttpErrorResponse) {
   if (error.error instanceof ErrorEvent) {
     // Client-side or network error occurred
     errorMessage = `Client-side error: ${error.error.message}`;
-  } else {
-    // Server-side error occurred
+  } else if (error.error ===null) {
+        // Server-side error occurred
     errorMessage = `Server returned code: ${error.status}, error message is: ${error.message}`;
-  }
+  
+  } {
+    }
 
   // Log the error (you can also use more advanced logging mechanisms)
   console.error(errorMessage);
