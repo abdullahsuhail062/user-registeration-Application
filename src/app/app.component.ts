@@ -38,12 +38,12 @@ export class AppComponent {
   onSubmit(): void{
     this.apiService.registerUser().subscribe({next: (data) => {console.log(data);
     }, error: (error) => {
-      if (error.errorMessage.status(405)) {
+      
         console.log(error);
 
       }
       
-    }})
+    })
   
   //   this.passwordsMisMatchValidator()
   //   if (this.signUpForm.valid) {
