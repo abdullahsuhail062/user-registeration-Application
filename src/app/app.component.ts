@@ -38,10 +38,10 @@ export class AppComponent {
   onSubmit(): void{
     this.apiService.registerUser().subscribe({next: (data) => {console.log(data);
     }, error: (error) => {
-      if (error ===null) {
+      
         console.log(error.message);
         
-      }
+      
 
       }
       
