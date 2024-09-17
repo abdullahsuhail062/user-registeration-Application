@@ -37,7 +37,12 @@ export class AppComponent {
 
   onSubmit(): void{
     this.apiService.registerUser({username: 'Abu Abdullah'}).subscribe({next: (data) => {console.log(data);
-    }, error: (error) => {console.log(error);
+    }, error: (error) => {
+      if (error.status(405)) {
+        console.log(error);
+
+      }
+      
     }})
   
   //   this.passwordsMisMatchValidator()
