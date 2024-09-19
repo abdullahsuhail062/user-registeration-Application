@@ -32,8 +32,11 @@ private handleError(error: HttpErrorResponse) {
     console.error('Unauthorized:', error.message);
   } else if (error.status === 500) {
     console.error('Server Error:', error.message);
-  } else {
-    console.error('Unexpected Error:', error.message);
+  } else if (error.status ===405) {
+    console.error('no request made:', error.message);
+  }{
+    console.error('unexpected error:', error.message);
+    
   }
   return throwError(() => error);
 
