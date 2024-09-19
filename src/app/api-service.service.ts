@@ -16,10 +16,8 @@ formData: {username: string} ={username: 'Abu Abdullah'}
   
 
   registerUser(): Observable<any> {
-    const url = `${this.apiUrl}/api/register`;
-    return this.http.post<any>(url, this.formData, { responseType: 'json' })
-    
-    .pipe(
+    ;
+    return this.http.post<any>(this.apiUrl, this.formData, { responseType: 'json' }).pipe(
       catchError(this.handleError)  // Catch errors here
     );
 }

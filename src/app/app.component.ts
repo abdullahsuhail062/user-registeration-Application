@@ -40,7 +40,7 @@ export class AppComponent {
     this.apiService.registerUser().subscribe({next: (data) => {console.log(data.message);
     }, error: (error) => {
       
-        console.error(error.errorMessage);
+        console.log(error.errorMessage);
         
       
       
