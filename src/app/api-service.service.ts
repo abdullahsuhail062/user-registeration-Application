@@ -10,7 +10,7 @@ import { environment } from './environments/environment.prod';
 })
 export class ApiServiceService {
 formData: {username: string} ={username: 'Abu Abdullah'}
-  private apiUrl = 'https://user-registeration-ap.server.vercel.app/api/register'
+  private apiUrl = 'https://user-registeration-server.app.vercel.app/api/register'
 
   constructor(private http: HttpClient) {}
   
