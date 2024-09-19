@@ -10,13 +10,13 @@ import { environment } from './environments/environment.prod';
 })
 export class ApiServiceService {
 formData: {username: string} ={username: 'Abu Abdullah'}
-  private apiUrl = 'https://user-registeration-server.app.vercel.app/api/register'
+  private apiUrl = 'https://user-registeration-backend.app.vercel.app/api/register'
 
   constructor(private http: HttpClient) {}
   
 
   registerUser(): Observable<any> {
-    return this.http.post<any>(this.apiUrl, this.formData, { responseType: 'json' }).pipe(
+    return this.http.get<any>(this.apiUrl).pipe(
       catchError(this.handleError)  // Catch errors here
     );
 }
