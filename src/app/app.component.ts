@@ -37,77 +37,40 @@ export class AppComponent {
 
 
   onSubmit(): void{
-    this.apiService.registerUser().subscribe({next: (data) => {console.log(data.message);
+    const username = this.signUpForm.get('username')?.value
+    const email = this.signUpForm.get('email')?.value
+    const password = this.signUpForm.get('password')?.value
+    this.passwordsMisMatchValidator()
+    if (this.signUpForm.valid) {
+
+    this.apiService.registerUser({username,email,password}).subscribe({next: (data) => {console.log(data.message);
     }, error: (error) => {
       
-        console.log(error.errorMessage);
+     if (error.username) {
+      console.log(error.username);
+      
         
-      
-      
-        
-      
-
+      } else {
+        console.error('An unexpected error occurred', error);
       }
-      
+    } 
     })
-  
-  //   this.passwordsMisMatchValidator()
-  //   if (this.signUpForm.valid) {
-      
-    
-
-  //   const formData = this.signUpForm.value
-  //   this.http.post<unknown>(
-  //     '/api/register',{username: this.signUpForm.get('username')?.value,email: this.signUpForm.get('email')?.value, password: this.signUpForm.get('password')?.value,
-  //     formData}, 
-  //     { responseType: 'json' }
-  //   ).subscribe({next: (data) => {
-  //     console.log(data);
-      
-      
-      
-  //   }, error: (error) => {
-  //     if (error.status === 400 && error.error.errors) {
-  //       this.handleServerSideValidationErrors(error.error.errors)
-        
-  //     } else {
-  //       console.error('An unexpected error occurred', error);
-  //     }
-  //   } 
-  //   })
-  // }
-  // }
-  // handleServerSideValidationErrors(errors: any[]) {
-  //   // Check if errors is an object with key-value pairs for each field
-  //   if (errors && typeof errors === 'object') {
-  //     // Iterate over each error in the object
-  //     Object.entries(errors).forEach(([field, errorMessage]) => {
-  //       console.log(`Setting error for ${field}: ${errorMessage}`);
-  //       // Set the error on the corresponding form control
-  //       const control = this.signUpForm.get(field);
-  //       if (control) {
-  //         control.setErrors({ serverError: errorMessage });
-  //         control.markAsTouched();  // Make sure the field is marked as touched to show the error
-          
-  //       }
-  //     });
-  //   } else {
-  //     console.error('Unexpected error format:', errors);
-  //   }
-  // }
-  //     passwordsMisMatchValidator():any{
-  //       const password = this.signUpForm.get('password')?.value
-  //       const confirmPassword =this.signUpForm.get('confirmPassword')?.value
-  //       return confirmPassword !== password? this.signUpForm.get('confirmPassword')?.setErrors({mismatchPasswordsError: 'Passwords do not match'}): false
-  //     }
   }
+  }
+  
+      passwordsMisMatchValidator():any{
+        const password = this.signUpForm.get('password')?.value
+        const confirmPassword =this.signUpForm.get('confirmPassword')?.value
+        return confirmPassword !== password? this.signUpForm.get('confirmPassword')?.setErrors({mismatchPasswordsError: 'Passwords do not match'}): false
+      }
+  
        togglePasswordVisibility(): boolean{
       return this.hide= !this.hide
       }
-
-  }
-
+    }
   
+
+    
 
 
 

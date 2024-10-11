@@ -1,3 +1,3 @@
 
-  export const environment ={production: true, apiUrl: 'https://user-registeration-server-app.vercel.app/api/register' }
+  export const environment ={production: true, apiUrl: 'https://server-app-chi.vercel.app' }
 
