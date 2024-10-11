@@ -40,7 +40,7 @@
      Confirm password is required
     </mat-error>
 
-    <mat-error *ngIf="signUpForm.get('confirmPassword')?.hasError('mismatchPasswordsError') && signUpForm.get('confirmPassword')?.touched">{{signUpForm.get('confirmPassword')?.getError('mismatchPasswordsError')}}</mat-error>
+    <mat-error *ngIf="signUpForm.get('confirmPassword')?.hasError('mismatchPasswordsError') && signUpForm.get('confirmPassword')?.touched">{{mismatchPasswordsError}}</mat-error>
     
     
   </mat-form-field>

@@ -28,6 +28,7 @@ export class AppComponent {
   usernameError: any
   emailError: any
   passwordError: any
+  mismatchPasswordsError: any
 
 
 
@@ -85,7 +86,8 @@ export class AppComponent {
       passwordsMisMatchValidator():any{
         const password = this.signUpForm.get('password')?.value
         const confirmPassword =this.signUpForm.get('confirmPassword')?.value
-        return confirmPassword !== password? this.signUpForm.get('confirmPassword')?.setErrors({mismatchPasswordsError: 'Passwords do not match'}): false
+        this.mismatchPasswordsError = 'password do not match'
+        return confirmPassword !== password? this.signUpForm.get('confirmPassword')?.setErrors({mismatchPasswordsError: this.mismatchPasswordsError}): false
       }
   
        togglePasswordVisibility(): boolean{
