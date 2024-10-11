@@ -3,10 +3,10 @@
   <mat-form-field appearance="fill">
     <mat-label>Username</mat-label>
     <input matInput placeholder="Enter your username" formControlName="username">
-    <mat-error *ngIf="signUpForm.get('username')?.invalid && signUpForm.get('username')?.touched && !signUpForm.get('username')?.getError('serverError')">Username is required
+    <mat-error *ngIf="signUpForm.get('username')?.invalid && signUpForm.get('username')?.touched && !signUpForm.get('username')?.getError('usernameErr')">Username is required
     </mat-error>
-    <mat-error *ngIf="signUpForm.get('username')?.hasError('serverError')">
-    {{signUpForm.get('username')?.getError('serverError')}}
+    <mat-error *ngIf="signUpForm.get('username')?.hasError('usernameErr')">
+    {{usernameError}}
     </mat-error>
   </mat-form-field>
 
@@ -14,10 +14,10 @@
   <mat-form-field appearance="fill">
     <mat-label>Email</mat-label>
     <input matInput type="email" placeholder="Enter your email" formControlName="email">
-    <mat-error *ngIf="signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched && !signUpForm.get('email')?.getError('serverError')">
+    <mat-error *ngIf="signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched && !signUpForm.get('email')?.getError('emialErr')">
       A valid email is required
     </mat-error>
-    <mat-error *ngIf="signUpForm.get('email')?.hasError('serverError')">{{signUpForm.get('email')?.getError('serverError')}}</mat-error>
+    <mat-error *ngIf="signUpForm.get('email')?.hasError('emailErr')">{{emailError}}</mat-error>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
@@ -25,10 +25,10 @@
     <input matInput type="password" [type]="hide ? 'password' : 'text'" placeholder="Enter your password" formControlName="password">
     <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" type="button" tabindex="-1"><mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
     </button>
-    <mat-error *ngIf="signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched && !signUpForm.get('password')?.getError('serverError')">
+    <mat-error *ngIf="signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched && !signUpForm.get('password')?.getError('passwordErr')">
       Password is required
     </mat-error>
-    <mat-error *ngIf="signUpForm.get('password')?.hasError('serverError')">{{signUpForm.get('password')?.getError('serverError')}}</mat-error>
+    <mat-error *ngIf="signUpForm.get('password')?.hasError('passwordErr')">{{passwordError}}</mat-error>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
