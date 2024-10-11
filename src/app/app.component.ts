@@ -25,7 +25,14 @@ import { error, log } from 'console';
 export class AppComponent {
   hide: boolean = true
   signUpForm: FormGroup
-  formErrors: any = {username: ''};
+  usernameError: any
+  emailError: any
+  passwordError: any
+
+
+
+
+
   constructor(private apiService: ApiServiceService){
     this.signUpForm = new FormGroup({username: new FormControl('',[Validators.required,Validators.minLength(3),Validators.pattern('^[a-zA-Z0-9]*')])
       ,email: new FormControl('',[Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@example\.(com|org|net)$/)]),password: new FormControl('',[Validators.required,Validators.minLength(6),Validators.pattern('^[a-zA-Z0-9]*')]),confirmPassword: new FormControl('',[Validators.required,Validators.minLength(6)])}) 
@@ -48,11 +55,18 @@ export class AppComponent {
       
      if (error.username) {
       console.log(error.username);
-      
-        
-      } else {
-        console.error('An unexpected error occurred', error);
-      }
+      this.usernameError = error.username}
+      if (error.email) {
+        this.emailError = error.email}
+        if (error.password) {
+          this.passwordError = error.password
+          
+        }
+        if (!error.username && !error.email && !error.password) {
+          console.log('An unexpected error occurred', error.message);
+          
+          
+        }
     } 
     })
   }
