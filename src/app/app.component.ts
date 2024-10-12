@@ -57,7 +57,6 @@ export class AppComponent {
     }, error: (error) => {
       
      if (error.username) {
-      console.log(error.username);
       this.usernameError = error.username
       this.signUpForm.get('username')?.setErrors({usernameErr: this.usernameError})
     }
