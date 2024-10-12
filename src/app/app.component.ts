@@ -50,7 +50,10 @@ export class AppComponent {
     const username = this.signUpForm.get('username')?.value
     const email = this.signUpForm.get('email')?.value
     const password = this.signUpForm.get('password')?.value
-    const formData = this.signUpForm
+    const formData = new FormData();
+    formData.append('username', this.signUpForm.get('username')?.value);
+    formData.append('email', this.signUpForm.get('email')?.value);
+    formData.append('password', this.signUpForm.get('password')?.value);
     this.passwordsMisMatchValidator()
     if (this.signUpForm.valid) {
 
