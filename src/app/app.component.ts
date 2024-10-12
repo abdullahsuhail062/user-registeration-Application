@@ -54,6 +54,7 @@ export class AppComponent {
     formData.append('username', this.signUpForm.get('username')?.value);
     formData.append('email', this.signUpForm.get('email')?.value);
     formData.append('password', this.signUpForm.get('password')?.value);
+    console.log(formData)
     this.passwordsMisMatchValidator()
     if (this.signUpForm.valid) {
 
