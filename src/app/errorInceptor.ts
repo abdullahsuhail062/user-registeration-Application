@@ -19,7 +19,7 @@ function  handleError(error: HttpErrorResponse): Observable<never>{
       
     }
       if (error.error instanceof ErrorEvent){
-          //console.log('client side error', error.error);
+          console.log('client side error', error.error);
           
       }
      
