@@ -17,6 +17,11 @@ function  handleError(error: HttpErrorResponse): Observable<never>{
           console.log('client side error', error.error);
           
       }
+      if (error.status ===222) {
+        console.log(error.error.err);
+        
+        
+      }
                 
       
       
