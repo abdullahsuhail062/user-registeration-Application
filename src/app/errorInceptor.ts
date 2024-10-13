@@ -13,6 +13,10 @@ function  handleError(error: HttpErrorResponse): Observable<never>{
       console.log(errorMessage);
       
       return throwError(()=> (errorMessage))
+    }else if (error.error.errors === 'Request body is empty') {
+      console.log(error.error.errors);
+      
+      
     }
       if (error.error instanceof ErrorEvent){
           //console.log('client side error', error.error);
