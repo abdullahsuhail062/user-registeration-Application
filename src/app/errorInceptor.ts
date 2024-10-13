@@ -9,7 +9,7 @@ export function errorInceptor(req: HttpRequest<unknown>, next: HttpHandlerFn): O
   
 function  handleError(error: HttpErrorResponse): Observable<never>{
     if (error.status ===400) {
-      const errorMessage = error.error.errors
+      const errorMessage = error.error.error
       console.log(errorMessage);
       
       return throwError(()=> (errorMessage))
@@ -17,12 +17,6 @@ function  handleError(error: HttpErrorResponse): Observable<never>{
       if (error.error instanceof ErrorEvent){
           //console.log('client side error', error.error);
           
-      }
-      if (error.error.error === 'Request body is empty') {
-        console.log(error.error.error);
-        
-        
-      }else{console.log('no response');
       }
      
       
