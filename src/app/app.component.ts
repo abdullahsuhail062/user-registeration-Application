@@ -54,7 +54,7 @@ export class AppComponent {
     
     if (this.signUpForm.valid) {
 
-    this.apiService.registerUser({username,email,password}).subscribe({next: (data) => {console.log(data);
+    this.apiService.registerUser({username,email,password}).subscribe({next: (data) => {console.log(data.message);
     }, error: (error) => {
       this.handleError(error)
     }
