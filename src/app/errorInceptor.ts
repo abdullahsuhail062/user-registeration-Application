@@ -10,7 +10,7 @@ export function errorInceptor(req: HttpRequest<unknown>, next: HttpHandlerFn): O
 function  handleError(error: HttpErrorResponse): Observable<never>{
     if (error.status ===400) {
       const errorMessage = error.error.errors
-      console.log(errorMessage);
+      //console.log(errorMessage);
       
       return throwError(()=> (errorMessage))
     }
@@ -19,11 +19,7 @@ function  handleError(error: HttpErrorResponse): Observable<never>{
           
       }
      
-        if (error.status===2 ) {
-          //console.log('email dont exist');
-          
-          
-        }
+      
                 
       
            
