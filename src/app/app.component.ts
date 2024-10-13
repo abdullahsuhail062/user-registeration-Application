@@ -52,7 +52,7 @@ export class AppComponent {
     const password = this.signUpForm.get('password')?.value
     this.passwordsMisMatchValidator()
     
-    if (this.signUpForm.invalid) {
+    if (this.signUpForm.valid) {
 
     this.apiService.registerUser({username,email,password}).subscribe({next: (data) => {console.log(data.message);
     }, error: (error) => {
