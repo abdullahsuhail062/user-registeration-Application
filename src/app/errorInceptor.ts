@@ -18,10 +18,14 @@ function  handleError(error: HttpErrorResponse): Observable<never>{
           
       }
       if (error.status ===222) {
-        console.log(error.error.err);
-        
-        
-      }
+        console.log(error.error.err)
+        }
+
+        if (error.status===2) {
+          console.log(error.error.err);
+          
+          
+        }
                 
       
       
