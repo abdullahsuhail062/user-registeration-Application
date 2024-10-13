@@ -13,18 +13,19 @@ function  handleError(error: HttpErrorResponse): Observable<never>{
       console.log(errorMessage);
       
       return throwError(()=> (errorMessage))
+    }
       if (error.error instanceof ErrorEvent){
           console.log('client side error', error.error);
           
       }
      
-        if (error.status===2 &&error.status===222) {
-          console.log('username and email dont exist');
+        if (error.status===2 ) {
+          console.log('email dont exist');
           
           
         }
                 
       
-      
-    }else{return throwError(()=> new Error(error.error))}
+           
+    return throwError(()=> new Error(error.error))
 }
