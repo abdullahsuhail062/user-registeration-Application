@@ -20,7 +20,7 @@ function  handleError(error: HttpErrorResponse): Observable<never>{
       }
      
         if (error.status===2 ) {
-          console.log('email dont exist');
+          //console.log('email dont exist');
           
           
         }
