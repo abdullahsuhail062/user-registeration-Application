@@ -47,15 +47,14 @@ export class AppComponent {
 
 
   onSubmit(): void{
-    const username = this.signUpForm.get('username')?.value
-    const email = this.signUpForm.get('email')?.value
-    const password = this.signUpForm.get('password')?.value
+    const formData ={username: this.signUpForm.get('username')?.value,
+      email: this.signUpForm.get('email')?.value,
+      password: this.signUpForm.get('password')?.value
+    }
     this.passwordsMisMatchValidator()
-    
     if (this.signUpForm.valid) {
-
     this.apiService.registerUser({username:this.signUpForm.get('username')?.value, email: this.signUpForm.get('email')?.value,
-      password: this.signUpForm.get('password')?.value}).subscribe({next: (data) => {console.log(data.message);
+      password: this.signUpForm.get('password')?.value, formData}).subscribe({next: (data) => {console.log(data.message);
     }, error: (error) => {
       this.handleError(error)
     }
