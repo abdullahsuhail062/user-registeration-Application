@@ -9,7 +9,7 @@ export function errorInceptor(req: HttpRequest<unknown>, next: HttpHandlerFn): O
   
 function  handleError(error: HttpErrorResponse): Observable<never>{
     if (error.status ===400) {
-      const errorMessage = error.error.error
+      const errorMessage = error.error
       console.log(errorMessage);
       
       return throwError(()=> (errorMessage))
