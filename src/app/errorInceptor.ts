@@ -1,9 +1,13 @@
-import { HttpErrorResponse, HttpEvent, HttpHandlerFn, HttpRequest, } from "@angular/common/http"
+import { HTTP_INTERCEPTORS, HttpErrorResponse, HttpEvent, HttpHandlerFn, HttpRequest, } from "@angular/common/http"
 import { catchError, Observable, throwError } from "rxjs"
+
 
  
 export function errorInceptor(req: HttpRequest<unknown>, next: HttpHandlerFn): Observable<HttpEvent<unknown>>{
-    return next(req).pipe(catchError(handleError))
+ const requestedBody = req.body
+ console.log(requestedBody);
+ 
+  return next(req).pipe(catchError(handleError))
   
   }
   
