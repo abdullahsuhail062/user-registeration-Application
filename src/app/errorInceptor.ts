@@ -12,7 +12,7 @@ function  handleError(error: HttpErrorResponse): Observable<never>{
       const errorMessage = error.error.errors
       console.log(errorMessage);
       
-      return throwError(()=> (errorMessage}
+      return throwError(()=> (errorMessage))}
       if (error.error instanceof ErrorEvent){
           console.log('client side error', error.error);
           
