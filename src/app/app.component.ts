@@ -50,13 +50,22 @@ export class AppComponent {
     const username = this.signUpForm.get('username')?.value
     const email = this.signUpForm.get('email')?.value
     const password = this.signUpForm.get('password')?.value
-
     this.passwordsMisMatchValidator()
+    
     if (this.signUpForm.valid) {
 
     this.apiService.registerUser({username,email,password}).subscribe({next: (data) => {console.log(data);
     }, error: (error) => {
-      
+      this.handleError(error)
+    }
+  
+    
+
+})
+  }
+
+  }
+      handleError(error:any){
      if (error.username) {
       this.usernameError = error.username
       this.signUpForm.get('username')?.setErrors({usernameErr: this.usernameError})
@@ -76,11 +85,8 @@ export class AppComponent {
         if (!error.username && !error.email && !error.password) {
           console.log('An unexpected error occurred', error.message);
           
-          
+     
         }
-    } 
-    })
-  }
   }
   
       passwordsMisMatchValidator():any{
