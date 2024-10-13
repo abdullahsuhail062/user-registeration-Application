@@ -22,6 +22,7 @@ function  handleError(error: HttpErrorResponse): Observable<never>{
         console.log(error.error.error);
         
         
+      }else{console.log('no response');
       }
      
       
