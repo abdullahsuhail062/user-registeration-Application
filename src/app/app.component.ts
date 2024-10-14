@@ -42,10 +42,7 @@ export class AppComponent {
     }
 
 
-    
-
-
-
+  
   onSubmit(): void{
     const formData ={username: this.signUpForm.get('username')?.value,
       email: this.signUpForm.get('email')?.value,
