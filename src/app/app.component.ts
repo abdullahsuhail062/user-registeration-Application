@@ -10,6 +10,7 @@ import { from, Observable } from 'rxjs';
 import { MatIconModule } from '@angular/material/icon'; // Import MatIconModule
 import { ApiServiceService } from './api-service.service';
 import { error, log } from 'console';
+import { environment } from './environments/environment.prod';
 
 
 
@@ -34,7 +35,7 @@ export class AppComponent {
 
 
 
-  constructor(private apiService: ApiServiceService){
+  constructor(private apiService: ApiServiceService, private http: HttpClient){
     this.signUpForm = new FormGroup({username: new FormControl('',[Validators.required,Validators.minLength(3),Validators.pattern('^[a-zA-Z0-9]*')])
       ,email: new FormControl('',[Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@example\.(com|org|net)$/)]),password: new FormControl('',[Validators.required,Validators.minLength(8),
         Validators.pattern('^[a-zA-Z0-9]+$'
@@ -50,7 +51,7 @@ export class AppComponent {
     }
     this.passwordsMisMatchValidator()
     if (this.signUpForm.valid) {
-    this.apiService.registerUser({'Content-type': 'Application/json', username: this.signUpForm.get('username')?.value}).subscribe({next: (data) => {console.log(data.message);
+    this.registerUser().subscribe({next: (data) => {console.log(data);
     }, error: (error) => {
       this.handleError(error)
     }
@@ -94,6 +95,12 @@ export class AppComponent {
   
        togglePasswordVisibility(): boolean{
       return this.hide= !this.hide
+      }
+
+      apiUrl = environment.apiUrl
+
+      registerUser(){
+        return this.http.post(`${this.apiUrl}/api/registerUser`,{username: this.signUpForm.get('username')?.value},{responseType: 'json'})
       }
     }
   
