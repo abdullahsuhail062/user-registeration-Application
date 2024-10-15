@@ -45,13 +45,14 @@ export class AppComponent {
 
   
   onSubmit(): void{
-    const formData ={username: this.signUpForm.get('username')?.value,
+   const formData ={username: this.signUpForm.get('username')?.value,
       email: this.signUpForm.get('email')?.value,
       password: this.signUpForm.get('password')?.value
     }
+   
     this.passwordsMisMatchValidator()
     if (this.signUpForm.valid) {
-    this.apiService.registerUser(formData).subscribe({next: (data) => {console.log(data);
+    this.registerUser(formData).subscribe({next: (data) => {console.log(data);
     }, error: (error) => {
       this.handleError(error)
     }
@@ -99,8 +100,9 @@ export class AppComponent {
 
       apiUrl = environment.apiUrl
 
-      registerUser(){
-        return this.http.post(`${this.apiUrl}/api/registerUser`,{username: this.signUpForm.get('username')?.value},{responseType: 'json'})
+      registerUser(formData: any){
+        
+        return this.http.post(`${this.apiUrl}/api/registerUser`,formData,{responseType: 'json'})
       }
     }
   
