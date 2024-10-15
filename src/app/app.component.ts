@@ -98,12 +98,7 @@ export class AppComponent {
       return this.hide= !this.hide
       }
 
-      apiUrl = environment.apiUrl
-
-      registerUser(formData: any){
-        
-        return this.http.post(`${this.apiUrl}/api/registerUser`,formData,{responseType: 'json'})
-      }
+    
     }
   
 
