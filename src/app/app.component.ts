@@ -51,7 +51,7 @@ export class AppComponent {
     }
     this.passwordsMisMatchValidator()
     if (this.signUpForm.valid) {
-    this.apiService.registerUser({formData}).subscribe({next: (data) => {console.log(data);
+    this.apiService.registerUser(formData).subscribe({next: (data) => {console.log(data);
     }, error: (error) => {
       this.handleError(error)
     }
