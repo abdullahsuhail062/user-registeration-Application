@@ -54,15 +54,10 @@ export class AppComponent {
     if (this.signUpForm.valid) {
     this.apiService.registerUser(formData).subscribe({next: (data) => {console.log(data);
     }, error: (error) => {
-      this.handleError(error)
-    }
-  
-    
-
-})
-  }
-
-  }
+      if (error.status ===500) {
+        console.log(error.message);
+      }else{this.handleError(error)}}
+    })}}
       handleError(error:any){
      if (error.username) {
       this.usernameError = error.username
