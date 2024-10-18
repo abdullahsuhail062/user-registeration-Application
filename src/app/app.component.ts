@@ -54,8 +54,8 @@ export class AppComponent {
     if (this.signUpForm.valid) {
     this.apiService.registerUser(formData).subscribe({next: (data) => {console.log(data);
     }, error: (error) => {
-      if (error.status ===500) {
-        console.log("error is coming from",error.message);
+      if (error.serverInternalError) {
+        console.log("error is coming from",error.serverInternalError);
       }else{this.handleError(error)}}
     })}}
       handleError(error:any){

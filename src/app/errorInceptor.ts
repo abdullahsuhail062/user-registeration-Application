@@ -20,6 +20,12 @@ function  handleError(error: HttpErrorResponse): Observable<never>{
           console.log('client side error', error.error);
           
       }
+      if (error.status ===500){
+        const serverInternalError = error.message
+        console.log(serverInternalError);
+        
+        return throwError(()=> new Error(serverInternalError))
+      }
      
       
                 
