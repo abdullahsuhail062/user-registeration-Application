@@ -55,7 +55,7 @@ export class AppComponent {
     this.apiService.registerUser(formData).subscribe({next: (data) => {console.log(data);
     }, error: (error) => {
       if (error.status ===500) {
-        console.log(error.message);
+        console.log("error is coming from",error.message);
       }else{this.handleError(error)}}
     })}}
       handleError(error:any){
@@ -75,7 +75,7 @@ export class AppComponent {
 
           
         }
-        if (!error.username && !error.email && !error.password) {
+        if (!error.username && !error.email && !error.password ) {
           console.log('An unexpected error occurred', error);
           
      
