@@ -17,7 +17,7 @@ export class ApiServiceService {
   
 
   registerUser(formData: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/api/registerUser`,formData,{responseType: 'json' })
+    return this.http.post<any>(`${this.apiUrl}/api/registerUser`,formData,{responseType: 'json'})
 }
 
 }
