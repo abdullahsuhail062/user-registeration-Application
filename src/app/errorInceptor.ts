@@ -5,6 +5,8 @@ import { catchError, Observable, throwError } from "rxjs"
  
 export function errorInceptor(req: HttpRequest<unknown>, next: HttpHandlerFn): Observable<HttpEvent<unknown>>{
 
+ const url = req.url
+ console.log(url);
  
   return next(req).pipe(catchError(handleError))
   
