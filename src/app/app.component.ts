@@ -62,6 +62,10 @@ export class AppComponent {
      if (error.username) {
       this.usernameError = error.username
       this.signUpForm.get('username')?.setErrors({usernameErr: this.usernameError})
+    }else if (error.message) {
+      this.usernameError = error.message
+      this.signUpForm.get('username')?.setErrors({usernameErr: this.usernameError})
+      
     }
     
       if (error.email) {
@@ -75,6 +79,7 @@ export class AppComponent {
 
           
         }
+       
         if (!error.username && !error.email && !error.password && !error.serverInternalError ) {
           console.log('An unexpected error occurred', error.message);
           
