@@ -62,8 +62,8 @@ export class AppComponent {
      if (error.username) {
       this.usernameError = error.username
       this.signUpForm.get('username')?.setErrors({usernameErr: this.usernameError})
-    }else if (error.message) {
-      this.usernameError = error.message
+    }else if (error.usernameExist) {
+      this.usernameError = error.usernameExist
       this.signUpForm.get('username')?.setErrors({usernameErr: this.usernameError})
       
     }
