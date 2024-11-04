@@ -65,6 +65,8 @@ export class AppComponent {
     }else if (error.usernameExist) {
       this.usernameError = error.usernameExist
       this.signUpForm.get('username')?.setErrors({usernameErr: this.usernameError})
+      console.log(this.usernameError);
+      
       
     
      }
@@ -75,6 +77,7 @@ export class AppComponent {
       }else if (error.userEmailExist) {
         this.emailError = error.userEmailExist
         this.signUpForm.get('email')?.setErrors({emailErr: this.emailError})
+        console.log(this.emailError);
         
       }
        
