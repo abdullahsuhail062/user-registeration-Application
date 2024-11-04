@@ -62,24 +62,27 @@ export class AppComponent {
      if (error.username) {
       this.usernameError = error.username
       this.signUpForm.get('username')?.setErrors({usernameErr: this.usernameError})
-    }else if (error.usernameExist) {
-      this.usernameError = error.usernameExist
-      this.signUpForm.get('username')?.setErrors({usernameErr: this.usernameError})
-      console.log(this.usernameError);
+    }
+    
+    // else if (error.usernameExist) {
+    //   this.usernameError = error.usernameExist
+    //   this.signUpForm.get('username')?.setErrors({usernameErr: this.usernameError})
+    //   console.log(this.usernameError);
       
       
     
-     }
+    //  }
       if (error.email) {
         this.emailError = error.email
         this.signUpForm.get('email')?.setErrors({emailErr: this.emailError})
 
-      }else if (error.userEmailExist) {
-        this.emailError = error.userEmailExist
-        this.signUpForm.get('email')?.setErrors({emailErr: this.emailError})
-        console.log(this.emailError);
-        
       }
+      // else if (error.userEmailExist) {
+      //   this.emailError = error.userEmailExist
+      //   this.signUpForm.get('email')?.setErrors({emailErr: this.emailError})
+      //   console.log(this.emailError);
+        
+      // }
        
       
       if (error.password) {
