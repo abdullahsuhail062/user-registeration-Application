@@ -58,7 +58,11 @@ export class AppComponent {
         console.log("error is coming from",error.serverInternalError);
       }else{this.handleError(error)}}
     })}}
-      handleError(error:any){
+      
+    
+    
+    
+    handleError(error:any){
      if (error.username) {
       this.usernameError = error.username
       this.signUpForm.get('username')?.setErrors({usernameErr: this.usernameError})
@@ -97,11 +101,7 @@ export class AppComponent {
           
      
         }
-        if (error.serverInternalError) {
-          console.log('server error coming');
-          
-          
-        }
+     
   }
   
       passwordsMisMatchValidator():any{
