@@ -94,6 +94,11 @@ export class AppComponent {
           
      
         }
+        if (error.serverInternalError) {
+          console.log('server error coming');
+          
+          
+        }
   }
   
       passwordsMisMatchValidator():any{
