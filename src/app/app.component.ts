@@ -89,7 +89,7 @@ export class AppComponent {
           
         }
        
-        if (!error.username && !error.email && !error.password && !error.serverInternalError ) {
+        if (!error.username && !error.email && !error.password) {
           console.log('An unexpected error occurred', error.message);
           
      
