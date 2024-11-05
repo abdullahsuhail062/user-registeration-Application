@@ -107,6 +107,8 @@ export class AppComponent {
             if (dbError === 'emailExist') {
               this.emailError = dbErrorMessage.emailExist
               this.signUpForm.get('email')?.setErrors({emailErr: this.emailError})
+              console.log(this.emailError);
+              
               }
 
         })
