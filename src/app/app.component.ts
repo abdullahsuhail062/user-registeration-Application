@@ -58,11 +58,13 @@ export class AppComponent {
       
 
       if (error.status===400 && error.error) {
-        this.handleError(error.error)
-        
-        
-        
-      }
+        this.handleError(error.error)}
+
+
+        if (error.status===401 && error.error) {
+          this.handleDatabaseValidationError(error.error)
+          
+        }
       
       
     }
@@ -94,10 +96,22 @@ export class AppComponent {
     }
 
         
-      });
-   
-  
-   }
+      });}
+
+      handleDatabaseValidationError(dbErrorMessage:any){
+        Object.keys(dbErrorMessage).forEach((dbError) => {
+          if (dbError === 'usernameExist') {
+            this.usernameError = dbErrorMessage.usernameExist
+            this.signUpForm.get('username')?.setErrors({usernameErr: this.usernameError})
+            }
+            if (dbError === 'emailExist') {
+              this.emailError = dbErrorMessage.emailExist
+              this.signUpForm.get('email')?.setErrors({emailErr: this.emailError})
+              }
+
+        })
+
+      }
   
       passwordsMisMatchValidator():any{
         const password = this.signUpForm.get('password')?.value
