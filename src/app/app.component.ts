@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon'; // Import MatIconModule
 import { ApiServiceService } from './api-service.service';
 import { error, log } from 'console';
 import { environment } from './environments/environment.prod';
+import { Key } from 'readline';
 
 
 
@@ -51,58 +52,52 @@ export class AppComponent {
     }
    
     this.passwordsMisMatchValidator()
-    if (this.signUpForm.valid) {
+    if (this.signUpForm.invalid) {
     this.apiService.registerUser(formData).subscribe({next: (data) => {console.log(data);
     }, error: (error) => {
-      if (error.serverInternalError) {
-        console.log("error is coming from",error.serverInternalError);
-      }else{this.handleError(error)}}
+      
+
+      if (error.status===400 && error.error) {
+        this.handleError(error.error)
+        
+        
+        
+      }
+      
+      
+    }
     })}}
       
     
     
     
-    handleError(error:any){
-     if (error.username) {
-      this.usernameError = error.username
-      this.signUpForm.get('username')?.setErrors({usernameErr: this.usernameError})
-    }
-    
-    // else if (error.usernameExist) {
-    //   this.usernameError = error.usernameExist
-    //   this.signUpForm.get('username')?.setErrors({usernameErr: this.usernameError})
-    //   console.log(this.usernameError);
-      
-      
-    
-    //  }
-      if (error.email) {
-        this.emailError = error.email
-        this.signUpForm.get('email')?.setErrors({emailErr: this.emailError})
+    handleError(errorMessage:any){
 
-      }
-      // else if (error.userEmailExist) {
-      //   this.emailError = error.userEmailExist
-      //   this.signUpForm.get('email')?.setErrors({emailErr: this.emailError})
-      //   console.log(this.emailError);
+      Object.keys(errorMessage).forEach((error:any) => {
         
-      // }
-       
-      
-      if (error.password) {
-          this.passwordError = error.password
-          this.signUpForm.get('password')?.setErrors({passwordErr: this.passwordError})
+        if (error ==="username") {
+          this.usernameError = errorMessage.username
+          this.signUpForm.get('username')?.setErrors({usernameErr: this.usernameError})
+          console.log(error);
+          
+        }
 
-          
-        }
-       
-        if (!error.username && !error.email && !error.password) {
-          console.log('An unexpected error occurred', error.message);
-          
-     
-        }
-     
-  }
+         
+    if (error === 'email') {
+      this.emailError = errorMessage.email
+      this.signUpForm.get('email')?.setErrors({emailErr: this.emailError})
+    }
+
+    if (error === 'password') {
+      this.passwordError = errorMessage.password
+      this.signUpForm.get('password')?.setErrors({passwordErr: this.passwordError})
+    }
+
+        
+      });
+   
+  
+   }
   
       passwordsMisMatchValidator():any{
         const password = this.signUpForm.get('password')?.value
