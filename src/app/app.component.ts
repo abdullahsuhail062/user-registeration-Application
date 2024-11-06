@@ -68,8 +68,8 @@ export class AppComponent {
           
         }
         if (error.status===500) {
-          this.generalErrorFn(error.error)
-          console.log(error.error);
+          //this.generalErrorFn(error.error)
+          alert(error.error)
           
           
         }
