@@ -63,6 +63,8 @@ export class AppComponent {
 
         if (error.status===401 && error.error) {
           this.handleDatabaseValidationError(error.error)
+          console.log(this.emailError);
+          
           
         }
       
@@ -107,7 +109,6 @@ export class AppComponent {
             if (dbError === 'emailExist') {
               this.emailError = dbErrorMessage.emailExist
               this.signUpForm.get('email')?.setErrors({emailErr: this.emailError})
-              console.log(this.emailError);
               
               }
 
