@@ -31,6 +31,7 @@ export class AppComponent {
   emailError: any
   passwordError: any
   mismatchPasswordsError: any
+  generalError: any
 
 
 
@@ -63,8 +64,11 @@ export class AppComponent {
 
         if (error.status===401 && error.error) {
           this.handleDatabaseValidationError(error.error)
-          console.log(error.error);
           
+          
+        }
+        if (error.status===500) {
+          this.generalErrorFn(error.error)
           
         }
       
@@ -82,7 +86,6 @@ export class AppComponent {
         if (error ==="username") {
           this.usernameError = errorMessage.username
           this.signUpForm.get('username')?.setErrors({usernameErr: this.usernameError})
-          console.log(error);
           
         }
 
@@ -113,6 +116,10 @@ export class AppComponent {
               }
 
         })
+
+      }
+      generalErrorFn(error:any){
+        this.generalError = error
 
       }
   
