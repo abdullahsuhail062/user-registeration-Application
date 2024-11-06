@@ -119,7 +119,7 @@ export class AppComponent {
 
       }
       generalErrorFn(error:any){
-        this.generalError = error
+        this.generalError = error.message
 
       }
   
