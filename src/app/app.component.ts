@@ -63,7 +63,7 @@ export class AppComponent {
 
         if (error.status===401 && error.error) {
           this.handleDatabaseValidationError(error.error)
-          console.log(this.emailError);
+          console.log(error.error);
           
           
         }
