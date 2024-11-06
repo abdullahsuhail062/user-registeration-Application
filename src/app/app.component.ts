@@ -106,7 +106,7 @@ export class AppComponent {
             this.usernameError = dbErrorMessage.usernameExist
             this.signUpForm.get('username')?.setErrors({usernameErr: this.usernameError})
             }
-            if (dbError === 'emailExist') {
+            if (dbError === 'userEmailExist') {
               this.emailError = dbErrorMessage.emailExist
               this.signUpForm.get('email')?.setErrors({emailErr: this.emailError})
               
