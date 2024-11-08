@@ -47,8 +47,9 @@
       
       
     </mat-form-field>
-    <!-- <nav>  <a class="button" routerLink="/dashboard">Sign up</a> </nav> -->
   
     <button class="signUpBtn" mat-raised-button color="primary" type="submit" style="background-color: rgb(67, 179, 67);">Sign Up</button>
   </form>
-  </div>
+  <p class="login-link">
+    Already have an account? <a [routerLink]="['/login']">Login </a>
+  </p>
