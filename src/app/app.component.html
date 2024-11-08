@@ -1,7 +1,6 @@
-<div *ngIf="generalError" class="alert-danger">
-  {{ generalError }}
-</div>
-
+<mat-error *ngIf="generalError" class="alert-danger">
+  {{generalError}}
+</mat-error>
 <div class="signUpForm">
 <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
   <mat-form-field appearance="fill">
