@@ -7,12 +7,8 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule, NgIf, NgStyle } from '@angular/common';
 import { HttpClient,} from '@angular/common/http';
-import { from, Observable } from 'rxjs';
 import { MatIconModule } from '@angular/material/icon'; // Import MatIconModule
 import { ApiServiceService } from '../api-service.service';
-import { error, log } from 'console';
-import { environment } from '../environments/environment.prod';
-import { Key } from 'readline';
 
 @Component({
   selector: 'app-registeration',
