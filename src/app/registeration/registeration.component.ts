@@ -54,7 +54,7 @@ export class RegisterationComponent {
     }
    
     this.passwordsMisMatchValidator()
-    if (this.signUpForm.invalid) {
+    if (this.signUpForm.valid) {
     this.apiService.registerUser(formData).subscribe({next: (data) => {this.router.navigate(['/dashboard']);
     }, error: (error) => {
       
