@@ -33,3 +33,19 @@ form {
     color: red;
     font-size: 12px;
   }
+
+  .signup-link {
+    position: absolute;    
+    margin-top: 35%;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .signup-link a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .signup-link a:hover {
+    text-decoration: underline;
+  }
