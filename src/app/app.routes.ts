@@ -4,5 +4,5 @@ import { RegisterationComponent } from './registeration/registeration.component'
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 
-export const routes: Routes = [{path: 'registeration', component: RegisterationComponent},
+export const routes: Routes = [{path: '', component: RegisterationComponent},{path: 'registeration',component: RegisterationComponent},
      {path: 'dashboard', component: DashboardComponent},{path: 'login', component: LoginComponent}];
