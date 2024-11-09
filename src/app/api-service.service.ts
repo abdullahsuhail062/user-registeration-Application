@@ -23,6 +23,10 @@ export class ApiServiceService {
     return this.http.post(`${this.apiUrl}/api/loginUser`, formData,{responseType: 'json'})
   }
 
+  fetchUserProfile(): Observable<any>{
+    return this.http.get(`${this.apiUrl}/api/fetchUserProfile`,{responseType: 'json'})
+  }
+
 }
  
 

@@ -1,0 +1,18 @@
+<!-- user-profile.component.html -->
+<div class="profile-container mat-elevation-z3">
+    <!-- Profile Photo -->
+    <div class="profile-photo">
+      <img [src]="profilePhoto || 'assets/default-avatar.png'" alt="Profile Photo" />
+    </div>
+  
+    <!-- User Details -->
+    <div class="profile-details">
+      <h2>{{ username }}</h2>
+      <p>Email: {{ email }}</p>
+      
+  
+      <!-- Edit Profile Button -->
+      <button mat-raised-button color="primary" (click)="editProfile()">Edit Profile</button>
+    </div>
+  </div>
+  
