@@ -31,8 +31,7 @@ export class LoginComponent {
   generalError: any
 
   constructor(private router: Router,private apiService: ApiServiceService, private http: HttpClient){
-    this.loginForm = new FormGroup({username: new FormControl('',[Validators.required,Validators.minLength(3),Validators.pattern('^[a-zA-Z0-9]*')])
-      ,email: new FormControl('',[Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@example\.(com|org|net)$/)]),password: new FormControl('',[Validators.required,Validators.minLength(8),
+    this.loginForm = new FormGroup({email: new FormControl('',[Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@example\.(com|org|net)$/)]),password: new FormControl('',[Validators.required,Validators.minLength(8),
         Validators.pattern('^[a-zA-Z0-9]+$'
 )]),confirmPassword: new FormControl('',[Validators.required,Validators.minLength(8)])}) 
     }
@@ -40,7 +39,7 @@ export class LoginComponent {
 
   
   onSubmit(): void{
-   const formData ={username: this.loginForm.get('username')?.value,
+   const formData ={
       email: this.loginForm.get('email')?.value,
       password: this.loginForm.get('password')?.value
     }

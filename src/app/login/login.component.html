@@ -3,18 +3,7 @@
   </mat-error>
   <div class="loginForm">
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <mat-form-field appearance="fill">
-      <mat-label>Username</mat-label>
-      <input matInput placeholder="Enter your username" formControlName="username">
-      <mat-error *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched && !loginForm.get('username')?.getError('usernameErr')">Username is required
-      </mat-error>
-      <mat-error *ngIf="loginForm.get('username')?.hasError('usernameErr')">
-      {{usernameError}}
-      </mat-error>
-    </mat-form-field>
-  
-  
-    <mat-form-field appearance="fill">
+     <mat-form-field appearance="fill">
       <mat-label>Email</mat-label>
       <input matInput type="email" placeholder="Enter your email" formControlName="email">
       <mat-error *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched && !loginForm.get('email')?.getError('emailErr')">
