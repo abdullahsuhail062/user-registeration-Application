@@ -7,4 +7,4 @@ import { LoginComponent } from './login/login.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 
 export const routes: Routes = [{path: '', component: RegisterationComponent},{path: 'registeration',component: RegisterationComponent},
-     { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] },{path: 'login', component: LoginComponent},{ path: '', redirectTo: '/login', pathMatch: 'full' },{ path: '**', redirectTo: '/login' },{path: 'user-profile', component: UserProfileComponent}];
+     { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] },{path: 'login', component: LoginComponent},{ path: '', redirectTo: '/dashboard', pathMatch: 'full' },{ path: '**', redirectTo: 'dashboard' },{path: 'user-profile', component: UserProfileComponent}];
