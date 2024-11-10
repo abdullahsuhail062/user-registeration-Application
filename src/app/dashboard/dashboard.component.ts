@@ -4,14 +4,14 @@ import { Router, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [RouterLink],
+  imports: [],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent {
   constructor(private router: Router){}
   navigateToProfile(){
-    this.router.navigate(['/user-profile'])
+    this.router.navigate(['/app.component'])
   }
 
 }
