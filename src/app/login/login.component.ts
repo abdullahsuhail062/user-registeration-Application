@@ -46,8 +46,7 @@ export class LoginComponent {
    
     this.passwordsMisMatchValidator()
     if (this.loginForm.valid) {
-    this.apiService.loginUser(formData).subscribe({next: (data) => {console.log(data.message) ,localStorage.setItem('authToken', data.token),this.router.navigate(['/dashboard']);
-        this.verifyToken()
+    this.apiService.loginUser(formData).subscribe({next: (data) => {console.log(data.message) ,localStorage.setItem('authTokend', data.token),this.router.navigate(['/dashboard']);
     }, error: (error) => {
       
 
@@ -65,15 +64,8 @@ export class LoginComponent {
       
     }
     })}}
-    verifyToken(){
-      const extractToken = localStorage.getItem('authToken')
-      console.log(extractToken);
+   
       
-    }
-      
-    
-    
-    
     handleError(errorMessage:any){
 
       Object.keys(errorMessage).forEach((error:any) => {
