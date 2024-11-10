@@ -17,7 +17,7 @@ export class UserProfileComponent implements OnInit {
 
 ngOnInit(): void {
   this.apiService.fetchUserProfile().subscribe({next: (data)=>{this.assignUserData(data),console.log(data);
-  }, error: (error)=>{console.log(error);
+  }, error: (error)=>{console.log(error.error);
   }})
   
 }
