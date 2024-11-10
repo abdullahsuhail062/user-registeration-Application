@@ -16,12 +16,15 @@ export class UserProfileComponent implements OnInit {
   constructor(private apiService: ApiServiceService,){}
 
 ngOnInit(): void {
-  this.apiService.fetchUserProfile().subscribe({next: (data)=>{this.assignUserData(data),console.log(data);
+  this.apiService.fetchUserProfile().subscribe({next: (data)=>{this.assignUserCredential(data),console.log(data);
   }, error: (error)=>{console.log(error.error);
+      this.handleFetchingUserProfile(error)
+      
+    
   }})
   
 }
-assignUserData(data: any){
+assignUserCredential(data: any){
   Object.keys(data).forEach((value)=>{
     if (value===data.username) {
       this.username = data.username
@@ -36,6 +39,19 @@ if (value ===data.email) {
 }
 
 editProfile(){
+
+}
+
+handleFetchingUserProfile(errorMessage: any){
+  if (errorMessage.status ===4000) {
+    console.log(errorMessage.message);
+
+  }
+    if (errorMessage.status ===500) {
+      console.log(errorMessage.message);
+      
+      
+    }  
 
 }
 
