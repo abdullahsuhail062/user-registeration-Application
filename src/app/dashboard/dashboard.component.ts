@@ -11,7 +11,7 @@ import { Router, RouterLink } from '@angular/router';
 export class DashboardComponent {
   constructor(private router: Router){}
   navigateToProfile(){
-    this.router.navigate(['/app.component'])
+    this.router.navigate(['/user-profile'])
   }
 
 }
