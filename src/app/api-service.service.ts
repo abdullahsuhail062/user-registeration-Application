@@ -24,7 +24,9 @@ export class ApiServiceService {
   }
 
   fetchUserProfile(): Observable<any>{
-    return this.http.get(`${this.apiUrl}/api/fetchUserProfile`,{responseType: 'json'})
+    const token = localStorage.getItem('authToken')
+    return this.http.get(`${this.apiUrl}/api/fetchUserProfile`,{responseType: 'json',headers: { 'Authorization': `Bearer ${token}`}}
+    )
   }
 
 }
