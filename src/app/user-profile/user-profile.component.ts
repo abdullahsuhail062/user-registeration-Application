@@ -43,7 +43,7 @@ editProfile(){
 }
 
 handleFetchingUserProfile(errorMessage: any){
-  if (errorMessage.status ===4000) {
+  if (errorMessage.status ===404) {
     console.log(errorMessage.message);
 
   }
