@@ -10,9 +10,7 @@ export class AuthService {
   
 
   isLoggedIn(): boolean {
-    const extrVal = localStorage.getItem(this.TOKEN_KEY)
-    console.log(extrVal);
-    
+    const extrVal = localStorage.getItem(this.TOKEN_KEY)    
     return !!localStorage.getItem(this.TOKEN_KEY); // Check if the token exists
   }
 

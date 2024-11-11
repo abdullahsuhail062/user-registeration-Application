@@ -7,9 +7,7 @@ export const authGuard: CanActivateFn = (route, state) => {
   const router = inject(Router)
   const token = localStorage.getItem('authToken'); // Check for token in local storage
   const authService = inject(AuthService)
-  if (authService.isLoggedIn()) {
-    console.log(authService.isLoggedIn());
-    
+  if (authService.isLoggedIn()) {    
     return true; // Allow access if token exists
   } else {
     router.navigate(['/login']); // Redirect to login if no token

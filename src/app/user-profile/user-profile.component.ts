@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiServiceService } from '../api-service.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -13,7 +14,7 @@ export class UserProfileComponent implements OnInit {
   email: string = ''
   profilePhoto: any
 
-  constructor(private apiService: ApiServiceService,){}
+  constructor(private authService: AuthService,private apiService: ApiServiceService,){}
 
 ngOnInit(): void {
   this.apiService.fetchUserProfile().subscribe({next: (data)=>{this.assignUserCredential(data),console.log(data);
@@ -54,6 +55,11 @@ handleFetchingUserProfile(errorMessage: any){
     }  
 
 }
+    logout(){
+      this.authService.logout()
+    }
+
+
 
 
 
