@@ -19,6 +19,7 @@ export class DashboardComponent {
   openProfileDialog(): void {
     this.dialog.open(UserProfileComponent, {
       width: '400px',
+      height: '600px',
       data: {  }
     });
   }
