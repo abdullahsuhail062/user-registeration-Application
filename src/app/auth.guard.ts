@@ -8,6 +8,8 @@ export const authGuard: CanActivateFn = (route, state) => {
   const token = localStorage.getItem('authToken'); // Check for token in local storage
   const authService = inject(AuthService)
   if (authService.isLoggedIn()) {
+    console.log(authService.isLoggedIn());
+    
     return true; // Allow access if token exists
   } else {
     router.navigate(['/login']); // Redirect to login if no token
@@ -18,12 +20,11 @@ export const authGuard: CanActivateFn = (route, state) => {
 export const loginGuard: CanActivateFn = (route, state) => {
   const router = inject(Router)
   const authService = inject(AuthService)
-  const token = localStorage.getItem('authToken')
-  if (!token) {
-    return true; 
-  }else{
+  if (authService.isLoggedIn()) {
     router.navigate(['/dashboard']) // redirect to dashboard
-  return true
+    return false; 
   }
+  return true
+  
 }
 
