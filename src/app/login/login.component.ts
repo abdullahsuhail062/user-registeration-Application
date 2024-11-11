@@ -14,8 +14,8 @@ import { ApiServiceService } from '../api-service.service';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink,MatInputModule,
-    MatInputModule,ReactiveFormsModule,CommonModule,NgIf,NgStyle,MatIconModule],
+  imports: [MatInputModule,
+    MatInputModule,ReactiveFormsModule,CommonModule,NgIf,MatIconModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
