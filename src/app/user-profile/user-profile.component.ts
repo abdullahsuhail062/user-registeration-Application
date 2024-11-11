@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ApiServiceService } from '../api-service.service';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialogModule, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { AuthService } from '../auth.service';
+import { ApiServiceService } from '../api-service.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,12 +11,13 @@ import { Router } from '@angular/router';
   templateUrl: './user-profile.component.html',
   styleUrl: './user-profile.component.scss'
 })
-export class UserProfileComponent implements OnInit {
-  username: string = ''
-  email: string = ''
+export class UserProfileComponent  {
+  
+  username: any
+  email: any
   profilePhoto: any
 
-  constructor(private router: Router,private authService: AuthService,private apiService: ApiServiceService,){}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private authService: AuthService, private apiService: ApiServiceService, private router: Router){}
 
 ngOnInit(): void {
   this.apiService.fetchUserProfile().subscribe({next: (data)=>{this.assignUserCredential(data),console.log(data);
