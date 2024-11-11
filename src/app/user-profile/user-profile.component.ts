@@ -17,10 +17,14 @@ export class UserProfileComponent  {
   email: any
   profilePhoto: any
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private authService: AuthService, private apiService: ApiServiceService, private router: Router){}
+  constructor(@Inject(MAT_DIALOG_DATA) public dataToPass: any, private authService: AuthService, private apiService: ApiServiceService, private router: Router){}
 
 ngOnInit(): void {
-  this.apiService.fetchUserProfile().subscribe({next: (data)=>{this.assignUserCredential(data),console.log(data);
+  this.apiService.fetchUserProfile().subscribe({next: (data)=>{
+    this.assignUserCredential(data),
+    this.passDataToDialog(data)
+  
+  
   }, error: (error)=>{console.log(error.error);
       this.handleFetchingUserProfile(error)
       
@@ -63,6 +67,13 @@ handleFetchingUserProfile(errorMessage: any){
     }
     dashboard(){
       this.router.navigate(['/dashboard'])      
+    }
+    passDataToDialog(data:any){
+      this.dataToPass = data.username
+      this.dataToPass = data.email
+      console.log(this.dataToPass);
+      
+    
     }
 
 
