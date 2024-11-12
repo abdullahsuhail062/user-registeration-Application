@@ -18,6 +18,7 @@ export class DashboardComponent {
   constructor(private router: Router, private authservice: AuthService, private dialog: MatDialog, private apiService: ApiServiceService){}
   logout(){
     this.authservice.logout()
+    this.router.navigate(['/login'])
   }
 
   dashboard(){
