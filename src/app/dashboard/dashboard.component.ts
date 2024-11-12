@@ -24,7 +24,7 @@ export class DashboardComponent {
     this.router.navigate(['/dashboard'])
   }
 
-  openDialog(): void{
+  openProfileDialog(): void{
     this.apiService.fetchUserProfile().subscribe({next: (userdata)=>{
       this.dialog.open(UserProfileComponent,{width: '400px', data:{username: userdata.username, email: userdata.email, onLogout: () => this.logout(), onNavigateToDashboard: () => this.dashboard()}})
     }})
