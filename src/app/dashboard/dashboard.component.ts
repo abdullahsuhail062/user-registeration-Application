@@ -24,6 +24,9 @@ export class DashboardComponent {
 
   dashboard(){
     this.router.navigate(['/dashboard'])
+    this.dialog.closeAll()
+
+
   }
 
   openProfileDialog(): void{
