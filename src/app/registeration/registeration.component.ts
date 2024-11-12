@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
@@ -9,6 +9,7 @@ import { CommonModule, NgIf, NgStyle } from '@angular/common';
 import { HttpClient,} from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon'; // Import MatIconModule
 import { ApiServiceService } from '../api-service.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-registeration',
@@ -20,7 +21,7 @@ import { ApiServiceService } from '../api-service.service';
 })
 @Injectable({providedIn: 'root'})
 
-export class RegisterationComponent {
+export class RegisterationComponent implements OnInit {
 
   hide: boolean = true
   signUpForm: FormGroup
@@ -34,13 +35,20 @@ export class RegisterationComponent {
 
 
 
-  constructor(private router: Router,private apiService: ApiServiceService, private http: HttpClient){
+  constructor(private authService: AuthService,private router: Router,private apiService: ApiServiceService, private http: HttpClient){
     this.signUpForm = new FormGroup({username: new FormControl('',[Validators.required,Validators.minLength(3),Validators.pattern('^[a-zA-Z0-9]*')])
       ,email: new FormControl('',[Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@example\.(com|org|net)$/)]),password: new FormControl('',[Validators.required,Validators.minLength(8),
         Validators.pattern('^[a-zA-Z0-9]+$'
 )]),confirmPassword: new FormControl('',[Validators.required,Validators.minLength(8)])}) 
     }
-
+    ngOnInit(): void {
+      
+    
+    if (this.authService.isLoggedIn()) {
+      this.router.navigate(['/dashboard'])
+      
+      }  }
+    
 
   
   onSubmit(): void{
