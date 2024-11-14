@@ -30,6 +30,8 @@ ngOnInit(): void {
 
 
 isTokenExpired(token: string) {
+  console.log(token);
+  
   if (!token || typeof token !== 'string') {
     console.error("Token is missing or not a string");
     return true; // Treat missing or invalid token as expired
