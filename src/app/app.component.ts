@@ -21,7 +21,7 @@ ngOnInit(): void {
   if (this.isTokenExpired(this.authService.getToken)) {
     this.authService.logout()
   
-  }
+  }else{this.router.navigate(['/dashboard'])}
   
 
 }
@@ -42,6 +42,7 @@ isTokenExpired(token: any) {
     return true; // Assume expired if parsing fails
   }
 }
+
 
 
 }

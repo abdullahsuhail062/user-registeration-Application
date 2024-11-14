@@ -21,7 +21,7 @@ import { AuthService } from '../auth.service';
 })
 @Injectable({providedIn: 'root'})
 
-export class RegisterationComponent implements OnInit {
+export class RegisterationComponent  {
 
   hide: boolean = true
   signUpForm: FormGroup
@@ -41,13 +41,8 @@ export class RegisterationComponent implements OnInit {
         Validators.pattern('^[a-zA-Z0-9]+$'
 )]),confirmPassword: new FormControl('',[Validators.required,Validators.minLength(8)])}) 
     }
-    ngOnInit(): void {
       
-    
-    if (this.authService.isLoggedIn()) {
-      this.router.navigate(['/dashboard'])
-      
-      }  }
+  
     
 
   
