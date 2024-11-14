@@ -16,13 +16,15 @@ export class AppComponent implements OnInit {
   constructor(private router: Router,private authService: AuthService){}
 ngOnInit(): void {
   // Sample client-side logic to check token expiration
+  const checkTokn = this.authService.getToken()
+  console.log(checkTokn);
+  
 
   // Check on app initialization/resume
   const getToken = this.authService.getToken() as string
   if (this.isTokenExpired(getToken)) {
     this.authService.logout()
     this.router.navigate(['/login'])
-    this.isTokenExpired(getToken)
   
   }else{this.router.navigate(['/dashboard'])}
   
