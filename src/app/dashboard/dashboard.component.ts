@@ -4,13 +4,12 @@ import { AuthService } from '../auth.service';
 import { UserProfileComponent } from '../user-profile/user-profile.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ApiServiceService } from '../api-service.service';
-UserProfileComponent
-
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [],
+  imports: [MatToolbarModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
