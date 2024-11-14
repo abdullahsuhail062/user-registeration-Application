@@ -18,7 +18,7 @@ ngOnInit(): void {
   // Sample client-side logic to check token expiration
 
   // Check on app initialization/resume
-  if (this.isTokenExpired(this.authService.getToken)) {
+  if (!this.isTokenExpired(this.authService.getToken)) {
     this.authService.logout()
     this.router.navigate(['/login'])
   
