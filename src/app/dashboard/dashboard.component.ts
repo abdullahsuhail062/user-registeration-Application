@@ -18,7 +18,8 @@ export class DashboardComponent implements OnInit {
   email: any
   constructor(private router: Router, private authservice: AuthService, private dialog: MatDialog, private apiService: ApiServiceService){}
   ngOnInit(): void {
-    this.apiService.fetchUserProfile().subscribe({next: (data)=>{this.email = data.email} })  // Replace with the actual user email
+    this.apiService.fetchUserProfile().subscribe({next: (data)=>{this.email = data.email,console.log(data.email);
+    } })  // Replace with the actual user email
     this.profileInitial = this.email.charAt(0).toUpperCase(); // Get first letter and capitalize
   }
   
