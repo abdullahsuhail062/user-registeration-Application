@@ -15,11 +15,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 })
 export class DashboardComponent implements OnInit {
   profileInitial: string =''
-  userdata: any
+  email: any
   constructor(private router: Router, private authservice: AuthService, private dialog: MatDialog, private apiService: ApiServiceService){}
   ngOnInit(): void {
-    const email =this.userdata.email  // Replace with the actual user email
-    this.profileInitial = email.charAt(0).toUpperCase(); // Get first letter and capitalize
+    this.apiService.fetchUserProfile().subscribe({next: (data)=>{this.email = data.email} })  // Replace with the actual user email
+    this.profileInitial = this.email.charAt(0).toUpperCase(); // Get first letter and capitalize
   }
   
   
