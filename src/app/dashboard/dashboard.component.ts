@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { UserProfileComponent } from '../user-profile/user-profile.component';
@@ -13,8 +13,15 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
+  profileInitial: string =''
   constructor(private router: Router, private authservice: AuthService, private dialog: MatDialog, private apiService: ApiServiceService){}
+  ngOnInit(): void {
+    const email = 'user@example.com'; // Replace with the actual user email
+    this.profileInitial = email.charAt(0).toUpperCase(); // Get first letter and capitalize
+  }
+  
+  
   logout(){
     this.authservice.logout()
     this.router.navigate(['/login'])

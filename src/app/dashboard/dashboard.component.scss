@@ -3,17 +3,37 @@
     flex: 1 1 auto;
   }
 /* dashboard.component.css */
-.mat-toolbar button {
-    color: white; /* Change text color */
+// .mat-toolbar button {
+//     color: white; /* Change text color */
+//     font-weight: bold;
+//   }
+  
+//   .mat-toolbar button:hover {
+//     background-color: rgba(255, 255, 255, 0.1); /* Light background on hover */
+//   }
+// /* dashboard.component.css */
+// .mat-toolbar {
+//     background-color: #4CAF50; /* Replace with any custom color */
+//     color: white; /* Optional: set text color */
+//   }
+
+  .profile-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ffffff; /* Background color */
+    color: #3f51b5; /* Text color (Material primary color) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-weight: bold;
+    font-size: 16px;
   }
   
-  .mat-toolbar button:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Light background on hover */
+  /* Center the initial text in the button */
+  .profile-initial {
+    font-size: 16px;
+    color: inherit;
   }
-/* dashboard.component.css */
-.mat-toolbar {
-    background-color: #4CAF50; /* Replace with any custom color */
-    color: white; /* Optional: set text color */
-  }
+  
   

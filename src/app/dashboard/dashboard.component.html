@@ -1,8 +1,16 @@
 <mat-toolbar color="primary">
     <span>User registeration app</span>
     <span class="spacer"></span>
-    <button mat-button>Dashboard</button>
-    <button mat-button>Profile</button>
+    <mat-toolbar color="primary">
+        <span>Your App Name</span>
+        <span class="spacer"></span>
+        
+        <!-- Profile Button with Initial -->
+        <button mat-icon-button class="profile-button">
+          <span class="profile-initial">{{ profileInitial }}</span>
+        </button>
+      </mat-toolbar>
+      
     <button mat-button>Logout</button>
   </mat-toolbar>
   
