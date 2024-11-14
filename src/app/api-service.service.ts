@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { environment } from './environments/environment.prod';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from './auth.service';
 
 
 
@@ -13,8 +14,8 @@ export class ApiServiceService {
 
   private apiUrl = environment.apiUrl
 
-  constructor(private http: HttpClient) {}
-  
+  constructor(private http: HttpClient, private authService: AuthService) {}
+    
 
   registerUser(formData: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/api/registerUser`,formData,{responseType: 'json'})
@@ -24,8 +25,7 @@ export class ApiServiceService {
   }
 
   fetchUserProfile(): Observable<any>{
-    const token = localStorage.getItem('authToken')
-    console.log(token)
+    const token = this.authService.getToken()
     return this.http.get(`${this.apiUrl}/api/fetchUserProfile`,{responseType: 'json',headers: { 'Authorization': `Bearer ${token}`}}
     )
   }
