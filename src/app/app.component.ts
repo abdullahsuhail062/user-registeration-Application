@@ -20,6 +20,7 @@ ngOnInit(): void {
   // Check on app initialization/resume
   if (this.isTokenExpired(this.authService.getToken)) {
     this.authService.logout()
+    this.router.navigate(['/login'])
   
   }else{this.router.navigate(['/dashboard'])}
   
