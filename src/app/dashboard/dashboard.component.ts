@@ -37,7 +37,7 @@ export class DashboardComponent implements OnInit {
   }
 
   openProfileDialog(): void{
-    this.apiService.fetchUserProfile().subscribe({next: (userdata)=>{this.userdata = userdata,
+    this.apiService.fetchUserProfile().subscribe({next: (userdata)=>{
       this.dialog.open(UserProfileComponent,{width: '400px', data:{username: userdata.username, email: userdata.email, onLogout: () => this.logout(), onNavigateToDashboard: () => this.dashboard()}})
     }, error: (error)=>{console.log(error.error);
     }})
