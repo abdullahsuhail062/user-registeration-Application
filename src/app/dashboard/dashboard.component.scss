@@ -47,5 +47,27 @@
     justify-content: flex-start;
     align-items: flex-start;
   }
+
+   /* Define the custom styles */
+.custom-dialog {
+  position: absolute !important; /* Allow absolute positioning */
+  top: 20px !important; /* Distance from the top */
+  right: 20px !important; /* Distance from the right */
+  margin: 0 !important; /* Remove default margin */
+  width: 300px !important; /* Custom width */
+  height: auto !important; /* Custom height */
+}
+
+/* Optional: Style the dialog container for padding and appearance */
+.custom-dialog .mat-dialog-container {
+  border-radius: 8px; /* Optional rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
+}
+
+  
+
+
+
+
   
   
