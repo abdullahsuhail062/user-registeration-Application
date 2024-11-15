@@ -16,8 +16,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 export class DashboardComponent implements OnInit {
   profileInitial: string =''
   email: any
-  constructor(priva 
-    : MatDialogConfig,private router: Router, private authservice: AuthService, private dialog: MatDialog, private apiService: ApiServiceService){}
+  constructor(private router: Router, private authservice: AuthService, private dialog: MatDialog, private apiService: ApiServiceService){}
   ngOnInit(): void {
     this.apiService.fetchUserProfile().subscribe({next: (data)=>{
       this.profileInitial = data.email.charAt(0).toUpperCase(); }}) }
@@ -38,10 +37,6 @@ export class DashboardComponent implements OnInit {
    
   
   openProfileDialog(): void{
-    
-
-    
-
     this.apiService.fetchUserProfile().subscribe({next: (userdata)=>{
       this.dialog.open(UserProfileComponent,{data:{username: userdata.username, email: userdata.email, onLogout: () => this.logout(), onNavigateToDashboard: () => this.dashboard()}})
     }, error: (error)=>{console.log(error.error);
