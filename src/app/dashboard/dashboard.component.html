@@ -6,7 +6,7 @@
         <span class="spacer"></span>
         
         <!-- Profile Button with Initial -->
-        <button mat-icon-button class="profile-button">
+        <button mat-icon-button (click)="openProfileDialog()" class="profile-button">
           <span class="profile-initial">{{ profileInitial }}</span>
         </button>
       </mat-toolbar>
@@ -15,6 +15,4 @@
   
 
 
-<button (click)="openProfileDialog()">user-profile</button>
-<button (click)="logout()">log out</button>
 

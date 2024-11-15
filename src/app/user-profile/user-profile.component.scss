@@ -29,4 +29,9 @@
   .profile-details p {
     margin: 4px 0;
   }
+  .profile-details {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  }
   
