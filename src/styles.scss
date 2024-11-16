@@ -8,5 +8,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     min-width: unset; /* Remove the default constraint */
     width: auto; /* Adjust to content */
     border: solid white 1px;
+    
+  }
+
+  .mat-mdc-dialog-container {
     border-radius: 4px !important;
+
   }
