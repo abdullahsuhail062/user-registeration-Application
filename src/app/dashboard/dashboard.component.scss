@@ -22,7 +22,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #11c040; /* Background color */
+    background-color: green; /* Background color */
     color: #fff; /* Text color (Material primary color) */
     display: flex;
     align-items: center;
@@ -40,6 +40,12 @@
     background-color: blueviolet;
     color: white;
   }
+
+  .mat-mdc-dialog-container {
+    min-width: 220px;
+    box-sizing: border-box;
+  }
+  
 
   
   
