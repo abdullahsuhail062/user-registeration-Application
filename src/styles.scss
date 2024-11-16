@@ -7,7 +7,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .custom-dialog .mat-mdc-dialog-container {
     min-width: unset; /* Remove the default constraint */
     width: auto; /* Adjust to content */
-    box-sizing: border-box;
-    border: solid white 2px;
-    border-radius: 4px;
+    border: solid white 1px;
+    border-radius: 4px !important;
   }
