@@ -40,7 +40,7 @@ export class DashboardComponent implements OnInit {
     const dialogConfig = new MatDialogConfig
     dialogConfig.height = '400px'
     this.apiService.fetchUserProfile().subscribe({next: (userdata)=>{
-      this.dialog.open(UserProfileComponent,{position: {top: '55px', right: '20px'},data:{username: userdata.username, email: userdata.email, onLogout: () => this.logout(), onNavigateToDashboard: () => this.dashboard()}})
+      this.dialog.open(UserProfileComponent,{position: {top: '55px', right: '20px'},width: '220px', panelClass: 'custom-dialog',data:{username: userdata.username, email: userdata.email, onLogout: () => this.logout(), onNavigateToDashboard: () => this.dashboard()}})
     }, error: (error)=>{console.log(error.error);
     }})
   

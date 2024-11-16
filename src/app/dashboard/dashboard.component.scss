@@ -41,10 +41,12 @@
     color: white;
   }
 
-  .mat-mdc-dialog-container {
-    min-width: 220px;
+  .custom-dialog .mat-mdc-dialog-container {
+    min-width: unset; /* Remove the default constraint */
+    width: auto; /* Adjust to content */
     box-sizing: border-box;
   }
+  
   
 
   
