@@ -16,10 +16,13 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 export class DashboardComponent implements OnInit {
   profileInitial: string =''
   email: any
+  showWelcomeMessage: boolean = false;
   constructor(private router: Router, private authservice: AuthService, private dialog: MatDialog, private apiService: ApiServiceService){}
   ngOnInit(): void {
+    this.greetUser()
     this.apiService.fetchUserProfile().subscribe({next: (data)=>{
       this.profileInitial = data.email.charAt(0).toUpperCase(); }}) }
+     
   
   
   logout(){
@@ -45,6 +48,15 @@ export class DashboardComponent implements OnInit {
     }})
   
 }
+  greetUser(){
+    const isWelcomed = localStorage.getItem('isWelcomed');
+    
+    if (isWelcomed === 'false') {
+      this.showWelcomeMessage = true; // Show the welcome message
+      // Update the flag to avoid showing it again
+      localStorage.setItem('isWelcomed', 'true');
+    }
+  }
 }
 
 
