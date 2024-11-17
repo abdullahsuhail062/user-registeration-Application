@@ -4,7 +4,7 @@
     background-color: rgb(108, 104, 104);
     align-items: flex-start;
     flex-direction: column;
-    padding: 20px;
+    padding: 10px;
     width: 220px;
     height: 300px;
     color: whitesmoke;
@@ -25,11 +25,14 @@
   //   flex-direction: column;
   // }
   
-  .profile-details h2 {
-    margin: 0;
+  .profile-details  {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
   }
   
   .profile-details p {
+    color: rgb(175, 171, 163);
   }
  
   h2 {
