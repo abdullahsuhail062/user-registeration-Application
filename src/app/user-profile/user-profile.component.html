@@ -11,10 +11,12 @@
       <p>{{ email }}</p>
       
   
-      <!-- Edit Profile Button -->
-      <button class="hover-transform-button" mat-raised-button color="primary" (click)="logout()">Log out</button>
-      <button class="hover-transform-button" mat-raised-button color="primary" (click)="dashboard()">Dashboard</button>
-
+      <div class="profile-dialog-buttons">
+        <button mat-button class="custom-button">Dashboard</button>
+        <button mat-button class="custom-button">Settings</button>
+        <button mat-button class="custom-button">Logout</button>
+      </div>
+      
 
     </div>
   </div>
