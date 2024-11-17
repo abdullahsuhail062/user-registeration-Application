@@ -17,7 +17,6 @@ export class AppComponent implements OnInit {
 ngOnInit(): void {
   // Sample client-side logic to check token expiration
   const checkTokn = this.authService.getToken()
-  console.log(checkTokn);
   
 
   // Check on app initialization/resume
@@ -33,7 +32,6 @@ ngOnInit(): void {
 
 
 isTokenExpired(token: string) {
-  console.log(token);
   
   if (!token || typeof token !== 'string') {
     console.error("Token is missing or not a string");
