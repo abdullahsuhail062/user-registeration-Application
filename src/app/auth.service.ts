@@ -13,6 +13,9 @@ export class AuthService {
     const extrVal = localStorage.getItem(this.TOKEN_KEY)    
     return !!localStorage.getItem(this.TOKEN_KEY); // Check if the token exists
   }
+  saveToken(token: string): void{
+     localStorage.setItem(this.TOKEN_KEY, token)
+  }
 
 
   getToken(): string | null {
