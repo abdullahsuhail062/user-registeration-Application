@@ -55,7 +55,8 @@ export class RegisterationComponent  {
     this.passwordsMisMatchValidator()
     if (this.signUpForm.valid) {
     this.apiService.registerUser(formData).subscribe({next: (data) => {localStorage.setItem('isWelcomed', 'false');
-      if (data.token){
+      if (data.token){console.log(data.token);
+      
         this.authService.saveToken(data.token)
         this.router.navigate(['/dashboard'])};
     }, error: (error) => {
