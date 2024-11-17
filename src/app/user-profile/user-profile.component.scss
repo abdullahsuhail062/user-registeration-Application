@@ -8,8 +8,7 @@
     width: 220px;
     height: 300px;
     color: whitesmoke;
-    border-radius: 4px;
-    margin: auto;
+    border-radius: 0px;
   }
   
   // .profile-photo img {
@@ -44,6 +43,8 @@
     background-color: transparent;
     color: #6200ea; /* Button text color */
     border: none;
+    color: white;
+    font-size: 20px;
     padding: 0; /* Remove padding for text-like appearance */
     font-size: 16px;
     transition: all 0.3s ease; /* Smooth transition for hover effect */
@@ -52,6 +53,7 @@
   
   .hover-transform-button:hover {
     /* Hover state: transforms into a button */
+    font-size: 20px;
     background-color: #6200ea; /* Background color */
     color: white; /* Text color */
     padding: 10px 20px; /* Add padding to give it button dimensions */
