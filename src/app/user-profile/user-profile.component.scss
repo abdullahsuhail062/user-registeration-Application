@@ -31,22 +31,33 @@
     flex-direction: column;
   }
   
-  .profile-details p {
+   p {
     color: rgb(175, 171, 163);
+    
   }
  
   h2 {
     font-size: 16px;
   }
-  .mat-raised-button { 
-  
-    background-color: #2196f3; /* Change background color */
-    cursor: pointer;
-    color: white; /* Change text color */
+  .hover-transform-button {
+    /* Initial state: plain text */
+    background-color: transparent;
+    color: #6200ea; /* Button text color */
+    border: none;
+    padding: 0; /* Remove padding for text-like appearance */
+    font-size: 16px;
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+    box-shadow: none;
   }
   
-  .mat-raised-button {
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Add custom shadow */
+  .hover-transform-button:hover {
+    /* Hover state: transforms into a button */
+    background-color: #6200ea; /* Background color */
+    color: white; /* Text color */
+    padding: 10px 20px; /* Add padding to give it button dimensions */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    cursor: pointer; /* Change cursor to pointer */
   }
   
   
