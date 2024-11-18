@@ -3,11 +3,12 @@ import { MatDialogModule, MAT_DIALOG_DATA, MatDialogRef } from '@angular/materia
 import { AuthService } from '../auth.service';
 import { ApiServiceService } from '../api-service.service';
 import { Router } from '@angular/router';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-user-profile',
   standalone: true,
-  imports: [],
+  imports: [MatCardModule],
   templateUrl: './user-profile.component.html',
   styleUrl: './user-profile.component.scss'
 })
@@ -32,5 +33,9 @@ export class UserProfileComponent implements OnInit {
   dashboard(){
     this.data.onNavigateToDashboard()
   }
+  openDeleteAccountDialog(){
+    
+  }
+
 
 }
