@@ -34,7 +34,8 @@ export class UserProfileComponent implements OnInit {
     this.data.onNavigateToDashboard()
   }
   openDeleteAccountDialog(){
-    
+    this.data.onDeleteAccountDialog()
+
   }
 
 

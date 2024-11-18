@@ -6,6 +6,7 @@ import { MatDialog,MatDialogConfig } from '@angular/material/dialog';
 import { ApiServiceService } from '../api-service.service';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NgIf } from '@angular/common';
+import { DeleteAccountDialogComponent } from '../delete-account-dialog/delete-account-dialog.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -38,13 +39,22 @@ export class DashboardComponent implements OnInit {
 
 
   }
+  confirmDelete(){}
+
+  closeAllDialog(){}
+  deleteAccountDialog(){
+    this.openDeleteAccountDialog()
+  }
+  openDeleteAccountDialog(){
+    this.dialog.open(DeleteAccountDialogComponent,{data:{onConfirmDelete: ()=> this.confirmDelete(), onCloseAll: ()=> this.closeAllDialog(), onDeleteAccountDialog: () => this.deleteAccountDialog()}})
+  }
    
   
   openProfileDialog(): void{
     const dialogConfig = new MatDialogConfig
     dialogConfig.height = '400px'
     this.apiService.fetchUserProfile().subscribe({next: (userdata)=>{
-      this.dialog.open(UserProfileComponent,{position: {top: '55px', right: '0px'},width: '180px', panelClass: 'custom-dialog',data:{username: userdata.username, email: userdata.email, onLogout: () => this.logout(), onNavigateToDashboard: () => this.dashboard()}})
+      this.dialog.open(UserProfileComponent,{position: {top: '55px', right: '0px'},width: '180px', panelClass: 'custom-dialog',data:{username: userdata.username, email: userdata.email, onLogout: () => this.logout(), onNavigateToDashboard: () => this.dashboard(), onOpenDeleteAccountDialog: ()=> this.openDeleteAccountDialog()}})
     }, error: (error)=>{console.log(error.error);
     }})
   
