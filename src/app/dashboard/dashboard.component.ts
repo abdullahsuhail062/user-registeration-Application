@@ -5,11 +5,12 @@ import { UserProfileComponent } from '../user-profile/user-profile.component';
 import { MatDialog,MatDialogConfig } from '@angular/material/dialog';
 import { ApiServiceService } from '../api-service.service';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [MatToolbarModule,],
+  imports: [MatToolbarModule,NgIf],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
