@@ -8,6 +8,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     min-width: unset; /* Remove the default constraint */
     width: auto; /* Adjust to content */
     border-radius: 1px !important;
+    animation: none !important;
+    transition: none !important;
 
     
   }
@@ -15,6 +17,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   .mat-mdc-dialog-container {
     border-radius: unset;
     border-radius: 1px !important;
+    animation: none !important;
+    transition: none !important;
     margin-right: 0%;
     margin-right: unset;
 
