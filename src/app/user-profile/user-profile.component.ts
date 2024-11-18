@@ -4,6 +4,7 @@ import { AuthService } from '../auth.service';
 import { ApiServiceService } from '../api-service.service';
 import { Router } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -19,7 +20,7 @@ export class UserProfileComponent implements OnInit {
   profilePhoto: any
   
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any){}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private sharedService: SharedService){}
 
   ngOnInit(): void {
     this.username = this.data.username
@@ -34,7 +35,7 @@ export class UserProfileComponent implements OnInit {
     this.data.onNavigateToDashboard()
   }
   openDeleteAccountDialog(){
-    this.data.onDeleteAccountDialog()
+    this.sharedService.triggerTask()
 
   }
 

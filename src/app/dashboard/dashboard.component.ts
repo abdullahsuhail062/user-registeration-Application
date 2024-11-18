@@ -7,6 +7,7 @@ import { ApiServiceService } from '../api-service.service';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NgIf } from '@angular/common';
 import { DeleteAccountDialogComponent } from '../delete-account-dialog/delete-account-dialog.component';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -19,11 +20,14 @@ export class DashboardComponent implements OnInit {
   profileInitial: string =''
   email: any
   showWelcomeMessage: boolean = false;
-  constructor(private router: Router, private authservice: AuthService, private dialog: MatDialog, private apiService: ApiServiceService){}
+  constructor(private sharedService: SharedService,private router: Router, private authservice: AuthService, private dialog: MatDialog, private apiService: ApiServiceService){}
   ngOnInit(): void {
     this.greetUser()
     this.apiService.fetchUserProfile().subscribe({next: (data)=>{
-      this.profileInitial = data.email.charAt(0).toUpperCase(); }}) }
+      this.profileInitial = data.email.charAt(0).toUpperCase(); }})
+      this.sharedService.taskTriggered$.subscribe(()=>{this.openDeleteAccountDialog})
+    }
+      
      
   
   
@@ -42,11 +46,9 @@ export class DashboardComponent implements OnInit {
   confirmDelete(){}
 
   closeAllDialog(){}
-  deleteAccountDialog(){
-    this.openDeleteAccountDialog()
-  }
+ 
   openDeleteAccountDialog(){
-    this.dialog.open(DeleteAccountDialogComponent,{data:{onConfirmDelete: ()=> this.confirmDelete(), onCloseAll: ()=> this.closeAllDialog(), onDeleteAccountDialog: () => this.deleteAccountDialog()}})
+    this.dialog.open(DeleteAccountDialogComponent,{data:{onConfirmDelete: ()=> this.confirmDelete(), onCloseAll: ()=> this.closeAllDialog()}})
   }
    
   
