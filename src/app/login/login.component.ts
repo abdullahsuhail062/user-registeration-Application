@@ -85,6 +85,11 @@ export class LoginComponent {
       this.passwordError = errorMessage.password
       this.loginForm.get('password')?.setErrors({passwordErr: this.passwordError})
     }
+    if (error ==='noUserExist') {
+      this.emailError = errorMessage.noUserExist
+      this.loginForm.get('email')?.setErrors({emailErr: this.emailError})
+      
+    }
 
       
       });
