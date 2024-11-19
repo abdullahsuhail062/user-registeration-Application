@@ -25,7 +25,7 @@ export class DashboardComponent implements OnInit {
     this.greetUser()
     this.apiService.fetchUserProfile().subscribe({next: (data)=>{
       this.profileInitial = data.email.charAt(0).toUpperCase(); }})
-      this.sharedService.taskTriggered$.subscribe(()=>{this.fun})
+      this.sharedService.taskTriggered$.subscribe(()=>{console.log('Event received in Component Two');})
     }
       
      
@@ -50,7 +50,6 @@ export class DashboardComponent implements OnInit {
   openDeleteAccountDialog(){
     this.dialog.open(DeleteAccountDialogComponent,{width: '400px',data:{onConfirmDelete: ()=> this.confirmDelete(), onCloseAll: ()=> this.closeAllDialog()}})
   }
-  fun(){alert('working')}
    
   
   openProfileDialog(): void{

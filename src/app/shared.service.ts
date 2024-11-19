@@ -12,6 +12,8 @@ export class SharedService {
 
   // Method to trigger the task
   triggerTask() {
+    console.log('service triggering emission');
+    
     this.taskTrigger.next();
   }
 }
