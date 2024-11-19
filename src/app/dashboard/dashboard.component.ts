@@ -48,6 +48,8 @@ export class DashboardComponent implements OnInit {
   confirmDelete(){
     this.apiService.deleteAccount().subscribe({next:
       (response) => {
+        this.authservice.deleteToken()
+        this.router.navigate(['/login'])
         this.dialog.closeAll()
         console.log('Account deleted successfully');
         // Perform any necessary clean-up or redirect
@@ -70,8 +72,7 @@ export class DashboardComponent implements OnInit {
       dialogRef.afterClosed().subscribe((result)=>{
         if (result ==='confirm') {
           this.confirmDelete()
-          this.authservice.deleteToken()
-          this.router.navigate(['/login'])
+         
 
 
           
