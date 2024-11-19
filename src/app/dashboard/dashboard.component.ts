@@ -25,11 +25,10 @@ export class DashboardComponent implements OnInit {
     this.greetUser()
     this.apiService.fetchUserProfile().subscribe({next: (data)=>{
       this.profileInitial = data.email.charAt(0).toUpperCase(); }})
-      this.sharedService.taskTriggered$.subscribe(()=>{alert('two'),this.fun()})
+      this.sharedService.taskTriggered$.subscribe(()=>{this.openDeleteAccountDialog()})
     }
-    fun(){
-      alert('funALERT')
-    }
+   
+    
       
      
   
