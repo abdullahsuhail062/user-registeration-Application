@@ -36,6 +36,7 @@ export class UserProfileComponent implements OnInit {
   }
   openDeleteAccountDialog(){
     this.sharedService.triggerTask()
+    alert('workin')
 
   }
 
