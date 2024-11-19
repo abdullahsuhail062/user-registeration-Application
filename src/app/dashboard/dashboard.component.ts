@@ -25,7 +25,10 @@ export class DashboardComponent implements OnInit {
     this.greetUser()
     this.apiService.fetchUserProfile().subscribe({next: (data)=>{
       this.profileInitial = data.email.charAt(0).toUpperCase(); }})
-      this.sharedService.taskTriggered$.subscribe(()=>{console.log('Event received in Component Two');})
+      this.sharedService.taskTriggered$.subscribe(()=>{alert('two'),this.fun()})
+    }
+    fun(){
+      alert('funALERT')
     }
       
      
