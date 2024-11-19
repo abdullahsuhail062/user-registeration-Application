@@ -30,7 +30,8 @@ export class ApiServiceService {
     )
   }
   deleteAccount(): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/deleteAccount`);
+    const token = this.authService.getToken()
+    return this.http.delete(`${this.apiUrl}/api/deleteAccount`,{headers: { 'Authorization': `Bearer ${token}`}});
   }
 
 }
