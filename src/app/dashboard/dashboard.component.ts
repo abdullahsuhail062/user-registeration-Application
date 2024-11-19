@@ -25,7 +25,7 @@ export class DashboardComponent implements OnInit {
     this.greetUser()
     this.apiService.fetchUserProfile().subscribe({next: (data)=>{
       this.profileInitial = data.email.charAt(0).toUpperCase(); }})
-      this.sharedService.taskTriggered$.subscribe(()=>{this.openDeleteAccountDialog})
+      this.sharedService.taskTriggered$.subscribe(()=>{this.fun})
     }
       
      
@@ -48,9 +48,9 @@ export class DashboardComponent implements OnInit {
   closeAllDialog(){}
  
   openDeleteAccountDialog(){
-    alert('working')
     this.dialog.open(DeleteAccountDialogComponent,{width: '400px',data:{onConfirmDelete: ()=> this.confirmDelete(), onCloseAll: ()=> this.closeAllDialog()}})
   }
+  fun(){alert('working')}
    
   
   openProfileDialog(): void{
