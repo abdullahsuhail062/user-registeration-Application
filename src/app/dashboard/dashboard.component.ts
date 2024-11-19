@@ -48,6 +48,8 @@ export class DashboardComponent implements OnInit {
   confirmDelete(){
     this.apiService.deleteAccount().subscribe({next:
       (response) => {
+        this.dialog.closeAll()
+        this.router.navigate(['/login'])
         console.log('Account deleted successfully');
         // Perform any necessary clean-up or redirect
       },
