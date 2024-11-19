@@ -26,4 +26,8 @@ export class AuthService {
     localStorage.removeItem(this.TOKEN_KEY); // Clear token on logout
   }
 
+  deleteToken(){
+    localStorage.removeItem(this.TOKEN_KEY)
+  }
+
 }
