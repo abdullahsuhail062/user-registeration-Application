@@ -13,10 +13,12 @@ import { MatDialogModule, MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angu
 })
 export class DeleteAccountDialogComponent {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private dialog: MatDialog){}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<DeleteAccountDialogComponent>){}
 
   confirmDelete(){}
 
-  closeAll(){}
+  closeAll(){
+    this.data.onCloseAll()
+  }
 
 }

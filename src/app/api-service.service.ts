@@ -29,6 +29,9 @@ export class ApiServiceService {
     return this.http.get(`${this.apiUrl}/api/fetchUserProfile`,{responseType: 'json',headers: { 'Authorization': `Bearer ${token}`}}
     )
   }
+  deleteAccount(): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/deleteAccount`);
+  }
 
 }
  

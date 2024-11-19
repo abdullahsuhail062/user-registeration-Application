@@ -45,12 +45,33 @@ export class DashboardComponent implements OnInit {
 
 
   }
-  confirmDelete(){}
+  confirmDelete(){
+    this.apiService.deleteAccount().subscribe({next:
+      (response) => {
+        console.log('Account deleted successfully');
+        // Perform any necessary clean-up or redirect
+      },
+     error: (error) => {
+        console.error('Error deleting account:', error);
+      }}
+    );
+  }
 
-  closeAllDialog(){}
+  
+
+  closeAllDialog(){
+    this.dialog.closeAll()
+  }
  
   openDeleteAccountDialog(){
-    this.dialog.open(DeleteAccountDialogComponent,{position:{right:'0px'},width: '400px',data:{onConfirmDelete: ()=> this.confirmDelete(), onCloseAll: ()=> this.closeAllDialog()}})
+   const dialogRef= this.dialog.open(DeleteAccountDialogComponent,{position:{right:'0px'},width: '400px',data:{onConfirmDelete: ()=> this.confirmDelete(), onCloseAll: ()=> this.closeAllDialog()}})
+      dialogRef.afterClosed().subscribe((result)=>{
+        if (result ==='confirm') {
+
+          
+        }
+      })
+  
   }
    
   
