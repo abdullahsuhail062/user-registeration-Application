@@ -52,7 +52,7 @@ export class DashboardComponent implements OnInit {
         // Perform any necessary clean-up or redirect
       },
      error: (error) => {
-        console.error('Error deleting account:', error);
+        console.error('Error deleting account:', error.error);
       }}
     );
   }
