@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
 ngOnInit(): void {
   // Sample client-side logic to check token expiration
   const checkTokn = this.authService.getToken()
+  this.authService.deleteToken()
 
   // Check on app initialization/resume
   const getToken = this.authService.getToken() as string
