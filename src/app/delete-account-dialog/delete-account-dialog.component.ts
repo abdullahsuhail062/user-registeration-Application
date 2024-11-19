@@ -15,7 +15,9 @@ export class DeleteAccountDialogComponent {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<DeleteAccountDialogComponent>){}
 
-  confirmDelete(){}
+  confirmDelete(){
+    this.data.onConfirmDelete()
+  }
 
   closeAll(){
     this.data.onCloseAll()

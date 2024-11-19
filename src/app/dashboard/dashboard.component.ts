@@ -67,6 +67,7 @@ export class DashboardComponent implements OnInit {
    const dialogRef= this.dialog.open(DeleteAccountDialogComponent,{position:{right:'0px'},width: '400px',data:{onConfirmDelete: ()=> this.confirmDelete(), onCloseAll: ()=> this.closeAllDialog()}})
       dialogRef.afterClosed().subscribe((result)=>{
         if (result ==='confirm') {
+          this.confirmDelete()
 
           
         }
