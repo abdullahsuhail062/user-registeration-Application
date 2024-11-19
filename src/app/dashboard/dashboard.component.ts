@@ -50,7 +50,7 @@ export class DashboardComponent implements OnInit {
   closeAllDialog(){}
  
   openDeleteAccountDialog(){
-    this.dialog.open(DeleteAccountDialogComponent,{width: '400px',data:{onConfirmDelete: ()=> this.confirmDelete(), onCloseAll: ()=> this.closeAllDialog()}})
+    this.dialog.open(DeleteAccountDialogComponent,{position:{right:'0px'},width: '400px',data:{onConfirmDelete: ()=> this.confirmDelete(), onCloseAll: ()=> this.closeAllDialog()}})
   }
    
   
