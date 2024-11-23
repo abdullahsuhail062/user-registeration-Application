@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { MatProgressSpinnerModule, MatSpinner } from '@angular/material/progress-spinner';
 
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
@@ -14,7 +15,7 @@ import { ApiServiceService } from '../api-service.service';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink,MatInputModule,
+  imports: [RouterLink,MatInputModule,MatProgressSpinnerModule,
     MatInputModule,ReactiveFormsModule,CommonModule,NgIf,MatIconModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
@@ -29,6 +30,7 @@ export class LoginComponent {
   passwordError: any
   mismatchPasswordsError: any
   generalError: any
+  isLoading: boolean = false
 
   constructor(private router: Router,private apiService: ApiServiceService, private http: HttpClient){
     this.loginForm = new FormGroup({email: new FormControl('',[Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@example\.(com|org|net)$/)]),password: new FormControl('',[Validators.required,Validators.minLength(8),
@@ -46,7 +48,7 @@ export class LoginComponent {
    
     this.passwordsMisMatchValidator()
     if (this.loginForm.valid) {
-    this.apiService.loginUser(formData).subscribe({next: (data) => {console.log(data.message) ,localStorage.setItem('authToken', data.token),this.router.navigate(['/dashboard']);
+    this.apiService.loginUser(formData).subscribe({next: (data) => {if (this.router.url === '/login'){this.isLoading =true}localStorage.setItem('authToken', data.token),this.router.navigate(['/dashboard']);
       const token = data.token; // Assume this is the JWT token from backend
       const expiresAt = Date.now() + 3600 * 1000; // Set expiration time to 1 hour from now
       localStorage.setItem('authToken', token);
