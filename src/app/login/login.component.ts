@@ -30,7 +30,7 @@ export class LoginComponent {
   passwordError: any
   mismatchPasswordsError: any
   generalError: any
-  isLoading: boolean = false
+  isLoading: boolean = true
 
   constructor(private router: Router,private apiService: ApiServiceService, private http: HttpClient){
     this.loginForm = new FormGroup({email: new FormControl('',[Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@example\.(com|org|net)$/)]),password: new FormControl('',[Validators.required,Validators.minLength(8),
@@ -48,7 +48,7 @@ export class LoginComponent {
    
     this.passwordsMisMatchValidator()
     if (this.loginForm.valid) {
-    this.apiService.loginUser(formData).subscribe({next: (data) => {if (this.router.url === '/login'){this.isLoading =true
+    this.apiService.loginUser(formData).subscribe({next: (data) => {if (this.router.url === '/login'){this.toggleSpinner()
     }localStorage.setItem('authToken', data.token),this.router.navigate(['/dashboard']);
       const token = data.token; // Assume this is the JWT token from backend
       const expiresAt = Date.now() + 3600 * 1000; // Set expiration time to 1 hour from now
@@ -113,6 +113,9 @@ export class LoginComponent {
   
        togglePasswordVisibility(): boolean{
       return this.hide= !this.hide
+      }
+      toggleSpinner() {
+        this.isLoading = !this.isLoading;
       }
 
     
