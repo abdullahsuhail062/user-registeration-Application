@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
-import { MatProgressSpinnerModule, MatSpinner } from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule, } from '@angular/material/progress-spinner';
 
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
@@ -30,7 +30,7 @@ export class LoginComponent {
   passwordError: any
   mismatchPasswordsError: any
   generalError: any
-  isLoading: boolean = true
+  isLoading: boolean = false
 
   constructor(private router: Router,private apiService: ApiServiceService, private http: HttpClient){
     this.loginForm = new FormGroup({email: new FormControl('',[Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@example\.(com|org|net)$/)]),password: new FormControl('',[Validators.required,Validators.minLength(8),
