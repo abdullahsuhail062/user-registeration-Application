@@ -30,6 +30,7 @@ export class RegisterationComponent  {
   passwordError: any
   mismatchPasswordsError: any
   generalError: any
+  isLoading: boolean = false
 
 
 
@@ -47,6 +48,7 @@ export class RegisterationComponent  {
 
   
   onSubmit(): void{
+    this.toggleSpinner()
    const formData ={username: this.signUpForm.get('username')?.value,
       email: this.signUpForm.get('email')?.value,
       password: this.signUpForm.get('password')?.value
@@ -137,6 +139,10 @@ export class RegisterationComponent  {
   
        togglePasswordVisibility(): boolean{
       return this.hide= !this.hide
+      }
+
+      toggleSpinner() {
+        this.isLoading = true
       }
 
     

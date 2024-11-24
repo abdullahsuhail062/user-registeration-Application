@@ -51,4 +51,12 @@ form {
   .login-link a:hover {
     text-decoration: underline;
   }
+
+  .spinner {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+  }
   

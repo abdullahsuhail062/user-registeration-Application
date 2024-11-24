@@ -1,6 +1,9 @@
 <mat-error *ngIf="generalError" class="alert-danger">
     {{generalError}}
   </mat-error>
+  <div *ngIf="isLoading" class="spinner">
+    <p>submitting...</p>
+  </div>
   <div class="signUpForm">
   <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
     <mat-form-field appearance="fill">
