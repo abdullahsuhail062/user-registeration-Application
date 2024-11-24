@@ -48,7 +48,7 @@ export class LoginComponent {
    
     this.passwordsMisMatchValidator()
     if (this.loginForm.valid) {
-    this.apiService.loginUser(formData).subscribe({next: (data) => {if (this.router.url === '/login'){this.isLoading =true,console.log(this.isLoading);
+    this.apiService.loginUser(formData).subscribe({next: (data) => {if (this.router.url === '/login'){this.isLoading =true,alert('working')
     }localStorage.setItem('authToken', data.token),this.router.navigate(['/dashboard']);
       const token = data.token; // Assume this is the JWT token from backend
       const expiresAt = Date.now() + 3600 * 1000; // Set expiration time to 1 hour from now
