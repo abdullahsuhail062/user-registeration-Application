@@ -115,7 +115,6 @@ export class LoginComponent {
       return this.hide= !this.hide
       }
       toggleSpinner() {
-        if (this.router.url === '/login')
         this.isLoading = true
       }
 
