@@ -30,7 +30,7 @@ export class LoginComponent {
   passwordError: any
   mismatchPasswordsError: any
   generalError: any
-  isLoading: boolean = false
+  isLoading: boolean = true
 
   constructor(private router: Router,private apiService: ApiServiceService, private http: HttpClient){
     this.loginForm = new FormGroup({email: new FormControl('',[Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@example\.(com|org|net)$/)]),password: new FormControl('',[Validators.required,Validators.minLength(8),
