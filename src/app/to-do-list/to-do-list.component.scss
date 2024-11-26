@@ -13,24 +13,24 @@ spacer {
     background: linear-gradient(45deg, #ff4081, #f50057); /* Gradient for a modern look */
     color: #ffffff; /* White text */
     font-weight: bold;
-    font-size: 16px;
+    font-size: 14px; /* Reduced font size */
     text-transform: capitalize; /* Makes text more natural */
-    border-radius: 25px; /* Adds a smooth rounded look */
-    padding: 10px 20px; /* Comfortable padding */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    border-radius: 20px; /* Smaller rounded corners */
+    padding: 8px 16px; /* Reduced padding for a smaller size */
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); /* Slightly smaller shadow */
     transition: all 0.3s ease; /* Smooth hover effect */
     display: flex; /* Flex for alignment */
     align-items: center;
-    gap: 8px; /* Space between icon and text */
+    gap: 6px; /* Slightly smaller gap between icon and text */
   }
   
   .create-list-btn:hover {
     background: linear-gradient(45deg, #f50057, #ff4081); /* Reverse gradient on hover */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* Slightly increased shadow */
-    transform: translateY(-2px); /* Adds hover lift effect */
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3); /* Slightly increased shadow */
+    transform: translateY(-1px); /* Subtle lift effect */
   }
   
   .create-list-btn .icon {
-    font-size: 18px; /* Adjust icon size */
+    font-size: 16px; /* Adjusted smaller icon size */
   }
   
