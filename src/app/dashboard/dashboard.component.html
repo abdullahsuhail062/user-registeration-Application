@@ -4,10 +4,10 @@
     <mat-toolbar color="primary">
               <span class="spacer"></span>  
         <!-- Profile Button with Initial -->
+        <button class="todolist-button" mat-button color="primary" (click)="navigateToDoList()">ToDoList</button>
         <button mat-icon-button (click)="openProfileDialog()" class="profile-button">
           <span class="profile-initial">{{ profileInitial }}</span>
         </button>
-        <button class="todolist-button" mat-button color="primary">ToDoList</button>
       </mat-toolbar>
       
   </mat-toolbar>

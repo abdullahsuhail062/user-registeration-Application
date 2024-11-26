@@ -100,6 +100,9 @@ export class DashboardComponent implements OnInit {
       localStorage.setItem('isWelcomed', 'true');
     }
   }
+  navigateToDoList(){
+    this.router.navigate(['/ToDoList'])
+  }
 }
 
 
