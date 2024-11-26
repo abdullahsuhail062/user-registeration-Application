@@ -3,10 +3,19 @@
     <span class="spacer"></span>
     <mat-toolbar color="primary">
               <span class="spacer"></span>  
-              <button mat-raised-button class="create-list-btn">
+              <button mat-raised-button class="create-list-btn" (click)="openDialog(dialogTemplate)">
                 <span class="icon">➕</span>
                 Create new List
               </button>
               
     </mat-toolbar>
+    <ng-template #dialogTemplate>
+      <h2 mat-dialog-title>Welcome!</h2>
+      <mat-dialog-content>
+        <p>This dialog is hosted by the DashboardComponent.</p>
+      </mat-dialog-content>
+      <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Close</button>
+      </mat-dialog-actions>
+    </ng-template>
 
