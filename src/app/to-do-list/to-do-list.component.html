@@ -9,13 +9,11 @@
               </button>
               
     </mat-toolbar>
-    <ng-template #dialogTemplate>
-      <h2 mat-dialog-title>Welcome!</h2>
-      <mat-dialog-content>
-        <p>This dialog is hosted by the DashboardComponent.</p>
-      </mat-dialog-content>
-      <mat-dialog-actions align="end">
-        <button mat-button mat-dialog-close>Close</button>
-      </mat-dialog-actions>
-    </ng-template>
 
+    <div class="dialog">
+    <ng-template #dialogTemplate>
+      <mat-dialog-content>
+        <input matInput type="text" placeholder="Enter list name">
+      </mat-dialog-content>
+    </ng-template>
+  </div>
