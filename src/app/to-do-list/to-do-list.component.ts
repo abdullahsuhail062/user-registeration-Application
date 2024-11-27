@@ -14,7 +14,7 @@ export class ToDoListComponent {
   constructor(private dialog: MatDialog){}
 
   openDialog(templateRef: TemplateRef<any>): void{
-    this.dialog.open(templateRef,{position:{top:'20px', left: '50px'},width:'400px'})
+    this.dialog.open(templateRef,{position:{top:'40px', left: '60px'},width:'400px'})
   }
 
 }
