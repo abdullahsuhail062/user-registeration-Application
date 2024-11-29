@@ -27,6 +27,7 @@ dialogRef: any
   }
 
   getInput(dialogInput:any){
+    this.dialogInput =dialogInput
     if (dialogInput.trim().length>0) {
       this.isDisabled = false
       this.isActive = true
@@ -37,8 +38,8 @@ dialogRef: any
     
   }
 
-  onCreateList(dialogInput: any){
-    dialogInput = ''
+  onCreateList(){
+    this.dialogInput = ''
     this.dialogRef.close()
 
     
