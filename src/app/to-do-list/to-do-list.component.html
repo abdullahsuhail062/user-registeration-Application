@@ -16,7 +16,7 @@
         <div class="container">
             <input class="input-field" matInput placeholder="Enter list name" [(ngModel)]="input" />        
           <div class="button-container">
-            <button mat-raised-button color="primary" (click)="createList()" [disabled]="activateBtn"   [ngClass]="{ 'active-button': isActive, 'inactive-button': isDeactive}" class="btn">Create</button>
+            <button mat-raised-button color="primary" (click)="createList()" [disabled]="isDisabled"   [ngClass]="{ 'active-button': isActive, 'inactive-button': isDeactive}" class="btn">Create</button>
             <button mat-raised-button color="accent" class="btn">Cancel</button>
           </div>
         </div>

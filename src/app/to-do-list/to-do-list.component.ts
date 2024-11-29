@@ -13,7 +13,7 @@ import { MatFormField } from '@angular/material/form-field';
   styleUrl: './to-do-list.component.scss'
 })
 export class ToDoListComponent {
-activateBtn: boolean = true 
+isDisabled: boolean = true 
 input: string = ''
 isDeactive: boolean = true
 isActive: boolean = false
@@ -26,7 +26,8 @@ isActive: boolean = false
 
   createList(){
     if (this.input.length>0) {
-      this.activateBtn = false
+      this.isDisabled = false
+      this.toggleBtnColor()
 
       
     }
