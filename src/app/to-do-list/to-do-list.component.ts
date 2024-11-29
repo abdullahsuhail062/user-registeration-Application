@@ -27,14 +27,13 @@ isActive: boolean = false
   }
 
   getInput(dialogInput:any){
-    if (dialogInput.trim().length>4) {
+    if (dialogInput.trim().length>1) {
       this.isDisabled = false
       this.isActive = true
-        
-      
 
-      
-    }
+  }else {this.isDeactive =true
+        this.isActive = false
+  }
     
   }
 
