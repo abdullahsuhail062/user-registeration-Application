@@ -26,15 +26,20 @@ isActive: boolean = false
     this.dialog.open(templateRef,{position:{top:'4%', left: '11%'},height: '200px'})
   }
 
-  onCreateList(dialogRef:any){
-    if (this.dialogInput.trim().length>0) {
+  getInput(dialogInput:any){
+    if (dialogInput.trim().length>0) {
       this.isDisabled = false
       this.toggleBtnColor()
-      dialogRef.closeAll()
       
 
       
     }
+    
+  }
+
+  onCreateList(dialogRef:any){
+    dialogRef.cloaseAll()
+
   }
 
   toggleBtnColor(){
