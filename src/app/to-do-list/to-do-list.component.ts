@@ -19,15 +19,15 @@ isDisabled: boolean = true
 dialogInput: string = ''
 isDeactive: boolean = true
 isActive: boolean = false
-
+dialogRef: any
   constructor(private dialog: MatDialog ){}
 
   openDialog(templateRef: TemplateRef<any>): void{
-    this.dialog.open(templateRef,{position:{top:'4%', left: '11%'},height: '200px'})
+     this.dialogRef = this.dialog.open(templateRef,{position:{top:'4%', left: '11%'},height: '200px'})
   }
 
   getInput(dialogInput:any){
-    if (dialogInput.trim().length>1) {
+    if (dialogInput.trim().length>0) {
       this.isDisabled = false
       this.isActive = true
 
@@ -37,8 +37,8 @@ isActive: boolean = false
     
   }
 
-  onCreateList(dialogRef:any){
-    dialogRef.cloaseAll()
+  onCreateList(){
+    this.dialogRef.close()
 
   }
 
