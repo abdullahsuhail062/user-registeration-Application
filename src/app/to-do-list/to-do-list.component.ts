@@ -27,7 +27,7 @@ isActive: boolean = false
   }
 
   getInput(dialogInput:any){
-    if (dialogInput.trim().length>0) {
+    if (dialogInput.trim().length>4) {
       this.isDisabled = false
       this.toggleBtnColor()
       
