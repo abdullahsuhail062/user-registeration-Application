@@ -37,8 +37,11 @@ dialogRef: any
     
   }
 
-  onCreateList(){
+  onCreateList(dialogInput: any){
+    dialogInput = ''
     this.dialogRef.close()
+
+    
 
   }
 
