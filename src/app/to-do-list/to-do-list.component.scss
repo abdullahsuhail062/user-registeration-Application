@@ -38,12 +38,12 @@ spacer {
     display: flex;            /* Enable Flexbox */
     flex-direction: column;   /* Stack elements vertically */
     align-items: center;      /* Center elements horizontally */
-    gap: 16px;                /* Add spacing between elements */
+    gap: 10px;                /* Add spacing between elements */
   }
   
   .input-field {
     width: 100%;              /* Full width input */
-    max-width: 300px;         /* Limit the maximum width */
+    max-width: 400px;         /* Limit the maximum width */
   }
   
   .button-container {

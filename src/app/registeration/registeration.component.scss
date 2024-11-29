@@ -59,4 +59,27 @@ form {
     transform: translate(-50%, -50%);
     z-index: 1000;
   }
+  .mat-form-field {
+    background-color: #f5f5f5;  /* Subtle background for the input field */
+    border-radius: 8px;         /* Rounded corners */
+    padding: 4px 8px;           /* Inner padding */
+  }
+  
+  .mat-form-field-outline {
+    border-color: #6200ea;   /* Custom color for the outline */
+  }
+  
+  .mat-form-field:hover .mat-form-field-outline {
+    border-color: #3700b3;   /* Darker border on hover */
+  }
+  
+  .mat-form-field .mat-icon {
+    color: #6200ea;          /* Custom color for the suffix icon */
+  }
+  
+  .mat-input-element {
+    font-size: 16px;         /* Comfortable font size */
+    padding: 8px 12px;       /* Adjust padding inside the input */
+  }
+  
   
