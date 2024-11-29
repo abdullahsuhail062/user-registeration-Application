@@ -19,7 +19,6 @@ isDisabled: boolean = true
 dialogInput: string = ''
 isDeactive: boolean = true
 isActive: boolean = false
-inactive: boolean = true
 
   constructor(private dialog: MatDialog ){}
 
@@ -31,7 +30,6 @@ inactive: boolean = true
     if (dialogInput.trim().length>4) {
       this.isDisabled = false
       this.isActive = true
-      this.inactive = false
         
       
 
