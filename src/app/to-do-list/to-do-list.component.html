@@ -10,7 +10,22 @@
               
     </mat-toolbar>
 
-    <div class="dialog">
+    <ng-template #dialogTemplate let-dialogRef="dialogRef">
+      <h2 mat-dialog-title>Create List</h2>
+      <mat-dialog-content>
+          <input matInput [(ngModel)]="dialogInput" />
+      </mat-dialog-content>
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button
+          mat-raised-button
+          color="primary"
+          [disabled]="isDisabled"
+          (click)="onCreateList(dialogRef)">
+          Create
+        </button>
+    </ng-template>
+
+    <!-- <div class="dialog">
     <ng-template #dialogTemplate>
       <mat-dialog-content>
         <div class="container">
@@ -23,4 +38,4 @@
         
       </mat-dialog-content>
     </ng-template>
-  </div>
+  </div> -->

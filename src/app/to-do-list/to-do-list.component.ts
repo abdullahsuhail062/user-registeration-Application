@@ -16,20 +16,21 @@ import { MatFormField } from '@angular/material/form-field';
 })
 export class ToDoListComponent {
 isDisabled: boolean = true 
-input: string = ''
+dialogInput: string = ''
 isDeactive: boolean = true
 isActive: boolean = false
 
   constructor(private dialog: MatDialog,@Inject(MAT_DIALOG_DATA) public data: any ){}
 
   openDialog(templateRef: TemplateRef<any>): void{
-    this.dialog.open(templateRef,{position:{top:'4%', left: '11%'},height: '200px', data:{input: this.input, onCreateList: ()=> this.createList()}})
+    this.dialog.open(templateRef,{position:{top:'4%', left: '11%'},height: '200px'})
   }
 
-  createList(){
-    if (this.data.input.length>0) {
+  onCreateList(dialogRef:any){
+    if (this.dialogInput.trim().length>0) {
       this.isDisabled = false
       this.toggleBtnColor()
+      dialogRef.closeAll()
       
 
       
@@ -37,7 +38,7 @@ isActive: boolean = false
   }
 
   toggleBtnColor(){
-    if (this.data.input.length>0) {
+    if (this.dialogInput.trim().length>0) {
       this.isActive = true
       
     }else {this.isDeactive = false}
