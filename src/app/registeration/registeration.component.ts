@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
-import { CommonModule, NgIf, NgStyle } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import { HttpClient,} from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon'; // Import MatIconModule
 import { ApiServiceService } from '../api-service.service';
@@ -15,7 +15,7 @@ import { AuthService } from '../auth.service';
   selector: 'app-registeration',
   standalone: true,
   imports: [RouterLink,MatInputModule,
-    MatInputModule,ReactiveFormsModule,CommonModule,NgIf,NgStyle,MatIconModule],
+    MatInputModule,ReactiveFormsModule,CommonModule,NgIf,MatIconModule],
   templateUrl: './registeration.component.html',
   styleUrl: './registeration.component.scss'
 })

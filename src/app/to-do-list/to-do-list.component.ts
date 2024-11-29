@@ -10,7 +10,7 @@ import { MatFormField } from '@angular/material/form-field';
 @Component({
   selector: 'app-to-do-list',
   standalone: true,
-  imports: [MatToolbarModule, MatDialogContent,FormsModule,],
+  imports: [MatToolbarModule, MatDialogContent,FormsModule,NgClass],
   templateUrl: './to-do-list.component.html',
   styleUrl: './to-do-list.component.scss'
 })
@@ -19,6 +19,7 @@ isDisabled: boolean = true
 dialogInput: string = ''
 isDeactive: boolean = true
 isActive: boolean = false
+inactive: boolean = true
 
   constructor(private dialog: MatDialog ){}
 
@@ -29,7 +30,8 @@ isActive: boolean = false
   getInput(dialogInput:any){
     if (dialogInput.trim().length>4) {
       this.isDisabled = false
-      this.toggleBtnColor()
+      this.isActive = true
+        
       
 
       
@@ -42,13 +44,5 @@ isActive: boolean = false
 
   }
 
-  toggleBtnColor(){
-    if (this.dialogInput.trim().length>4) {
-      this.isActive = true
-      
-    }else {this.isDeactive = false}
-
-
-  }
 
 }

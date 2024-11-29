@@ -19,8 +19,8 @@
         <button
           mat-raised-button
           color="primary"
-          [disabled]="isDisabled"
-          (click)="onCreateList(dialogRef)">
+          [disabled]="isDisabled" 
+          (click)="onCreateList(dialogRef)" [ngClass]="{ 'active-button': isActive, 'inactive-button': isDeactive}">
           Create
         </button>
     </ng-template>
