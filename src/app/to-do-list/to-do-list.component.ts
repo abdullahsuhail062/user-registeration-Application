@@ -43,7 +43,7 @@ isActive: boolean = false
   }
 
   toggleBtnColor(){
-    if (this.dialogInput.trim().length>0) {
+    if (this.dialogInput.trim().length>4) {
       this.isActive = true
       
     }else {this.isDeactive = false}
