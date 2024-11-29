@@ -10,7 +10,7 @@ import { MatFormField } from '@angular/material/form-field';
 @Component({
   selector: 'app-to-do-list',
   standalone: true,
-  imports: [MatToolbarModule, MatDialogContent,FormsModule,NgClass,],
+  imports: [MatToolbarModule, MatDialogContent,FormsModule,],
   templateUrl: './to-do-list.component.html',
   styleUrl: './to-do-list.component.scss'
 })
@@ -20,7 +20,7 @@ dialogInput: string = ''
 isDeactive: boolean = true
 isActive: boolean = false
 
-  constructor(private dialog: MatDialog,@Inject(MAT_DIALOG_DATA) public data: any ){}
+  constructor(private dialog: MatDialog ){}
 
   openDialog(templateRef: TemplateRef<any>): void{
     this.dialog.open(templateRef,{position:{top:'4%', left: '11%'},height: '200px'})
