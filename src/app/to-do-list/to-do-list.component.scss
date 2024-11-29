@@ -33,4 +33,27 @@ spacer {
   .create-list-btn .icon {
     font-size: 16px; /* Adjusted smaller icon size */
   }
+
+  .container {
+    display: flex;            /* Enable Flexbox */
+    flex-direction: column;   /* Stack elements vertically */
+    align-items: center;      /* Center elements horizontally */
+    gap: 16px;                /* Add spacing between elements */
+  }
+  
+  .input-field {
+    width: 100%;              /* Full width input */
+    max-width: 300px;         /* Limit the maximum width */
+  }
+  
+  .button-container {
+    display: flex;            /* Enable Flexbox for buttons */
+    justify-content: center;  /* Center buttons horizontally */
+    gap: 12px;                /* Add spacing between buttons */
+  }
+  
+  .btn {
+    padding: 8px 16px;        /* Optional: Adjust button padding */
+  }
+  
   

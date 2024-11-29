@@ -13,7 +13,17 @@
     <div class="dialog">
     <ng-template #dialogTemplate>
       <mat-dialog-content>
-        <input matInput type="text" placeholder="Enter list name">
+        <div class="container">
+          <mat-form-field appearance="outline" class="input-field">
+            <input matInput placeholder="Type something..." />
+          </mat-form-field>
+        
+          <div class="button-container">
+            <button mat-raised-button color="primary" class="btn">Create</button>
+            <button mat-raised-button color="accent" class="btn">Cancel</button>
+          </div>
+        </div>
+        
       </mat-dialog-content>
     </ng-template>
   </div>

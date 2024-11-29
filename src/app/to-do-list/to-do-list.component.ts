@@ -1,11 +1,12 @@
 import { Component, TemplateRef } from '@angular/core';
 import { MatDialog, MatDialogActions, MatDialogContent } from '@angular/material/dialog';
+import { MatFormField } from '@angular/material/form-field';
  import{MatToolbarModule} from '@angular/material/toolbar'
 
 @Component({
   selector: 'app-to-do-list',
   standalone: true,
-  imports: [MatToolbarModule, MatDialogContent,MatDialogActions],
+  imports: [MatToolbarModule, MatDialogContent,MatFormField],
   templateUrl: './to-do-list.component.html',
   styleUrl: './to-do-list.component.scss'
 })
