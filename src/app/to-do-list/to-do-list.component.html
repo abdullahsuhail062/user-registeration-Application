@@ -29,17 +29,6 @@
     </mat-dialog-content>
     </ng-template>
   </div>
-    <!-- <div class="dialog">
-    <ng-template #dialogTemplate>
-      <mat-dialog-content>
-        <div class="container">
-            <input class="input-field" matInput placeholder="Enter list name" [(ngModel)]="input" />        
-          <div class="button-container">
-            <button mat-raised-button color="primary" (click)="createList()" [disabled]="isDisabled"   [ngClass]="{ 'active-button': isActive, 'inactive-button': isDeactive}" class="btn">Create</button>
-            <button mat-raised-button color="accent" class="btn">Cancel</button>
-          </div>
-        </div>
-        
-      </mat-dialog-content>
-    </ng-template>
-  </div> -->
+  <ul>
+    <li *ngFor="let item of items">{{ item }}</li>
+  </ul>

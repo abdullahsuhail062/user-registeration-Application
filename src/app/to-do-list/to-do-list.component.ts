@@ -1,4 +1,4 @@
-import { NgClass } from '@angular/common';
+import { NgClass, NgFor } from '@angular/common';
 import { Component, Inject, inject, TemplateRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatDialog, MatDialogContent } from '@angular/material/dialog';
@@ -10,7 +10,7 @@ import { MatFormField } from '@angular/material/form-field';
 @Component({
   selector: 'app-to-do-list',
   standalone: true,
-  imports: [MatToolbarModule, MatDialogContent,FormsModule,NgClass],
+  imports: [MatToolbarModule, MatDialogContent,FormsModule,NgClass,NgFor],
   templateUrl: './to-do-list.component.html',
   styleUrl: './to-do-list.component.scss'
 })
@@ -19,6 +19,7 @@ isDisabled: boolean = true
 dialogInput: string = ''
 isDeactive: boolean = true
 isActive: boolean = false
+items: string[] =[]
 dialogRef: any
   constructor(private dialog: MatDialog ){}
 
@@ -41,6 +42,8 @@ dialogRef: any
   onCreateList(){
     this.dialogInput = ''
     this.dialogRef.close()
+     this.items = []
+     
 
     
 
