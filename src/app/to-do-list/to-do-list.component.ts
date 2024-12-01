@@ -41,6 +41,7 @@ dialogRef: any
 
   onCreateList(){
      this.items.push(this.dialogInput)
+     alert(this.dialogInput)
      this.dialogRef.close()
      this.dialogInput = ''
 
