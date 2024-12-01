@@ -75,16 +75,32 @@ spacer {
     font-size: 16px;
     padding: 10px;
   }
+  .list-container {
+    margin-top: 64px; /* Adjust to toolbar height */
+    width: 100%; /* Full width */
+    height: calc(100vh - 64px); /* Full height minus toolbar */
+    overflow-y: auto; /* Scrollable if content exceeds height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   
+  /* Style the list */
   ul {
-    list-style-type: square;
-    padding: 10px;
+    width: 90%; /* Take 90% of the container width */
+    max-width: 800px; /* Optional max width */
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
   }
   
   li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
     font-size: 16px;
-    margin: 5px 0;
-    color: #3f51b5;
+    text-align: left;
+    width: 100%;
   }
+  
   
   
