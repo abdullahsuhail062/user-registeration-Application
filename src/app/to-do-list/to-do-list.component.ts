@@ -40,9 +40,10 @@ dialogRef: any
   }
 
   onCreateList(){
-    this.dialogInput = ''
-    this.dialogRef.close()
      this.items.push(this.dialogInput)
+     this.dialogRef.close()
+     this.dialogInput = ''
+
      
 
 
