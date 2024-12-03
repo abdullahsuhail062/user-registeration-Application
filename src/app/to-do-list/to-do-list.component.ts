@@ -41,8 +41,8 @@ dialogRef: any
   }
 
   onCreateList(){
-    this.apiService.addTask(this.items.push(this.dialogInput)).subscribe({next: (response)=>{this.items.push(response.description)}})
-  
+    this.apiService.addTask(this.items.push(this.dialogInput)).subscribe({next: (response)=>{this.items.push(response.description),console.log(response.description);
+    }})
      this.dialogRef.close()
      this.dialogInput = ''
 
