@@ -5,6 +5,7 @@ import { MatDialog, MatDialogContent } from '@angular/material/dialog';
 import { MatFormField } from '@angular/material/form-field';
  import{MatToolbarModule} from '@angular/material/toolbar'
  import { MatDialogModule, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { ApiServiceService } from '../api-service.service';
  
 
 @Component({
@@ -21,7 +22,7 @@ isDeactive: boolean = true
 isActive: boolean = false
 items: string[] =[]
 dialogRef: any
-  constructor(private dialog: MatDialog ){}
+  constructor(private dialog: MatDialog, private apiService: ApiServiceService ){}
 
   openDialog(templateRef: TemplateRef<any>): void{
      this.dialogRef = this.dialog.open(templateRef,{position:{top:'4%', left: '11%'},height: '200px'})
@@ -40,8 +41,8 @@ dialogRef: any
   }
 
   onCreateList(){
-     this.items.push(this.dialogInput)
-     alert(this.dialogInput)
+    this.apiService.addTask(this.items.push(this.dialogInput)).subscribe({next: (response)=>{this.items.push(response.description)}})
+  
      this.dialogRef.close()
      this.dialogInput = ''
 
