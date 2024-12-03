@@ -76,9 +76,8 @@ spacer {
     padding: 10px;
   }
   .list-container {
-    margin-top: 140px; /* Adjust to toolbar height */
+    margin-top: 60px; /* Adjust to toolbar height */
     width: 100%; /* Full width */
-    height: calc(100vh - 64px); /* Full height minus toolbar */
     overflow-y: auto; /* Scrollable if content exceeds height */
     display: flex;
     flex-direction: column;
