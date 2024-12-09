@@ -48,7 +48,7 @@ export class LoginComponent {
    
     this.passwordsMisMatchValidator()
     if (this.loginForm.valid) {
-    this.apiService.loginUser(formData).subscribe({next: (data) => {this.toggleSpinner()
+    this.apiService.loginUser(formData).subscribe({next: (data) => {this.toggleSpinner(),
 
     localStorage.setItem('authToken', data.token),this.router.navigate(['/dashboard']);
       const token = data.token; // Assume this is the JWT token from backend
@@ -115,11 +115,10 @@ export class LoginComponent {
        togglePasswordVisibility(): boolean{
       return this.hide= !this.hide
       }
-      toggleSpinner()  {
-        if (this.generalError.length===0) {
-           this.isLoading = true
+      toggleSpinner(): boolean  {
+          return this.isLoading = true
           
-        }
+        
       }
 
     
