@@ -48,7 +48,7 @@ export class LoginComponent {
    
     this.passwordsMisMatchValidator()
     if (this.loginForm.valid) {
-      this.toggleSpinner()
+      //this.toggleSpinner()
     this.apiService.loginUser(formData).subscribe({next: (data) => {
     localStorage.setItem('authToken', data.token),this.router.navigate(['/dashboard']);
       const token = data.token; // Assume this is the JWT token from backend
