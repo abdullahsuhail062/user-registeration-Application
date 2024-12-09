@@ -114,8 +114,13 @@ export class LoginComponent {
       return this.hide= !this.hide
       }
       toggleSpinner(): boolean  {
-          return this.isLoading = true
-          
+
+    if (this.isLoading===false) {
+      return this.isLoading = true
+
+      
+    }  
+    return true        
         
       }
 
