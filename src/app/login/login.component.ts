@@ -29,7 +29,7 @@ export class LoginComponent {
   emailError: any
   passwordError: any
   mismatchPasswordsError: any
-  generalError: any
+  generalError: string = ''
   isLoading: boolean = false
 
   constructor(private router: Router,private apiService: ApiServiceService, private http: HttpClient){
@@ -48,7 +48,7 @@ export class LoginComponent {
    
     this.passwordsMisMatchValidator()
     if (this.loginForm.valid) {
-      //this.toggleSpinner()
+      this.toggleSpinner()
     this.apiService.loginUser(formData).subscribe({next: (data) => {
     localStorage.setItem('authToken', data.token),this.router.navigate(['/dashboard']);
       const token = data.token; // Assume this is the JWT token from backend
@@ -115,8 +115,11 @@ export class LoginComponent {
        togglePasswordVisibility(): boolean{
       return this.hide= !this.hide
       }
-      toggleSpinner(): boolean {
-       return this.isLoading = true
+      toggleSpinner()  {
+        if (this.generalError.length===0) {
+           this.isLoading = true
+          
+        }
       }
 
     

@@ -1,7 +1,7 @@
 <mat-error *ngIf="generalError" class="alert-danger">
     {{generalError}}
   </mat-error>
-  <div *ngIf="!generalError" class="spinner">
+  <div *ngIf="isLoading" class="spinner">
     <p>logging in...</p>
     <mat-spinner></mat-spinner>
   </div>
