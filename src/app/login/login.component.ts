@@ -48,12 +48,13 @@ export class LoginComponent {
    
     this.passwordsMisMatchValidator()
     if (this.loginForm.valid) {
+      this.toggleSpinner();
     this.apiService.loginUser(formData).subscribe({next: (data) => {localStorage.setItem('authToken', data.token);
       const token = data.token; // Assume this is the JWT token from backend
       const expiresAt = Date.now() + 3600 * 1000; // Set expiration time to 1 hour from now
       localStorage.setItem('authToken', token);
       localStorage.setItem('expiresAt', expiresAt.toString());
-      ;this.toggleSpinner();this.router.navigate(['/dashboard']);
+      ;this.router.navigate(['/dashboard']);
     }, error: (error) => {
       
 
