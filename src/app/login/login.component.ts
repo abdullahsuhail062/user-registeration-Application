@@ -116,7 +116,7 @@ export class LoginComponent {
       }
       toggleSpinner(): boolean  {
         this.cdr.detectChanges(); // Manually trigger change detection
-      return this.isLoading = true
+      return this.isLoading = !this.isLoading
 
       
     
