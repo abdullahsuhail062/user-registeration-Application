@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
@@ -32,7 +32,7 @@ export class LoginComponent {
   generalError: string = ''
   isLoading: boolean = false
 
-  constructor(private router: Router,private apiService: ApiServiceService, private http: HttpClient){
+  constructor(private cdr: ChangeDetectorRef,private router: Router,private apiService: ApiServiceService, private http: HttpClient){
     this.loginForm = new FormGroup({email: new FormControl('',[Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@example\.(com|org|net)$/)]),password: new FormControl('',[Validators.required,Validators.minLength(8),
         Validators.pattern('^[a-zA-Z0-9]+$'
 )]),confirmPassword: new FormControl('',[Validators.required,Validators.minLength(8)])}) 
@@ -115,7 +115,7 @@ export class LoginComponent {
       return this.hide= !this.hide
       }
       toggleSpinner(): boolean  {
-        console.log('funtion is being called');
+        this.cdr.detectChanges(); // Manually trigger change detection
       return this.isLoading = true
 
       
