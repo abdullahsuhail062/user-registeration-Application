@@ -48,7 +48,8 @@ export class LoginComponent {
    
     this.passwordsMisMatchValidator()
     if (this.loginForm.valid) {
-      this.apiService.loginUser(formData).subscribe({next: (data) => {this.toggleSpinner();localStorage.setItem('authToken', data.token);
+      this.toggleSpinner()
+      this.apiService.loginUser(formData).subscribe({next: (data) => {localStorage.setItem('authToken', data.token);
       const token = data.token; // Assume this is the JWT token from backend
       const expiresAt = Date.now() + 3600 * 1000; // Set expiration time to 1 hour from now
       localStorage.setItem('authToken', token);
@@ -114,14 +115,12 @@ export class LoginComponent {
        togglePasswordVisibility(): boolean{
       return this.hide= !this.hide
       }
-      toggleSpinner(): boolean  {
-        this.cdr.detectChanges(); // Manually trigger change detection
-      return this.isLoading = !this.isLoading
+      toggleSpinner(){
+      if (this.generalError.length===0) {
+       this.isLoading = true
+      }else{this.isLoading = false}
 
-      
-    
-        
-      }
+    }
 
     
     
