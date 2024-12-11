@@ -65,7 +65,7 @@ export class LoginComponent {
 
       
         if (error.status===500) {
-          this.toggleSpinner
+          this.isLoading = false
           this.generalErrorFn(error.error)
           
           
@@ -120,9 +120,7 @@ export class LoginComponent {
       toggleSpinner(){
       if (this.generalError.length===0) {
        this.isLoading = true
-      }else{this.isLoading = false}
-
-    
+      }    
     
 
     }
