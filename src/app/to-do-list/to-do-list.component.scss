@@ -85,13 +85,7 @@ spacer {
     padding: 10px;
   }
  /* Define the toolbar at the top */
-mat-toolbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-}
+
 
 /* Content area starts below the toolbar */
 .content {
