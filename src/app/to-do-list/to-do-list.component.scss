@@ -22,6 +22,8 @@ spacer {
     display: flex; /* Flex for alignment */
     align-items: center;
     gap: 6px; /* Slightly smaller gap between icon and text */
+    cursor: pointer;
+
   }
   
   .create-list-btn:hover {
@@ -63,6 +65,7 @@ spacer {
   }
 
   .active-button {
+    cursor: pointer;
     background-color: green;
     color: white;
   }

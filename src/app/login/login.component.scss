@@ -23,6 +23,7 @@ form {
     border-radius: 18px;
     font-size: 16px;
     font: bolder;
+    cursor: pointer;
   }
 
   .alert-danger {
@@ -35,13 +36,15 @@ form {
   }
 
   .signup-link {
-    position: absolute;    
+    position: absolute;
+    cursor: pointer;    
     margin-top: 35%;
     font-size: 14px;
     text-align: center;
   }
   
   .signup-link a {
+    cursor: pointer;
     color: #007bff;
     text-decoration: none;
   }
