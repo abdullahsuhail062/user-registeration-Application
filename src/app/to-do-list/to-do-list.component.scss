@@ -95,7 +95,7 @@ spacer {
   margin-top: 74px;
   /* Adjust this to match the height of the toolbar */
   width: 100%;
-  z-index: auto;
+  z-index: 1000;
   box-sizing: border-box;
   overflow: auto;
   position: absolute;
