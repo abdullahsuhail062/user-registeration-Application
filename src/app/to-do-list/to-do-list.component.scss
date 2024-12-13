@@ -2,7 +2,7 @@ spacer {
     flex: 1 1 auto;
   }
   .mat-toolbar {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
@@ -93,7 +93,7 @@ spacer {
   padding: 16px; /* Optional padding for the list */
   width: 100%;
   box-sizing: border-box;
-  position: relative;
+  position:absolute;
 }
 
 /* List styling (optional customization) */
