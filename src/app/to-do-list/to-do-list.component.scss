@@ -10,6 +10,27 @@ spacer {
     
   }
 
+  .content {
+    margin-top: 64px; /* Same as toolbar height to avoid overlap */
+    padding: 10px;
+    display: flex;
+   width: 100%;
+    flex-direction: column; /* Stack list items vertically */
+    overflow-y: auto; /* Allow scrolling if items overflow */
+  }
+  
+  /* Styling for the list */
+  mat-list {
+    width: 100%;
+  }
+  
+  mat-list-item {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
 
 
   .create-list-btn {
@@ -86,25 +107,7 @@ spacer {
 
 
 /* Content area starts below the toolbar */
-.content {
-  margin-top: 64px; /* Same as toolbar height to avoid overlap */
-  padding: 10px;
-  display: flex;
-  flex-direction: column; /* Stack list items vertically */
-  overflow-y: auto; /* Allow scrolling if items overflow */
-}
 
-/* Styling for the list */
-mat-list {
-  width: 100%;
-}
-
-mat-list-item {
-  background-color: #f0f0f0;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
 
   
   
