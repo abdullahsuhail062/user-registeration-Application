@@ -3,8 +3,7 @@ spacer {
   }
   .mat-toolbar {
     width: 100%;
-    z-index: 1000;
-    position:fixed;
+    position:absolute;
     background-color: rgb(83, 226, 43);
     color: white;
     
@@ -87,7 +86,6 @@ spacer {
 
 /* Content area starts below the toolbar */
 .content {
-  display: flex;
   margin-top: 10%;
   /* Adjust this to match the height of the toolbar */
   width: 100%;
