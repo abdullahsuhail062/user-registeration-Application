@@ -4,6 +4,7 @@ spacer {
   .mat-toolbar {
     width: 100%;
     position:fixed;
+    z-index: 1000;
     background-color: rgb(83, 226, 43);
     color: white;
     
@@ -86,21 +87,25 @@ spacer {
 
 /* Content area starts below the toolbar */
 .content {
-  margin-top: 10%;
-  /* Adjust this to match the height of the toolbar */
-  width: 100%;
-  box-sizing: border-box;
-  overflow: auto;
-  position: fixed;
+  margin-top: 64px; /* Same as toolbar height to avoid overlap */
+  padding: 10px;
+  display: flex;
+  flex-direction: column; /* Stack list items vertically */
+  gap: 10px; /* Space between items */
+  overflow-y: auto; /* Allow scrolling if items overflow */
+  height: calc(100vh - 64px); /* Adjust height for content */
 }
 
-/* List styling (optional customization) */
+/* Styling for the list */
 mat-list {
   width: 100%;
 }
 
 mat-list-item {
-  border-bottom: 1px solid #ccc; /* Optional: separator between items */
+  background-color: #f0f0f0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
   
