@@ -22,7 +22,6 @@ spacer {
     width: 100%;
     position: relative; /* Keep the content relative to the page */
     overflow-y: auto; /* Allow scrolling if items overflow */
-    height: calc(100vh - 64px); /* Ensure content takes remaining screen height */
   }
   
   
