@@ -87,7 +87,8 @@ spacer {
 
 /* Content area starts below the toolbar */
 .content {
-  top: 100px;
+  display: flex;
+  top: 10%;
   /* Adjust this to match the height of the toolbar */
   width: 100%;
   box-sizing: border-box;
