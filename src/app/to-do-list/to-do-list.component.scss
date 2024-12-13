@@ -2,6 +2,8 @@ spacer {
     flex: 1 1 auto;
   }
   .mat-toolbar {
+    position:fixed;
+    z-index: 1000;
     top: 0;
     left: 0;
     width: 100%;
@@ -91,6 +93,7 @@ spacer {
   margin-top: 100px; /* Adjust this to match the height of the toolbar */
   padding: 16px; /* Optional padding for the list */
   width: 100%;
+  position:fixed;
   box-sizing: border-box;
 }
 
