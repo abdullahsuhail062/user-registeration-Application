@@ -5,7 +5,7 @@ spacer {
     display: flex;
     width: 100%;
     position: fixed;  /* Fixed at the top */
-    position:absolute;
+    position:relative;
     top: 0;           /* Stick to the top of the screen */
     left: 0;
     z-index: 1000;
@@ -21,7 +21,7 @@ spacer {
     display: flex;
     flex-direction: column; /* Stack list items vertically */
     width: 100%;
-    position: relative; /* Keep the content relative to the page */
+    position: absolute; /* Keep the content relative to the page */
     overflow-y: auto; /* Allow scrolling if items overflow */
   }
   
