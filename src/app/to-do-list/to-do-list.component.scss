@@ -2,7 +2,7 @@ spacer {
     flex: 1 1 auto;
   }
   .mat-toolbar {
-    position: relative;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -90,12 +90,10 @@ spacer {
 /* Content area starts below the toolbar */
 .content {
   display: flex;
-  margin-top: 84px; /* Adjust this to match the height of the toolbar */
+  margin-top: 100px; /* Adjust this to match the height of the toolbar */
   padding: 16px; /* Optional padding for the list */
   width: 100%;
   box-sizing: border-box;
-  position: absolute;
-  z-index: 1000;
 }
 
 /* List styling (optional customization) */
