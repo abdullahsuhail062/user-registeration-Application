@@ -4,7 +4,7 @@ spacer {
   .mat-toolbar {
     display: flex;
     width: 100%;
-    position:relative;
+    position:absolute;
     z-index: 1000;
     background-color: rgb(83, 226, 43);
     color: white;
@@ -15,7 +15,7 @@ spacer {
     margin-top: 64px; /* Same as toolbar height to avoid overlap */
     padding: 10px;
     display: flex;
-    position:absolute;
+    position:relative;
    width: 100%;
     flex-direction: column; /* Stack list items vertically */
     overflow-y: auto; /* Allow scrolling if items overflow */
