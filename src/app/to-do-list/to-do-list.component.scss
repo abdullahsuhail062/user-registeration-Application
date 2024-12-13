@@ -2,6 +2,7 @@ spacer {
     flex: 1 1 auto;
   }
   .mat-toolbar {
+    display: flex;
     position:fixed;
     height: 64px;
     z-index: 1000;
@@ -90,6 +91,7 @@ spacer {
 
 /* Content area starts below the toolbar */
 .content {
+  display: flex;
   margin-top: 64px;
   /* Adjust this to match the height of the toolbar */
   width: 100%;
