@@ -91,9 +91,7 @@ spacer {
   padding: 10px;
   display: flex;
   flex-direction: column; /* Stack list items vertically */
-  gap: 10px; /* Space between items */
   overflow-y: auto; /* Allow scrolling if items overflow */
-  height: calc(100vh - 64px); /* Adjust height for content */
 }
 
 /* Styling for the list */
