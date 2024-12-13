@@ -88,7 +88,7 @@ spacer {
 /* Content area starts below the toolbar */
 .content {
   display: flex;
-  top: 10%;
+  margin-top: 10%;
   /* Adjust this to match the height of the toolbar */
   width: 100%;
   box-sizing: border-box;
@@ -104,6 +104,5 @@ mat-list-item {
   border-bottom: 1px solid #ccc; /* Optional: separator between items */
 }
 
-  
   
   
