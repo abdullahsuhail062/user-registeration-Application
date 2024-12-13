@@ -2,6 +2,11 @@ spacer {
     flex: 1 1 auto;
   }
   .mat-toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
     background-color: rgb(83, 226, 43);
     color: white;
     
@@ -79,32 +84,32 @@ spacer {
     font-size: 16px;
     padding: 10px;
   }
-  .list-container {
-    margin-top: 60px; /* Adjust to toolbar height */
-    width: 100%; /* Full width */
-    overflow-y: auto; /* Scrollable if content exceeds height */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  /* Style the list */
-  ul {
-    width: 90%; /* Take 90% of the container width */
-    max-width: 800px; /* Optional max width */
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-  }
-  
-  li {
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-    font-size: 16px;
-    text-align: left;
-    width: 100%;
-  }
-  
+ /* Define the toolbar at the top */
+mat-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Content area starts below the toolbar */
+.content {
+  margin-top: 64px; /* Adjust this to match the height of the toolbar */
+  padding: 16px; /* Optional padding for the list */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* List styling (optional customization) */
+mat-list {
+  width: 100%;
+}
+
+mat-list-item {
+  border-bottom: 1px solid #ccc; /* Optional: separator between items */
+}
+
   
   
   
