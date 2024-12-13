@@ -4,22 +4,27 @@ spacer {
   .mat-toolbar {
     display: flex;
     width: 100%;
-    position:absolute;
+    position: fixed;  /* Fixed at the top */
+    top: 0;           /* Stick to the top of the screen */
+    left: 0;
     z-index: 1000;
     background-color: rgb(83, 226, 43);
     color: white;
-    
+    height: 64px;      /* Height of the toolbar */
+    padding: 0 10px;   /* Padding for the toolbar */
   }
-
+  
   .content {
     margin-top: 64px; /* Same as toolbar height to avoid overlap */
     padding: 10px;
     display: flex;
-    position:relative;
-   width: 100%;
     flex-direction: column; /* Stack list items vertically */
+    width: 100%;
+    position: relative; /* Keep the content relative to the page */
     overflow-y: auto; /* Allow scrolling if items overflow */
+    height: calc(100vh - 64px); /* Ensure content takes remaining screen height */
   }
+  
   
   /* Styling for the list */
   mat-list {
