@@ -2,12 +2,6 @@ spacer {
     flex: 1 1 auto;
   }
   .mat-toolbar {
-    display: flex;
-    position:relative;
-    height: 64px;
-    z-index: 1000;
-    top: 0;
-    left: 0;
     width: 100%;
     background-color: rgb(83, 226, 43);
     color: white;
@@ -91,14 +85,11 @@ spacer {
 
 /* Content area starts below the toolbar */
 .content {
-  display: flex;
   margin-top: 74px;
   /* Adjust this to match the height of the toolbar */
   width: 100%;
-  z-index: 1000;
   box-sizing: border-box;
   overflow: auto;
-  position: absolute;
 }
 
 /* List styling (optional customization) */
