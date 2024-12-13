@@ -3,6 +3,7 @@ spacer {
   }
   .mat-toolbar {
     position:fixed;
+    height: 64px;
     z-index: 1000;
     top: 0;
     left: 0;
@@ -89,8 +90,8 @@ spacer {
 
 /* Content area starts below the toolbar */
 .content {
-  margin-top: 1009px; /* Adjust this to match the height of the toolbar */
-  padding: 16px; /* Optional padding for the list */
+  margin-top: 64px;
+  /* Adjust this to match the height of the toolbar */
   width: 100%;
   box-sizing: border-box;
 }
