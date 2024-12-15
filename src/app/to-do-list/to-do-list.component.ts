@@ -50,8 +50,8 @@ dialogRef: any
      }
 
      getDateTime(){
-      const date = Date()
-     const getDate = date.toString()
+      const date = new Date()
+     const getDate = date.toLocaleDateString()
      }
 
 
