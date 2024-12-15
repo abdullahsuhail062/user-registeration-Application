@@ -49,10 +49,10 @@ dialogRef: any
 
      }
 
-     getDateTime(){
+     getDateTime(): string{
       const date = new Date()
      const getDate = date.toLocaleDateString()
-     console.log(getDate);
+     return getDate
      
      }
 
