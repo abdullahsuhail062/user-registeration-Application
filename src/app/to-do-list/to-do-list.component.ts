@@ -41,7 +41,7 @@ dialogRef: any
   }
 
   onCreateList(){
-    this.apiService.addTask(this.dialogInput).subscribe({next: (response)=>{this.items.push(response.description +'/n' + this.getDateTime());
+    this.apiService.addTask(this.dialogInput).subscribe({next: (response)=>{this.items.push(response.description +'\n'+  this.getDateTime());
     },error: (error)=>{console.log(error);
     }})
      this.dialogRef.close()
@@ -52,6 +52,8 @@ dialogRef: any
      getDateTime(){
       const date = new Date()
      const getDate = date.toLocaleDateString()
+     console.log(this.getDateTime);
+     
      }
 
 
