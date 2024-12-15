@@ -1,8 +1,15 @@
 spacer {
     flex: 1 1 auto;
   }
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Full viewport height */
+  }
   .mat-toolbar {
     width: 100%;
+    flex-shrink: 0; /* Prevent the toolbar from shrinking */
+    display: flex;
     position: fixed;  /* Fixed at the top */
     top: 0;           /* Stick to the top of the screen */
     left: 0;
@@ -16,6 +23,7 @@ spacer {
   .content {
     margin-top: 64px; /* Same as toolbar height to avoid overlap */
     padding: 10px;
+    flex-grow: 1;
     display: flex;
     flex-direction: column; /* Stack list items vertically */
     width: 100%;

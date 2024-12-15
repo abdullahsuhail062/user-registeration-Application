@@ -1,15 +1,44 @@
-<mat-toolbar color="primary">
-    <span>ToDoList section</span>
-    <span class="spacer"></span>
-    <mat-toolbar color="primary">
-              <span class="spacer"></span>  
-              <button mat-raised-button class="create-list-btn" (click)="openDialog(dialogTemplate)">
-                <span class="icon">➕</span>
-                Create new List
-              </button>
-              
-    </mat-toolbar>
-<div class="dialog">
+<!-- <div class="container">
+  <mat-toolbar color="primary">
+      <span>ToDoList section</span>
+      <span class="spacer"></span>
+      <mat-toolbar color="primary">
+                <span class="spacer"></span>  
+                <button mat-raised-button class="create-list-btn" (click)="openDialog(dialogTemplate)">
+                  <span class="icon">➕</span>
+                  Create new List
+                </button>
+                
+      </mat-toolbar>
+     
+    <div class="content">
+      <mat-list>
+        <mat-list-item *ngFor="let item of items">{{ item }}</mat-list-item>
+      </mat-list>
+    </div>
+    </div> -->
+
+    <div class="container">
+      <mat-toolbar color="primary">
+        <span>ToDoList section</span>
+        <span class="spacer"></span>
+        <button mat-raised-button class="create-list-btn" (click)="openDialog(dialogTemplate)">
+          <span class="icon">➕</span>
+          Create new List
+        </button>
+      </mat-toolbar>
+    
+      <div class="content">
+        <mat-list>
+          <mat-list-item *ngFor="let item of items">{{ item }}</mat-list-item>
+        </mat-list>
+      </div>
+    </div>
+    
+  
+
+
+  <div class="dialog">
     <ng-template #dialogTemplate>
       <h2 mat-dialog-title>Create List</h2>
       <mat-dialog-content>
@@ -26,11 +55,6 @@
          
       </div>
       </div>
-    </mat-dialog-content>
-    </ng-template>
-  </div>
-  <div class="content">
-    <mat-list>
-      <mat-list-item *ngFor="let item of items">{{ item }}</mat-list-item>
-    </mat-list>
-  </div>
+  </mat-dialog-content>
+  </ng-template>
+</div>
