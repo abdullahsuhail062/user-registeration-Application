@@ -28,7 +28,7 @@ dialogRef: any
      this.dialogRef = this.dialog.open(templateRef,{position:{top:'4%', left: '11%'},height: '200px'})
   }
 
-  getInput(dialogInput:any){
+  createTaskTittle(dialogInput:any){
     this.dialogInput =dialogInput
     if (dialogInput.trim().length>0) {
       this.isDisabled = false
@@ -38,6 +38,17 @@ dialogRef: any
         this.isActive = false
   }
     
+  }
+
+  createTaskDescription(dialogInput:any){
+    this.dialogInput =dialogInput
+    if (dialogInput.trim().length>0) {
+      this.isDisabled = false
+      this.isActive = true
+
+  }else {this.isDeactive =true
+        this.isActive = false
+  }
   }
 
   onCreateList(){
