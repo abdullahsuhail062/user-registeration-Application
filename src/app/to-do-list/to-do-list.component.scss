@@ -82,6 +82,7 @@ spacer {
     flex-direction: column;   /* Stack elements vertically */
     align-items: center;  
     justify-content: center;
+    overflow: hidden;
   }
   
   .input-field {
