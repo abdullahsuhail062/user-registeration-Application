@@ -44,17 +44,16 @@
       <mat-dialog-content>
         <div class="container">
           <input class="input-field" matInput [(ngModel)]="dialogInput" (input)="createTaskTittle(dialogInput)" />
+          <button mat-raised-button class="btn"
+          color="primary"
+          [disabled]="isDisabled" 
+          (click)="onCreateList()" [ngClass]="{ 'active-button': isActive}">
+          Create
+        </button>
           <input class="input-field" matInput [(ngModel)]="dialogInput" (input)="createTaskDescription(dialogInput)" />
-       <div class="button-container"><button mat-raised-button class="btn"
-        color="primary"
-        [disabled]="isDisabled" 
-        (click)="onCreateList()" [ngClass]="{ 'active-button': isActive}">
-        Create
-      </button>
           <button mat-button class="btn" mat-dialog-close>Cancel</button>
         
          
-      </div>
       </div>
   </mat-dialog-content>
   </ng-template>
