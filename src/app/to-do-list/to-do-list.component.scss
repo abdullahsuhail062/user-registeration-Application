@@ -80,7 +80,8 @@ spacer {
     height: 100%;
     display: flex;            /* Enable Flexbox */
     flex-direction: column;   /* Stack elements vertically */
-    align-items: center;      /* Center elements horizontally */
+    align-items: center;  
+    justify-content: center;
     gap: 12px;                /* Add spacing between elements */
   }
   
