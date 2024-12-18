@@ -52,13 +52,22 @@ dialogRef: any
   }
 
   onCreateList(){
-    this.apiService.addTask(this.dialogInput).subscribe({next: (response)=>{this.items.push(response.description +'\n'+  this.getDateTime());
+    this.apiService.addTask(this.dialogInput).subscribe({next: (response)=>{this.items.push(response.tittle +/\n/+  this.getDateTime());
     },error: (error)=>{console.log(error);
     }})
      this.dialogRef.close()
      this.dialogInput = ''
 
      }
+
+     onCreateTaskDescription(){
+      this.apiService.addTask(this.dialogInput).subscribe({next: (response)=>{this.items.push(response.description +/\n/+  this.getDateTime());
+      },error: (error)=>{console.log(error);
+      }})
+       this.dialogRef.close()
+       this.dialogInput = ''
+  
+       }
 
      getDateTime(): string{
       const date = new Date()

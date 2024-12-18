@@ -77,12 +77,13 @@ spacer {
   }
 
   .container {
-    height: 200px;
+    height: 250px;
     display: flex;            /* Enable Flexbox */
     flex-direction: column;   /* Stack elements vertically */
     align-items: center;  
     justify-content: center;
     overflow: hidden;
+    gap: 10px;
   }
   
   .input-field {
