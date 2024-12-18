@@ -29,9 +29,10 @@ dialogRef: any
      this.dialogRef = this.dialog.open(templateRef,{position:{top:'4%', left: '11%'},height: '200px'})
   }
 
-  createTaskTittle(dialogInput:any){
-    this.taskTitleInput =dialogInput
-    if (dialogInput.trim().length>0) {
+  createTaskTittle(taskTitleInput:any,taskDescriptionInput:any){
+    this.taskTitleInput =taskTitleInput
+    this.taskTitleInput =taskDescriptionInput
+    if (taskTitleInput.trim().length>0 &&taskDescriptionInput.trim().length>0 ) {
       this.isDisabled = false
       this.isActive = true
 
@@ -41,9 +42,10 @@ dialogRef: any
     
   }
 
-  createTaskDescription(dialogInput:any){
-    this.taskDescriptionInput =dialogInput
-    if (dialogInput.trim().length>0) {
+  createTaskDescription(taskDescriptionInput:any,taskTitleInput:any){
+    this.taskDescriptionInput =taskDescriptionInput
+    this.taskTitleInput =taskTitleInput
+    if (taskDescriptionInput.trim().length>0 && taskTitleInput.trim().length>0) {
       this.isDisabled = false
       this.isActive = true
 
@@ -61,14 +63,14 @@ dialogRef: any
 
      }
 
-     onCreateTaskDescription(){
-      this.apiService.addTask(this.taskDescriptionInput).subscribe({next: (response)=>{this.items.push(response.description +/\n/+  this.getDateTime());
-      },error: (error)=>{console.log(error);
-      }})
-       this.dialogRef.close()
-       this.taskDescriptionInput = ''
+    //  onCreateTaskDescription(){
+    //   this.apiService.addTask(this.taskDescriptionInput).subscribe({next: (response)=>{this.items.push(response.description +/\n/+  this.getDateTime());
+    //   },error: (error)=>{console.log(error);
+    //   }})
+    //    this.dialogRef.close()
+    //    this.taskDescriptionInput = ''
   
-       }
+    //    }
 
      getDateTime(): string{
       const date = new Date()
