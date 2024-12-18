@@ -22,14 +22,14 @@
     <ng-template #dialogTemplate>
       <h2 mat-dialog-title>Create List</h2>
       <mat-dialog-content class="container">
-          <input class="input-field" matInput [(ngModel)]="dialogInput" (input)="createTaskTittle(dialogInput)" />
+          <input class="input-field" matInput [(ngModel)]="taskTitleInput" (input)="createTaskTittle(taskTitleInput)" />
           <button mat-raised-button class="btn"
           color="primary"
           [disabled]="isDisabled" 
           (click)="onCreateList()" [ngClass]="{ 'active-button': isActive}">
           Create 
         </button>
-          <input class="input-field" matInput [(ngModel)]="dialogInput" (input)="createTaskDescription(dialogInput)" />
+          <input class="input-field" matInput [(ngModel)]="taskDescriptionInput" (input)="createTaskDescription(taskDescriptionInput)" />
           <button mat-button class="btn" (click)="onCreateTaskDescription()">Create</button>
         
          

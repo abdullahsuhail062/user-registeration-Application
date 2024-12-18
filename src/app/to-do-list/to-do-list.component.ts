@@ -17,7 +17,8 @@ import { MatList, MatListItem, MatListModule } from '@angular/material/list';
 })
 export class ToDoListComponent {
 isDisabled: boolean = true 
-dialogInput: string = ''
+taskTitleInput: string = ''
+taskDescriptionInput: string = ''
 isDeactive: boolean = true
 isActive: boolean = false
 items: string[] =[]
@@ -29,7 +30,7 @@ dialogRef: any
   }
 
   createTaskTittle(dialogInput:any){
-    this.dialogInput =dialogInput
+    this.taskTitleInput =dialogInput
     if (dialogInput.trim().length>0) {
       this.isDisabled = false
       this.isActive = true
@@ -41,7 +42,7 @@ dialogRef: any
   }
 
   createTaskDescription(dialogInput:any){
-    this.dialogInput =dialogInput
+    this.taskDescriptionInput =dialogInput
     if (dialogInput.trim().length>0) {
       this.isDisabled = false
       this.isActive = true
@@ -52,20 +53,20 @@ dialogRef: any
   }
 
   onCreateList(){
-    this.apiService.addTask(this.dialogInput).subscribe({next: (response)=>{this.items.push(response.tittle +/\n/+  this.getDateTime());
+    this.apiService.addTask(this.taskTitleInput).subscribe({next: (response)=>{this.items.push(response.tittle +/\n/+  this.getDateTime());
     },error: (error)=>{console.log(error);
     }})
      this.dialogRef.close()
-     this.dialogInput = ''
+     this.taskTitleInput = ''
 
      }
 
      onCreateTaskDescription(){
-      this.apiService.addTask(this.dialogInput).subscribe({next: (response)=>{this.items.push(response.description +/\n/+  this.getDateTime());
+      this.apiService.addTask(this.taskDescriptionInput).subscribe({next: (response)=>{this.items.push(response.description +/\n/+  this.getDateTime());
       },error: (error)=>{console.log(error);
       }})
        this.dialogRef.close()
-       this.dialogInput = ''
+       this.taskDescriptionInput = ''
   
        }
 
