@@ -21,6 +21,7 @@ spacer {
   
   .content {
     flex-grow: 1;
+    padding-top: 64px; /* Matches the toolbar's height */
     display: flex;
     flex-direction: column; /* Stack list items vertically */
     width: 100%;
