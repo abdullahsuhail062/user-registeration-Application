@@ -11,7 +11,7 @@ import { MatList, MatListItem, MatListModule } from '@angular/material/list';
 @Component({
   selector: 'app-to-do-list',
   standalone: true,
-  imports: [MatToolbarModule, MatDialogContent,FormsModule,NgClass,NgFor,MatListItem,MatList],
+  imports: [MatToolbarModule, MatDialogContent,FormsModule,NgClass,NgFor,MatListItem,MatList,MatFormField],
   templateUrl: './to-do-list.component.html',
   styleUrl: './to-do-list.component.scss'
 })
