@@ -56,12 +56,12 @@ listItem:any
   }
 
   onCreateList(){
-    this.apiService.addTask(this.taskTitleInput,this.createTaskDescription).subscribe({next: (response)=>{
+    this.apiService.addTask(this.taskTitleInput,this.taskDescriptionInput).subscribe({next: (response)=>{
       this.listItem.textContent = `${response.tittle}\n${response.description}`.replace(/\n/g, "\n");
-      this.items.push();
+      this.items.push(this.listItem);
     },error: (error)=>{console.log(error);
     }})
-     this.dialogRef.close(this.listItem)
+     this.dialogRef.close()
      this.taskTitleInput = ''
      this.taskDescriptionInput = ''
 
