@@ -35,7 +35,7 @@ export class ApiServiceService {
   }
 
   addTask(title:any,description: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/api/tasks`, { description });
+    return this.http.post(`${this.apiUrl}/api/tasks`, { description,title });
 }
 
 }
