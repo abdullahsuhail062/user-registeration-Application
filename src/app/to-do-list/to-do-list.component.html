@@ -24,15 +24,9 @@
       <mat-dialog-content class="container">
           <!-- <input class="titleField"  matInput [(ngModel)]="taskTitleInput" (input)="createTaskTittle()" placeholder="Enter task title`" />
           <input class="descriptionField" matInput [(ngModel)]="taskDescriptionInput" (input)="createTaskDescription()" placeholder="Enter task description" /> -->
-          <form class="example-form">
-            <mat-form-field class="example-full-width">
-              <input matInput [(ngModel)]="taskTitleInput" (input)="createTaskTittle()" placeholder="Enter task title...">
-            </mat-form-field>
-          
-            <mat-form-field class="example-full-width">
-              <textarea matInput [(ngModel)]="taskDescriptionInput" (input)="createTaskDescription()" placeholder="Enter task description..."></textarea>
-            </mat-form-field>
-          </form>
+              <input class="input-title" matInput [(ngModel)]="taskTitleInput" (input)="createTaskTittle()" placeholder="Enter task title..."/>
+
+              <input class="input-description" matInput [(ngModel)]="taskDescriptionInput" (input)="createTaskDescription()" placeholder="Enter task description..."/>
           
           <button mat-raised-button class="btn"
           color="primary"

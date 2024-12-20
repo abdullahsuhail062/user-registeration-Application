@@ -84,50 +84,7 @@
     gap: 10px;
   }
 
-  .form-container {
-    display: flex;
-    flex-direction: column;
-    gap: 16px; /* Space between form fields */
-    max-width: 500px; /* Maximum width for the form */
-    margin: 20px auto; /* Center the form horizontally */
-    padding: 20px;
-    background-color: #f9f9f9; /* Light background color */
-    border: 1px solid #e0e0e0; /* Subtle border */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for a card effect */
-  }
-  
-  .form-field {
-    width: 100%; /* Full width input fields */
-  }
-  
-  mat-form-field {
-    width: 100%; /* Ensure consistent width */
-  }
-  
-  textarea.mat-input-element {
-    resize: none; /* Prevent resizing of the textarea */
-    font-size: 16px; /* Adjust font size for better readability */
-  }
-  
-  .mat-label {
-    font-size: 14px; /* Adjust label font size */
-    color: #555; /* Label color */
-  }
-  
-  input.mat-input-element, textarea.mat-input-element {
-    background-color: #ffffff; /* Input field background */
-    border-radius: 4px; /* Slightly rounded input corners */
-    padding: 8px; /* Add padding inside the fields */
-  }
-  
-  input.mat-input-element::placeholder,
-  textarea.mat-input-element::placeholder {
-    color: #aaa; /* Placeholder color */
-    font-style: italic; /* Placeholder style */
-  }
-  
-  .mat-form-field {
+   .input-title {
      width: 100%;              /* Full width input */
     max-width: 400px;  
     height: 40px;
@@ -135,7 +92,7 @@
     outline: navy;
     padding-left: 5px;
   }
-  .mat-form-field {
+  .input-description {
     width: 100%;              /* Full width input */
    max-width: 400px;  
    height: 40px;
