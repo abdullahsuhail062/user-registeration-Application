@@ -30,10 +30,9 @@ listItem:any
      this.dialogRef = this.dialog.open(templateRef,{position:{top:'4%', left: '11%'},height: '200px'})
   }
 
-  createTaskTittle(taskTitleInput:any,taskDescriptionInput:any){
-    this.taskTitleInput =taskTitleInput
-    this.taskTitleInput =taskDescriptionInput
-    if (taskTitleInput.trim().length>0 &&taskDescriptionInput.trim().length>0 ) {
+  createTaskTittle(){
+    
+     if (this.taskTitleInput.trim().length>0 &&this.taskDescriptionInput.trim().length>0 ) {
       this.isDisabled = false
       this.isActive = true
 
@@ -43,10 +42,8 @@ listItem:any
     
   }
 
-  createTaskDescription(taskDescriptionInput:any,taskTitleInput:any){
-    this.taskDescriptionInput =taskDescriptionInput
-    this.taskTitleInput =taskTitleInput
-    if (taskDescriptionInput.trim().length>0 && taskTitleInput.trim().length>0) {
+  createTaskDescription(){
+    if (this.taskDescriptionInput.trim().length>0 && this.taskTitleInput.trim().length>0) {
       this.isDisabled = false
       this.isActive = true
 

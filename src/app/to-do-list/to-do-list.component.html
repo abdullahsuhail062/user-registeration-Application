@@ -22,8 +22,8 @@
     <ng-template #dialogTemplate>
       <h2 mat-dialog-title>Create List</h2>
       <mat-dialog-content class="container">
-          <input class="input-field" matInput [(ngModel)]="taskTitleInput" (input)="createTaskTittle(taskTitleInput,taskDescriptionInput)" />
-          <input class="input-field" matInput [(ngModel)]="taskDescriptionInput" (input)="createTaskDescription(taskDescriptionInput,taskTitleInput)" />
+          <input  matInput [(ngModel)]="taskTitleInput" (input)="createTaskTittle()" placeholder="Enter task title`" />
+          <input  matInput [(ngModel)]="taskDescriptionInput" (input)="createTaskDescription()" placeholder="Enter task description" />
           <button mat-raised-button class="btn"
           color="primary"
           [disabled]="isDisabled" 
