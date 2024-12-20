@@ -54,7 +54,7 @@ listItem:any
 
   onCreateList(){
     this.apiService.addTask(this.taskTitleInput,this.taskDescriptionInput).subscribe({next: (response)=>{
-      this.listItem.textContent = `${response.title}\n${response.description}`.replace(/\n/g, "\n");
+      // this.listItem.textContent = `${response.title}\n${response.description}`.replace(/\n/g, "\n");
       this.items.push(`${response.title}\n${response.description}`);
     },error: (error)=>{console.log(error);
     }})
