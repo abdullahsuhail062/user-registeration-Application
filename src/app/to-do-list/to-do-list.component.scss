@@ -57,7 +57,7 @@
   flex-direction: column; /* Stack list items vertically */
   width: 100%;
   position: relative; /* Set relative positioning to align properly */
-  margin-top: 64px; /* Offset content by the height of the toolbar */
+  margin-top: 50px; /* Offset content by the height of the toolbar */
   overflow-y: auto; /* Allow scrolling if items overflow */
   padding: 0; /* Remove any padding */
 }
