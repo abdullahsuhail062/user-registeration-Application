@@ -1,9 +1,10 @@
-// spacer {
-//     flex: 1 1 auto;
-//   }
+spacer {
+    flex: 1 1 auto;
+  }
   .container {
     display: flex;
     flex-direction: column;
+    align-items: center;    
   }
   .mat-toolbar {
     width: 100%;
