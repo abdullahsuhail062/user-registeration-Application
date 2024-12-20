@@ -84,7 +84,7 @@
     gap: 10px;
   }
   
-  input.titleField {
+  input.titleField.mat-input-element {
      width: 100%;              /* Full width input */
     max-width: 400px;  
     height: 40px;
@@ -92,7 +92,7 @@
     outline: navy;
     padding-left: 5px;
   }
-  input.descriptionField {
+  input.descriptionField.mat-input-element {
     width: 100%;              /* Full width input */
    max-width: 400px;  
    height: 40px;
