@@ -3,7 +3,6 @@ spacer {
   }
   .container {
     display: flex;
-    margin-top: 64px;
     flex-direction: column;
     height: 100vh; /* Full viewport height */
   }
@@ -22,7 +21,6 @@ spacer {
   }
   
   .content {
-    margin-top: 50px; /* Same as toolbar height to avoid overlap */
     padding: 10px;
     flex-grow: 1;
     display: flex;
