@@ -34,7 +34,7 @@ export class ApiServiceService {
     return this.http.delete(`${this.apiUrl}/api/deleteAccount`,{headers: { 'Authorization': `Bearer ${token}`}});
   }
 
-  addTask(description: any): Observable<any> {
+  addTask(title:any,description: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/api/tasks`, { description });
 }
 

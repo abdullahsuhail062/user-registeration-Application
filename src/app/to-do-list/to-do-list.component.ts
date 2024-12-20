@@ -23,6 +23,7 @@ isDeactive: boolean = true
 isActive: boolean = false
 items: string[] =[]
 dialogRef: any
+listItem:any
   constructor(private dialog: MatDialog, private apiService: ApiServiceService ){}
 
   openDialog(templateRef: TemplateRef<any>): void{
@@ -55,22 +56,18 @@ dialogRef: any
   }
 
   onCreateList(){
-    this.apiService.addTask(this.taskTitleInput).subscribe({next: (response)=>{this.items.push(response.tittle +/\n/+  this.getDateTime());
+    this.apiService.addTask(this.taskTitleInput,this.createTaskDescription).subscribe({next: (response)=>{
+      this.listItem.textContent = `${response.tittle}\n${response.description}`.replace(/\n/g, "\n");
+      this.items.push();
     },error: (error)=>{console.log(error);
     }})
-     this.dialogRef.close()
+     this.dialogRef.close(this.listItem)
      this.taskTitleInput = ''
+     this.taskDescriptionInput = ''
 
      }
 
-    //  onCreateTaskDescription(){
-    //   this.apiService.addTask(this.taskDescriptionInput).subscribe({next: (response)=>{this.items.push(response.description +/\n/+  this.getDateTime());
-    //   },error: (error)=>{console.log(error);
-    //   }})
-    //    this.dialogRef.close()
-    //    this.taskDescriptionInput = ''
-  
-    //    }
+    
 
      getDateTime(): string{
       const date = new Date()
