@@ -84,21 +84,22 @@
   }
   .input-container {
     width: 300px;
+    align-items: center;
     display: flex;
     flex-direction: column;
     gap: 10px;
   }
 
    .input-title {
-    background-color: rgb(85, 74, 74);
-     width: 100%;              /* Full width input */  
+    background-color: rgb(169, 154, 154);
+    width: 100%;              /* Full width input */  
     height: 30px;
     border-radius: 4px;
     outline: navy;
     padding-left: 5px;
   }
   .input-description {
-    background-color: rgb(85, 74, 74);
+    background-color: rgb(169, 154, 154);
     width: 100%;              /* Full width input */
    height: 30px;
    border-radius: 4px;
