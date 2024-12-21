@@ -11,7 +11,7 @@ import { MatList, MatListItem, MatListModule } from '@angular/material/list';
 @Component({
   selector: 'app-to-do-list',
   standalone: true,
-  imports: [MatToolbarModule, MatDialogContent,FormsModule,NgClass,NgFor,MatListItem,MatList,MatFormField],
+  imports: [MatToolbarModule, MatDialogContent,FormsModule,NgClass,NgFor,MatListItem,MatList,],
   templateUrl: './to-do-list.component.html',
   styleUrl: './to-do-list.component.scss'
 })
@@ -27,7 +27,7 @@ listItem:any
   constructor(private dialog: MatDialog, private apiService: ApiServiceService ){}
 
   openDialog(templateRef: TemplateRef<any>): void{
-     this.dialogRef = this.dialog.open(templateRef,{position:{top:'4%', left: '11%'},height: '200px'})
+     this.dialogRef = this.dialog.open(templateRef,{position:{top:'4%', left: '11%'},height: '250px'})
   }
 
   createTaskTittle(){
