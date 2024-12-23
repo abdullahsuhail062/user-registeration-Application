@@ -55,7 +55,7 @@ listItem:any
 
   onCreateList(){
     this.apiService.addTask(this.taskTitleInput,this.taskDescriptionInput).subscribe({next: (item)=>{
-      this.items.push({title: this.taskTitleInput, description: this.taskDescriptionInput});
+      this.items.push({title: item.title, description: item.description});
     },error: (error)=>{console.log(error);
     }})
      this.dialogRef.close()
