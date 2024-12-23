@@ -7,6 +7,7 @@ import { MatFormField } from '@angular/material/form-field';
  import { MatDialogModule, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ApiServiceService } from '../api-service.service';
 import { MatList, MatListItem, MatListModule } from '@angular/material/list';
+import { title } from 'node:process';
  
 @Component({
   selector: 'app-to-do-list',
@@ -21,7 +22,7 @@ taskTitleInput: string = ''
 taskDescriptionInput: string = ''
 isDeactive: boolean = true
 isActive: boolean = false
-items: string[] =[]
+items: { title: string; description: string }[] =[]
 dialogRef: any
 listItem:any
   constructor(private dialog: MatDialog, private apiService: ApiServiceService ){}
@@ -53,9 +54,8 @@ listItem:any
   }
 
   onCreateList(){
-    this.apiService.addTask(this.taskTitleInput,this.taskDescriptionInput).subscribe({next: (response)=>{
-      // this.listItem.textContent = `${response.title}\n${response.description}`.replace(/\n/g, "\n");
-      this.items.push(`${response.title}<br>${response.description}`);
+    this.apiService.addTask(this.taskTitleInput,this.taskDescriptionInput).subscribe({next: (item)=>{
+      this.items.push({title: this.taskTitleInput, description: this.taskDescriptionInput});
     },error: (error)=>{console.log(error);
     }})
      this.dialogRef.close()
