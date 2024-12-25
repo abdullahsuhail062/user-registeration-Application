@@ -137,6 +137,21 @@
 
 /* Content area starts below the toolbar */
 
+.edit-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title-input {
+  height: 80%;
+  width: 100%;
+}
+
+.description-input {
+  height: 80%;
+  width: 100%;
+}
 
   
   

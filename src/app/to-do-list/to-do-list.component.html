@@ -30,10 +30,12 @@
               <button mat-button color="warn" (click)="deleteItem(i)">Delete</button>
             </div>
             <div *ngIf="item.isEditing">
-                <input matInput type="text" [(ngModel)]="item.title" placeholder="Edit title" />
-                <input matInput type="text" [(ngModel)]="item.description" placeholder="Edit description" />
+              <div class="edit-container">
+                <input class="title-input" matInput type="text" [(ngModel)]="item.title" placeholder="Edit title" />
+                <input class="description-input" matInput type="text" [(ngModel)]="item.description" placeholder="Edit description" />
               <button mat-raised-button color="primary" (click)="saveItem(i)">Save</button>
               <button mat-raised-button color="warn" (click)="cancelEdit(i)">Cancel</button>
+            </div>
             </div>
           </mat-list-item>
         </mat-list>
