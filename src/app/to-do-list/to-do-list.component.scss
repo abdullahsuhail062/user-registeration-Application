@@ -139,18 +139,22 @@
 
 .edit-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Stack children vertically */
+  gap: 10px; /* Add space between elements */
+  align-items: stretch; /* Ensure elements stretch to the container width */
+  padding: 10px;
 }
 
-.title-input {
-  height: 80%;
-  width: 100%;
-}
-
+.title-input, 
 .description-input {
-  height: 80%;
-  width: 100%;
+  width: 100%; /* Full width inputs */
+  box-sizing: border-box; /* Include padding and border in width */
 }
+
+button {
+  align-self: flex-start; /* Align buttons to the start of the container */
+}
+
 
   
   
