@@ -137,22 +137,10 @@
 
 /* Content area starts below the toolbar */
 
-.edit-container {
+.edit-container{
   display: flex;
-  flex-direction: column; /* Stack children vertically */
-  gap: 10px; /* Add space between elements */
-  align-items: stretch; /* Ensure elements stretch to the container width */
-  padding: 10px;
-}
-
-.title-input, 
-.description-input {
-  width: 100%; /* Full width inputs */
-  box-sizing: border-box; /* Include padding and border in width */
-}
-
-button {
-  align-self: flex-start; /* Align buttons to the start of the container */
+  flex-direction: column;
+  align-items: center;
 }
 
 
