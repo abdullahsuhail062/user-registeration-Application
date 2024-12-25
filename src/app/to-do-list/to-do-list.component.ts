@@ -1,4 +1,4 @@
-import { NgClass, NgFor } from '@angular/common';
+import { NgClass, NgFor, NgIf } from '@angular/common';
 import { Component, Inject, inject, TemplateRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatDialog, MatDialogContent } from '@angular/material/dialog';
@@ -12,17 +12,18 @@ import { title } from 'node:process';
 @Component({
   selector: 'app-to-do-list',
   standalone: true,
-  imports: [MatToolbarModule, MatDialogContent,FormsModule,NgClass,NgFor,MatListItem,MatList,],
+  imports: [NgIf,MatToolbarModule, MatDialogContent,FormsModule,NgClass,NgFor,MatListItem,MatList,],
   templateUrl: './to-do-list.component.html',
   styleUrl: './to-do-list.component.scss'
 })
 export class ToDoListComponent {
 isDisabled: boolean = true 
+isEditing: boolean = false
 taskTitleInput: string = ''
 taskDescriptionInput: string = ''
 isDeactive: boolean = true
 isActive: boolean = false
-items: { title: string; description: string }[] =[]
+items: { title: string; description: string, isEditing: boolean }[] =[]
 dialogRef: any
 listItem:any
   constructor(private dialog: MatDialog, private apiService: ApiServiceService ){}
@@ -55,7 +56,7 @@ listItem:any
 
   onCreateList(){
     this.apiService.addTask(this.taskTitleInput,this.taskDescriptionInput).subscribe({next: (item)=>{
-      this.items.push({title: item.title, description: item.description});
+      this.items.push({title: item.title, description: item.description, isEditing: false});
     },error: (error)=>{console.log(error);
     }})
      this.dialogRef.close()
@@ -71,6 +72,26 @@ listItem:any
      const getDate = date.toLocaleDateString()
      return getDate
      
+     }
+
+     editItem(index: number) {
+      this.items[index].isEditing = true
+     }
+
+     deleteItem(index: number){
+      this.items.slice(index,1)
+
+     }
+
+     saveItem(index: number){
+      this.items[index].isEditing = false;
+
+     }
+
+     cancelEdit(index: number){
+      this.items[index].isEditing = false;
+
+
      }
 
 

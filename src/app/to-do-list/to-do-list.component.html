@@ -9,9 +9,35 @@
       </mat-toolbar>
     
       <div class="content">
+        <!-- <mat-list>
+          <mat-list-item *ngFor="let item of items" let i = index> <div *ngIf="!item.isEditing">
+            <span>{{ item.title }}</span> - <span>{{ item.description }}</span>
+            <button (click)="editItem(i)">Edit</button>
+            <button (click)="deleteItem(i)">Delete</button>
+          </div>
+          <div *ngIf="item.isEditing">
+            <input type="text" [(ngModel)]="item.title" placeholder="Edit title" />
+            <input type="text" [(ngModel)]="item.description" placeholder="Edit description" />
+            <button (click)="saveItem(i)">Save</button>
+            <button (click)="cancelEdit(i)">Cancel</button>
+          </div></mat-list-item>
+        </mat-list> -->
         <mat-list>
-          <mat-list-item *ngFor="let item of items"> <span>{{ item.title }}</span><br/><span>{{ item.description }}</span></mat-list-item>
+          <mat-list-item *ngFor="let item of items; let i = index">
+            <div *ngIf="!item.isEditing">
+              <span>{{ item.title }}</span> - <span>{{ item.description }}</span>
+              <button mat-button color="primary" (click)="editItem(i)">Edit</button>
+              <button mat-button color="warn" (click)="deleteItem(i)">Delete</button>
+            </div>
+            <div *ngIf="item.isEditing">
+                <input matInput type="text" [(ngModel)]="item.title" placeholder="Edit title" />
+                <input matInput type="text" [(ngModel)]="item.description" placeholder="Edit description" />
+              <button mat-raised-button color="primary" (click)="saveItem(i)">Save</button>
+              <button mat-raised-button color="warn" (click)="cancelEdit(i)">Cancel</button>
+            </div>
+          </mat-list-item>
         </mat-list>
+        
       </div>
     </div>
     
