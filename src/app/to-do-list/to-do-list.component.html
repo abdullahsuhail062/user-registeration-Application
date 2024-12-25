@@ -29,13 +29,13 @@
               <button mat-button color="primary" (click)="editItem(i)">Edit</button>
               <button mat-button color="warn" (click)="deleteItem(i)">Delete</button>
             </div>
-            <div *ngIf="item.isEditing">
-              <div class="edit-container">
+            <div class="edit-container" *ngIf="item.isEditing">
+              
                 <input class="title-input" matInput type="text" [(ngModel)]="item.title" placeholder="Edit title" />
                 <input class="description-input" matInput type="text" [(ngModel)]="item.description" placeholder="Edit description" />
               <button mat-raised-button color="primary" (click)="saveItem(i)">Save</button>
               <button mat-raised-button color="warn" (click)="cancelEdit(i)">Cancel</button>
-            </div>
+            
             </div>
           </mat-list-item>
         </mat-list>
