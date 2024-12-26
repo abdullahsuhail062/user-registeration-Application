@@ -144,7 +144,6 @@
 // }
 
 .title-input {
-  height: 40px;
   border:solid 1px #f50057;
   outline: #f50057;
   width: 45%;
@@ -153,10 +152,20 @@
 .description-input {
   outline: #f50057;
   border:solid 1px #f50057;
-  height: 40px;
   width: 45%;
 }
 
+.edit-btn {
+  background-color: blue;
+  width: 80px;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background-color: rgb(255, 0, 255);
+  width: 80px;
+  cursor: pointer;
+}
 
   
   
