@@ -8,6 +8,7 @@ import { MatFormField } from '@angular/material/form-field';
 import { ApiServiceService } from '../api-service.service';
 import { MatList, MatListItem, MatListModule } from '@angular/material/list';
 import { title } from 'node:process';
+import { AuthService } from '../auth.service';
  
 @Component({
   selector: 'app-to-do-list',
@@ -28,7 +29,8 @@ isActive: boolean = false
 items: { title: string; description: string, isEditing: boolean }[] =[]
 dialogRef: any
 listItem:any
-  constructor(private dialog: MatDialog, private apiService: ApiServiceService ){}
+taskId: any
+  constructor(private authService: AuthService,private dialog: MatDialog, private apiService: ApiServiceService ){}
 
   openDialog(templateRef: TemplateRef<any>): void{
      this.dialogRef = this.dialog.open(templateRef,{position:{top:'4%', left: '11%'},height: '250px'})
@@ -58,7 +60,7 @@ listItem:any
 
   onCreateList(){
     this.apiService.addTask(this.taskTitleInput,this.taskDescriptionInput).subscribe({next: (item)=>{
-      this.items.push({title: item.title, description: item.description, isEditing: false});console.log(item.id);
+      this.items.push({title: item.title, description: item.description, isEditing: false}); localStorage.setItem('taskId',item.id);
       
     },error: (error)=>{console.log(error);
     }})
@@ -89,7 +91,8 @@ listItem:any
      saveItem(index: number){
       this.items[index].isEditing = false;
       
-      this.apiService.saveTask(this.title,this.description)
+       this.taskId = this.authService.getTaskId()
+      this.apiService.saveTask(this.items[0], this.items[1], this.taskId)
 
      }
 

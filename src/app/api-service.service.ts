@@ -38,8 +38,8 @@ export class ApiServiceService {
     return this.http.post(`${this.apiUrl}/api/tasks`, { description,title });
 }
 
-saveTask(title:any,description: any): Observable<any>{
-  return this.http.post(`${this.apiUrl}/api/tasks/save`, { description,title });
+saveTask(title:any,description: any, taskId: string): Observable<any>{
+  return this.http.put(`${this.apiUrl}/api/updateTask${taskId}`, { description,title});
 
 }
 
