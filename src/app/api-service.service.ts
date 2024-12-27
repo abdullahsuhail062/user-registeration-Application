@@ -39,7 +39,7 @@ export class ApiServiceService {
 }
 
 saveTask(title:any,description: any, taskId: string): Observable<any>{
-  return this.http.put(`${this.apiUrl}/api/updateTask${taskId}`, { description,title});
+  return this.http.put(`${this.apiUrl}/api/updateTask/${taskId}`, { description,title});
 
 }
 
