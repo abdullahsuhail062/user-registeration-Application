@@ -19,6 +19,8 @@ import { title } from 'node:process';
 export class ToDoListComponent {
 isDisabled: boolean = true 
 isEditing: boolean = false
+title:any
+description:any
 taskTitleInput: string = ''
 taskDescriptionInput: string = ''
 isDeactive: boolean = true
@@ -56,7 +58,8 @@ listItem:any
 
   onCreateList(){
     this.apiService.addTask(this.taskTitleInput,this.taskDescriptionInput).subscribe({next: (item)=>{
-      this.items.push({title: item.title, description: item.description, isEditing: false});
+      this.items.push({title: item.title, description: item.description, isEditing: false});console.log(item.id);
+      
     },error: (error)=>{console.log(error);
     }})
      this.dialogRef.close()
@@ -85,6 +88,8 @@ listItem:any
 
      saveItem(index: number){
       this.items[index].isEditing = false;
+      
+      this.apiService.saveTask(this.title,this.description)
 
      }
 

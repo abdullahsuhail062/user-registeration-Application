@@ -31,8 +31,8 @@
             </div>
             <div class="edit-container" *ngIf="item.isEditing">
               
-                <input class="title-input" matInput type="text" [(ngModel)]="item.title" placeholder="Edit title" />
-                <input class="description-input" matInput type="text" [(ngModel)]="item.description" placeholder="Edit description" />
+                <input class="title-input" matInput type="text" [(ngModel)]="item.title"[(ngModel)]="title" placeholder="Edit title" />
+                <input class="description-input" matInput type="text" [(ngModel)]="item.description" [(ngModel)]="description" placeholder="Edit description" />
               <button class="edit-btn" mat-raised-button color="primary" (click)="saveItem(i)">Save</button>
               <button class="cancel-btn" mat-raised-button color="warn" (click)="cancelEdit(i)">Cancel</button>
             
