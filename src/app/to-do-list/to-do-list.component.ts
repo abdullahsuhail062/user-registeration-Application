@@ -85,6 +85,10 @@ taskId: any
 
      deleteItem(index: number){
       this.items.slice(index,1)
+      this.apiService.deleteTask().subscribe({next:(task)=>{
+      console.log(task);
+      }})
+
 
      }
 
@@ -92,7 +96,7 @@ taskId: any
       this.items[index].isEditing = false;
       
        this.taskId = this.authService.getTaskId()
-      this.apiService.saveTask(title,description, this.taskId).subscribe({next:(update)=>{alert('task is updated')}})
+      this.apiService.saveTask(title,description, this.taskId).subscribe({next:(update)=>{}})
 
      }
 
