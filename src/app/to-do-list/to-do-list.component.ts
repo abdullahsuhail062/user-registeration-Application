@@ -88,11 +88,11 @@ taskId: any
 
      }
 
-     saveItem(index: number){
+     saveItem(index: number,title: any, description:any){
       this.items[index].isEditing = false;
       
        this.taskId = this.authService.getTaskId()
-      this.apiService.saveTask(this.items[0], this.items[1], this.taskId).subscribe({next:(update)=>{alert('task is updated')}})
+      this.apiService.saveTask(title,description, this.taskId).subscribe({next:(update)=>{alert('task is updated')}})
 
      }
 

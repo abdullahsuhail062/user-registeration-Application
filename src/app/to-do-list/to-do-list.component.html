@@ -33,7 +33,7 @@
               
                 <input class="title-input" matInput type="text" [(ngModel)]="item.title" placeholder="Edit title" />
                 <input class="description-input" matInput type="text" [(ngModel)]="item.description"  placeholder="Edit description" />
-              <button class="edit-btn" mat-raised-button color="primary" (click)="saveItem(i)">Save</button>
+              <button class="edit-btn" mat-raised-button color="primary" (click)="saveItem(i,item.title,item.description)">Save</button>
               <button class="cancel-btn" mat-raised-button color="warn" (click)="cancelEdit(i)">Cancel</button>
             
             </div>
