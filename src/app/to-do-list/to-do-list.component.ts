@@ -85,7 +85,7 @@ taskId: any
 
      deleteItem(index: number){
       this.items.slice(index,1)
-      this.apiService.deleteTask().subscribe({next:(task)=>{
+      this.apiService.deleteTask(this.taskId).subscribe({next:(task)=>{
       console.log(task);
       }})
 

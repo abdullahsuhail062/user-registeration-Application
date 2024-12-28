@@ -42,8 +42,8 @@ saveTask(title:any,description: any, taskId: string): Observable<any>{
   return this.http.put(`${this.apiUrl}/api/updateTask/${taskId}`, { description,title});
 
 }
-  deleteTask(){
-    return this.http.delete(`${this.apiUrl}/api/deleteTask`)
+  deleteTask(taskId: any){
+    return this.http.delete(`${this.apiUrl}/api/deleteTask/${taskId}`)
   }
 
 }
