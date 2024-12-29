@@ -43,7 +43,7 @@ saveTask(title:any,description: any, taskId: string): Observable<any>{
 
 }
   deleteTask(taskId: any){
-    return this.http.delete(`${this.apiUrl}/api/deleteTask/${taskId}`)
+    return this.http.delete(`${this.apiUrl}/api/deleteTask`,taskId)
   }
 
 }
