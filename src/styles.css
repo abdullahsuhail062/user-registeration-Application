@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.custom-dialog .mat-mdc-dialog-container {
+    min-width: unset; /* Remove the default constraint */
+    width: auto; /* Adjust to content */
+    border-radius: 1px !important;
+    animation: none !important;
+    transition: none !important;
+    margin: 0;
+
+    
+  }
+
+  .mat-mdc-dialog-container {
+    border-radius: unset;
+    border-radius: 1px !important;
+    animation: none !important;
+    transition: none !important;
+
+  }

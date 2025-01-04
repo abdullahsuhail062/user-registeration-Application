@@ -1,0 +1,176 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0; /* Remove any gaps between flex children */
+  padding: 0; /* Remove any padding inside the container */
+}
+
+.mat-toolbar {
+  width: 100%;
+  flex-shrink: 0; /* Prevent the toolbar from shrinking */
+  display: flex;
+  position: fixed; /* Fixed at the top */
+  top: 0; /* Stick to the top of the screen */
+  left: 0;
+  z-index: 1000;
+  background-color: rgb(83, 226, 43);
+  color: white;
+  height: 64px; /* Height of the toolbar */
+  padding: 0 10px; /* Padding for the toolbar */
+}
+
+.content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column; /* Stack list items vertically */
+  width: 100%;
+  position: relative; /* Set relative positioning to align properly */
+  margin-top: 54px; /* Offset content by the height of the toolbar */
+  overflow-y: auto; /* Allow scrolling if items overflow */
+  padding: 0; /* Remove any padding */
+}
+
+  /* Styling for the list */
+  mat-list {
+    width: 100%;
+  }
+  
+  mat-list-item {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    justify-content: center;
+    border-radius: 4px;
+    white-space: nowrap; /* Prevent text wrapping to the next line */
+    overflow: hidden;    /* Hide overflowing text */
+    text-overflow: ellipsis
+  }
+
+
+
+  .create-list-btn {
+    background: linear-gradient(45deg, #ff4081, #f50057); /* Gradient for a modern look */
+    color: #ffffff; /* White text */
+    font-weight: bold;
+    font-size: 14px; /* Reduced font size */
+    text-transform: capitalize; /* Makes text more natural */
+    border-radius: 20px; /* Smaller rounded corners */
+    padding: 8px 16px; /* Reduced padding for a smaller size */
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); /* Slightly smaller shadow */
+    transition: all 0.3s ease; /* Smooth hover effect */
+    display: flex; /* Flex for alignment */
+    align-items: center;
+    gap: 6px; /* Slightly smaller gap between icon and text */
+    cursor: pointer;
+
+  }
+  
+  .create-list-btn:hover {
+    background: linear-gradient(45deg, #f50057, #ff4081); /* Reverse gradient on hover */
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3); /* Slightly increased shadow */
+    transform: translateY(-1px); /* Subtle lift effect */
+  }
+  
+  .create-list-btn .icon {
+    font-size: 16px; /* Adjusted smaller icon size */
+  }
+
+  .container {
+    display: flex;            /* Enable Flexbox */
+    flex-direction: column;   /* Stack elements vertically */
+    align-items: center;  
+    justify-content: center;
+    overflow: hidden;
+    gap: 10px;
+  }
+  .input-container {
+    width: 300px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+   .input-title {
+    background-color: rgb(169, 154, 154);
+    width: 100%; 
+    height: 30px;
+    border-radius: 4px;
+    outline: navy;
+    padding-left: 5px;
+  }
+  .input-description {
+    background-color: rgb(169, 154, 154);
+    width: 100%;              /* Full width input */
+   height: 30px;
+   border-radius: 4px;
+   outline: navy;
+   padding-left: 5px;
+ }
+ 
+  
+  .btn {
+    padding: 8px 16px;   
+    width: 100px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: bold;
+    width: 200px;
+  }
+
+  .active-button {
+    cursor: pointer;
+    background-color: green;
+    color: white;
+  }
+  
+  .inactive-button {
+    background-color: gray;
+    color: white;
+  }
+  h2 {
+    font-size: 16px;
+    padding: 10px;
+  }
+ /* Define the toolbar at the top */
+
+
+/* Content area starts below the toolbar */
+
+// .edit-container{
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+// }
+
+.title-input {
+  margin-right: 1px;
+  height: 35px;
+  border:solid 1px #f50057;
+  outline: #f50057;
+  width: 44%;
+}
+
+.description-input {
+  height: 35px;
+  outline: #f50057;
+  border:solid 1px #f50057;
+  width: 44%;
+}
+
+.edit-btn {
+  background-color: blue;
+  width: 80px;
+  cursor: pointer;
+  height: 35px;
+}
+
+.cancel-btn {
+  background-color: rgb(255, 0, 255);
+  width: 80px;
+  height: 35px;
+  cursor: pointer;
+}
+
+  
+  
