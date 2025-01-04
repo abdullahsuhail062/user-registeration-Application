@@ -83,7 +83,7 @@ taskId: any
       this.items[index].isEditing = true
      }
 
-     deleteItem(index: number){
+     deleteItem(index: number,title: string){
       this.items.slice(index,1)
       this.apiService.deleteTask(title).subscribe({next:(task)=>{console.log(task);
       
