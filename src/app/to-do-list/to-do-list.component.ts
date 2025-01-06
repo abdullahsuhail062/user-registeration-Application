@@ -109,5 +109,14 @@ taskId: any
 
      }
 
+     handleError(error:any){
+      if (error.statu===404) {
+        console.log(error);
+        
+        
+      }else{console.log(error);
+      }
+     }
+
 
 }
