@@ -61,7 +61,7 @@ taskId: any
 
   onCreateList(){
     this.apiService.addTask(this.taskTitleInput,this.taskDescriptionInput).subscribe({next: (item)=>{
-      this.items.push({title: item.title, description: item.description, isEditing: false}); localStorage.setItem('taskId',item.id);
+      this.items.push({title: item.title, description: item.description, isEditing: false});item; localStorage.setItem('taskId',item.id);
       
     },error: (error)=>{console.log(error);
     }})
@@ -95,6 +95,8 @@ taskId: any
      saveItem(index: number,title: any, description:any){
       this.items[index].isEditing = false;
       const taskId =this.authService.getTaskId()
+      console.log(taskId);
+      
       
       this.apiService.saveTask(title,description,taskId
       ).subscribe({next:(update)=>{console.log(update);
