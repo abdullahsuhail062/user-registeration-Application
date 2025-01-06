@@ -47,7 +47,7 @@ deleteTask(taskId: any): Observable<any> {
   );
 }
 
-taskCompeletion(completed:any,taskId:any): Observable<any> {
+taskCompeletion(completed:boolean,taskId:string | null): Observable<any> {
   return this.http.put(`${this.apiUrl}/api/taskCompeletion`,{completed,taskId})
 }
 
