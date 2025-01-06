@@ -112,7 +112,7 @@ taskId: any
       const taskCompleleted = this.task =true
       const taskId = this.authService.getTaskId()
       this.apiService.TaskCompletion(taskId,taskCompleleted).subscribe({next:(data)=>{console.log(data);
-      }})
+      },error:(error)=>{this.handleError(error)}})
      }
 
      handleError(error:any){
