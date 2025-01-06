@@ -16,6 +16,7 @@
               <span>{{ item.title }}</span> - <span>{{ item.description }}</span>
               <button class="edit-btn" mat-button color="primary" (click)="editItem(i)">Edit</button>
               <button class="delete-btn" mat-button color="warn" (click)="deleteItem(i,item.title)">Delete</button>
+              <input type="checkbox"  (change)="onTaskChange(task)" />
             </div>
             <div class="edit-container" *ngIf="item.isEditing">
               

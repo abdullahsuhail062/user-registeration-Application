@@ -22,6 +22,7 @@ export class ToDoListComponent {
 isDisabled: boolean = true 
 isEditing: boolean = false
 title:any
+task:boolean =false
 description:any
 taskTitleInput: string = ''
 taskDescriptionInput: string = ''
@@ -105,6 +106,13 @@ taskId: any
       this.items[index].isEditing = false;
 
 
+     }
+     onTaskChange(task:any){
+      this.task = task
+      const taskCompleleted = this.task =true
+      const taskId = this.authService.getTaskId()
+      this.apiService.TaskCompletion(taskId,taskCompleleted).subscribe({next:(data)=>{console.log(data);
+      }})
      }
 
      handleError(error:any){
