@@ -109,7 +109,7 @@ taskId: any
      }
      onTaskChange(task:any){
       this.task = task
-      const taskCompleleted = this.task =true
+      const taskCompleleted =true
       const taskId = this.authService.getTaskId()
       this.apiService.taskCompeletion(taskCompleleted,taskId).subscribe({next:(data)=>{console.log(data);
       },error:(error)=>{this.handleError(error)}})
