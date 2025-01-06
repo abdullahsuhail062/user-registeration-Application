@@ -94,8 +94,10 @@ taskId: any
 
      saveItem(index: number,title: any, description:any){
       this.items[index].isEditing = false;
+      const updatedTaskTitle =title
       
-      this.apiService.saveTask(title,description).subscribe({next:(update)=>{console.log(update);
+      this.apiService.saveTask(title,description,updatedTaskTitle
+      ).subscribe({next:(update)=>{console.log(update);
       }})
 
      }
