@@ -14,7 +14,6 @@
           <mat-list-item *ngFor="let item of items; let i = index">
             <div *ngIf="!item.isEditing">
               <span>{{ item.title }}</span> - <span>{{ item.description }}</span>
-              <div class="edit-delete-btn-container"></div>
               <button class="edit-btn" mat-button color="primary" (click)="editItem(i)">Edit</button>
               <button class="delete-btn" mat-button color="warn" (click)="deleteItem(i,item.title)">Delete</button>
             </div>

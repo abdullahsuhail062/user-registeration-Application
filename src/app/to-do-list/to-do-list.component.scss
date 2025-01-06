@@ -15,7 +15,6 @@
   left: 0;
   z-index: 1000;
   background-color: rgb(83, 226, 43);
-  color: white;
   height: 64px; /* Height of the toolbar */
   padding: 0 10px; /* Padding for the toolbar */
 }
@@ -173,15 +172,9 @@
   height: 35px;
   cursor: pointer;
 }
-.edit-delete-btn-container {
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: row;
-  gap: 10px;
-
-}
 
 .edit-btn {
+  margin-left: 90%;
   background-color: rgb(57, 49, 53);
   width: 80px;
   color: white;
@@ -190,6 +183,7 @@
 }
 
 .delete-btn {
+  margin-left: 100%;
   color: white;
   background-color: rgb(226, 84, 12);
   width: 80px;
