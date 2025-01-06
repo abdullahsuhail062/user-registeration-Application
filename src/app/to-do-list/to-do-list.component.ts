@@ -9,6 +9,7 @@ import { ApiServiceService } from '../api-service.service';
 import { MatList, MatListItem, MatListModule } from '@angular/material/list';
 import { title } from 'node:process';
 import { AuthService } from '../auth.service';
+import { error } from 'node:console';
  
 @Component({
   selector: 'app-to-do-list',
@@ -98,7 +99,7 @@ taskId: any
       
       this.apiService.saveTask(title,description,updatedTaskTitle
       ).subscribe({next:(update)=>{console.log(update);
-      }})
+      },error:(error)=>{console.log(error)}})
 
      }
 
