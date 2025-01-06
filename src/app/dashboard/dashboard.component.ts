@@ -8,6 +8,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { NgIf } from '@angular/common';
 import { DeleteAccountDialogComponent } from '../delete-account-dialog/delete-account-dialog.component';
 import { SharedService } from '../shared.service';
+import { error } from 'node:console';
 
 @Component({
   selector: 'app-dashboard',
@@ -24,7 +25,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.greetUser()
     this.apiService.fetchUserProfile().subscribe({next: (data)=>{
-      this.profileInitial = data.email.charAt(0).toUpperCase(); }})
+      this.profileInitial = data.email.charAt(0).toUpperCase(); },error:(error)=>{this.handleError(error)}})
       this.sharedService.taskTriggered$.subscribe(()=>{this.openDeleteAccountDialog()})
     }
    
@@ -55,8 +56,7 @@ export class DashboardComponent implements OnInit {
         // Perform any necessary clean-up or redirect
       },
      error: (error) => {
-        console.log('Error deleting account:', error.error);
-
+        this.handleError(error)
       }}
     );
   }
@@ -76,8 +76,9 @@ export class DashboardComponent implements OnInit {
 
 
           
-        }
+  }
       })
+
   
   }
    
@@ -87,7 +88,7 @@ export class DashboardComponent implements OnInit {
     dialogConfig.height = '400px'
     this.apiService.fetchUserProfile().subscribe({next: (userdata)=>{
       this.dialog.open(UserProfileComponent,{position: {top: '55px', right: '0px'},width: '180px', panelClass: 'custom-dialog',data:{username: userdata.username, email: userdata.email, onLogout: () => this.logout(), onNavigateToDashboard: () => this.dashboard(), onOpenDeleteAccountDialog: ()=> this.openDeleteAccountDialog()}})
-    }, error: (error)=>{console.log(error.error);
+    }, error: (error)=>{this.handleError(error)
     }})
   
 }
@@ -103,6 +104,12 @@ export class DashboardComponent implements OnInit {
   navigateToDoList(){
     this.router.navigate(['/ToDoList'])
   }
+
+  handleError(error:any){
+    console.log(error.error);
+    
+  }
+
 }
 
 
