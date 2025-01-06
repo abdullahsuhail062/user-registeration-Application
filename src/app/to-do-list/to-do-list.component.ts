@@ -85,19 +85,18 @@ taskId: any
      }
 
      deleteItem(index: number,title: string){
-      this.items.slice(index,1)
-      this.apiService.deleteTask(title).subscribe({next:(task)=>{console.log(task);
-      
-      
-      }})
+      this.items.splice(index, 1);
+      const taskId =this.authService.getTaskId()
+      this.apiService.deleteTask(taskId).subscribe({next:(task)=>{console.log(task);
+      },error:(error)=>(this.handleError(error))})
 
      }
 
      saveItem(index: number,title: any, description:any){
       this.items[index].isEditing = false;
-      const updatedTaskTitle =this.authService.getTaskId()
+      const taskId =this.authService.getTaskId()
       
-      this.apiService.saveTask(title,description,updatedTaskTitle
+      this.apiService.saveTask(title,description,taskId
       ).subscribe({next:(update)=>{console.log(update);
       },error:(error)=>{this.handleError(error)}})
 
