@@ -199,7 +199,7 @@
 }
 .task-name {
   position: fixed;
-  z-index: 1000;
+  z-index: auto;
   display: flex;
   overflow: hidden; /* Hide overflow if the text is too long */
   text-overflow: ellipsis; /* Add ellipsis for overflowing text */
@@ -210,7 +210,7 @@
 
 .task-descrition {
   position: fixed;
-  z-index: 1000;
+  z-index: auto;
   display: flex;
   overflow: hidden; /* Hide overflow if the text is too long */
   text-overflow: ellipsis; /* Add ellipsis for overflowing text */
