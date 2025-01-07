@@ -179,6 +179,8 @@
 }
 
 .edit-btn {
+  z-index: 1000;
+  position: fixed;
   flex-shrink: 0; /* Prevent button from shrinking */
   margin-left: 80%;
   background-color: rgb(57, 49, 53);
@@ -189,6 +191,8 @@
 }
 
 .delete-btn {
+  z-index: 1000;
+  position: fixed;
   flex-shrink: 0; /* Prevent button from shrinking */
   color: white;
   background-color: rgb(226, 84, 12);
@@ -198,8 +202,6 @@
 }
 .task-name {
   display: flex;
-  z-index: 1000;
-  position: fixed;
   overflow: hidden; /* Hide overflow if the text is too long */
   text-overflow: ellipsis; /* Add ellipsis for overflowing text */
   white-space: nowrap; /* Prevent text wrapping */
