@@ -182,6 +182,8 @@
  
   flex-shrink: 0; /* Prevent button from shrinking */
   margin-left: 80%;
+  display: flex;
+  position: fixed;
   background-color: rgb(57, 49, 53);
   width: 80px;
   color: white;
@@ -190,6 +192,8 @@
 }
 
 .delete-btn {
+  display: flex;
+  position: fixed;
   flex-shrink: 0; /* Prevent button from shrinking */
   color: white;
   background-color: rgb(226, 84, 12);
