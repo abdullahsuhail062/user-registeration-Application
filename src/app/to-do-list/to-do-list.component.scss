@@ -203,5 +203,13 @@
   text-overflow: ellipsis; /* Add ellipsis for overflowing text */
   white-space: nowrap; /* Prevent text wrapping */
 }
+
+.task-description {
+  width: 1%; 
+  display:block; /* Task name takes up available space */
+  overflow: hidden; /* Hide overflow if the text is too long */
+  text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+  white-space: nowrap; /* Prevent text wrapping */
+}
   
   
