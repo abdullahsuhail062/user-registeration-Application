@@ -197,16 +197,18 @@
   cursor: pointer;
 }
 .task-name {
-  width: 1%; 
-  display:block; /* Task name takes up available space */
+  display: flex;
+  z-index: 1000;
+  position: fixed;
   overflow: hidden; /* Hide overflow if the text is too long */
   text-overflow: ellipsis; /* Add ellipsis for overflowing text */
   white-space: nowrap; /* Prevent text wrapping */
 }
 
 .task-description {
-  width: 1%; 
-  display:block; /* Task name takes up available space */
+  display: flex;
+  position: fixed;
+  z-index: 1000;
   overflow: hidden; /* Hide overflow if the text is too long */
   text-overflow: ellipsis; /* Add ellipsis for overflowing text */
   white-space: nowrap; /* Prevent text wrapping */
