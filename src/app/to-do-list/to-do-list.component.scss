@@ -36,12 +36,7 @@
   mat-list {
     width: 100%;
   }
-  .task-name {
-    flex: 1; /* Task name takes up available space */
-    overflow: hidden; /* Hide overflow if the text is too long */
-    text-overflow: ellipsis; /* Add ellipsis for overflowing text */
-    white-space: nowrap; /* Prevent text wrapping */
-  }
+ 
   
   mat-list-item {
     background-color: #f0f0f0;
@@ -53,6 +48,7 @@
     overflow: hidden;    /* Hide overflowing text */
     text-overflow: ellipsis
   }
+
 
 
 
@@ -91,6 +87,12 @@
     justify-content: center;
     overflow: hidden;
     gap: 10px;
+  }
+  .task-name {
+    flex: 1; /* Task name takes up available space */
+    overflow: hidden; /* Hide overflow if the text is too long */
+    text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+    white-space: nowrap; /* Prevent text wrapping */
   }
   .input-container {
     width: 300px;
