@@ -179,7 +179,7 @@
 }
 
 .edit-btn {
- position: relative;
+ position:absolute;
   flex-shrink: 0; /* Prevent button from shrinking */
   margin-left: 80%;
   background-color: rgb(57, 49, 53);
@@ -190,7 +190,7 @@
 }
 
 .delete-btn {
-  position: relative;
+  position: absolute;
   flex-shrink: 0; /* Prevent button from shrinking */
   color: white;
   background-color: rgb(226, 84, 12);
