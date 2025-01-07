@@ -88,12 +88,7 @@
     overflow: hidden;
     gap: 10px;
   }
-  .task-name {
-    flex: 1; /* Task name takes up available space */
-    overflow: hidden; /* Hide overflow if the text is too long */
-    text-overflow: ellipsis; /* Add ellipsis for overflowing text */
-    white-space: nowrap; /* Prevent text wrapping */
-  }
+  
   .input-container {
     width: 300px;
     align-items: center;
@@ -201,6 +196,12 @@
   height: 35px;
   cursor: pointer;
 }
-
+.task-name {
+  width: 10%; 
+  display:block; /* Task name takes up available space */
+  overflow: hidden; /* Hide overflow if the text is too long */
+  text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+  white-space: nowrap; /* Prevent text wrapping */
+}
   
   
