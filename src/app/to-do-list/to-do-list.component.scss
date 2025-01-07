@@ -179,8 +179,7 @@
 }
 
 .edit-btn {
-  z-index: 1000;
-  position: fixed;
+ 
   flex-shrink: 0; /* Prevent button from shrinking */
   margin-left: 80%;
   background-color: rgb(57, 49, 53);
@@ -191,8 +190,6 @@
 }
 
 .delete-btn {
-  z-index: 1000;
-  position: fixed;
   flex-shrink: 0; /* Prevent button from shrinking */
   color: white;
   background-color: rgb(226, 84, 12);
@@ -201,6 +198,7 @@
   cursor: pointer;
 }
 .task-name {
+  position: fixed;
   display: flex;
   overflow: hidden; /* Hide overflow if the text is too long */
   text-overflow: ellipsis; /* Add ellipsis for overflowing text */
@@ -210,7 +208,6 @@
 .task-description {
   display: block;
   position: fixed;
-  z-index: 1000;
   overflow: hidden; /* Hide overflow if the text is too long */
   text-overflow: ellipsis; /* Add ellipsis for overflowing text */
   white-space: nowrap; /* Prevent text wrapping */
