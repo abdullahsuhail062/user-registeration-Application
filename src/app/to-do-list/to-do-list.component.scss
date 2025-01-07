@@ -206,8 +206,8 @@
 }
 
 .task-description {
-  display: flex;
-  position: relative;
+  display: block;
+  position: fixed;
   z-index: 1000;
   overflow: hidden; /* Hide overflow if the text is too long */
   text-overflow: ellipsis; /* Add ellipsis for overflowing text */
