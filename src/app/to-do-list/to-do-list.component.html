@@ -13,7 +13,8 @@
         <mat-list>
           <mat-list-item *ngFor="let item of items; let i = index">
             <div *ngIf="!item.isEditing">
-              <span class="task-name">{{ item.title }}</span> <span class="task-description">{{ item.description }}</span>
+              <div class="task-container">
+              <span class="task-name">{{ item.title }}</span> <span class="task-description">{{ item.description }}</span></div>
               <button class="edit-btn" mat-button color="primary" (click)="editItem(i)">Edit</button>
               <button class="delete-btn" mat-button color="warn" (click)="deleteItem(i,item.title)">Delete</button>
               <input type="checkbox"  (change)="onTaskChange(task)" />

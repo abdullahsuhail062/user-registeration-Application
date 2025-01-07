@@ -177,6 +177,10 @@
   height: 35px;
   cursor: pointer;
 }
+.task-container {
+  display: flex;
+  flex-direction: row;
+}
 
 .edit-btn {
   position: fixed;
