@@ -199,7 +199,24 @@
 }
 .task-name {
   position: fixed;
-  flex-grow: 1; /* Allow the title to take available space */
+  display: flex;
+  overflow: hidden; /* Hide overflow if the text is too long */
+  text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+
+  
+.task-name {
+  position: fixed;
+  display: flex;
+  overflow: hidden; /* Hide overflow if the text is too long */
+  text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.task-descrition {
+  position: fixed;
   display: flex;
   overflow: hidden; /* Hide overflow if the text is too long */
   text-overflow: ellipsis; /* Add ellipsis for overflowing text */
