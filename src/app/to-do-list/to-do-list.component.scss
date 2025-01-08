@@ -171,39 +171,45 @@
   height: 35px;
   cursor: pointer;
 }
-.btn {
+
+
+.edit-btn {
   flex-shrink: 0;
   width: 80px;
   height: 35px;
   color: white;
   cursor: pointer;
-  position: absolute;
-}
-
-.edit-btn {
-  @extend .btn;
   background-color: rgb(57, 49, 53);
   margin-left: 80%;
 }
 
 .delete-btn {
-  @extend .btn;
+  flex-shrink: 0;
+  width: 80px;
+  height: 35px;
+  color: white;
+  cursor: pointer;
   background-color: rgb(226, 84, 12);
 }
 
-.task-container {
+
+
+.task-name {
   position: fixed;
   z-index: 1000;
   display: flex;
   overflow: hidden; /* Hide overflow if the text is too long */
   text-overflow: ellipsis; /* Add ellipsis for overflowing text */
-  white-space: nowrap; /* Prevent text wrapping */
-}
-
-.task-name {
+  white-space: nowrap; 
   /* Additional styles specific to task-name, if any */
 }
 
-.task-description { /* Fixed typo */
+.task-description { 
+  position: fixed;
+  z-index: 1000;
+  display: flex;
+  overflow: hidden; /* Hide overflow if the text is too long */
+  text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+  white-space: nowrap; //* Fixed typo */
   /* Additional styles specific to task-description, if any */
 }
