@@ -49,7 +49,7 @@
     text-overflow: ellipsis
   }
   mat-list-item:hover {
-    background-color: rgb(211, 202, 202);
+    background-color: rgb(248, 241, 241);
   }
 
 
@@ -159,15 +159,17 @@
 }
 
 .save-btn {
-  background-color: blue;
+  background-color: rgb(99, 99, 211);
   width: 80px;
   cursor: pointer;
+  color: white;
   height: 35px;
 }
 
 .cancel-btn {
-  background-color: rgb(255, 0, 255);
+  background-color: rgb(141, 179, 195);
   width: 80px;
+  color: white;
   height: 35px;
   cursor: pointer;
 }
@@ -189,7 +191,7 @@
   height: 35px;
   color: white;
   cursor: pointer;
-  background-color: rgb(226, 84, 12);
+  background-color: rgb(226, 12, 12);
 }
 
 
