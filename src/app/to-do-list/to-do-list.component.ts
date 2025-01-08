@@ -33,6 +33,10 @@ dialogRef: any
 listItem:any
 taskId: any
   constructor(private authService: AuthService,private dialog: MatDialog, private apiService: ApiServiceService ){}
+  ngOnInIt(){
+    this.apiService.getTasks().subscribe({next:(tasks)=>{this.items=tasks},error:(
+      error)=>{this.handleTaskFetchingError(error)}})
+  }
 
   openDialog(templateRef: TemplateRef<any>): void{
      this.dialogRef = this.dialog.open(templateRef,{position:{top:'4%', left: '11%'},height: '250px'})
@@ -122,6 +126,10 @@ taskId: any
         
       }else{console.log(error);
       }
+     }
+     handleTaskFetchingError(error:any){
+      console.log(error);
+      
      }
 
 
