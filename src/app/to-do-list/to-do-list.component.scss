@@ -49,7 +49,7 @@
     text-overflow: ellipsis
   }
   mat-list-item:hover {
-    background-color: gray;
+    background-color: rgb(211, 202, 202);
   }
 
 
@@ -171,51 +171,39 @@
   height: 35px;
   cursor: pointer;
 }
-.task-container {
-  display: flex;
-  flex-direction: row;
+.btn {
+  flex-shrink: 0;
+  width: 80px;
+  height: 35px;
+  color: white;
+  cursor: pointer;
+  position: absolute;
 }
 
 .edit-btn {
-  position: absolute;
-  flex-shrink: 0; /* Prevent button from shrinking */
-  margin-left: 80%;
+  @extend .btn;
   background-color: rgb(57, 49, 53);
-  width: 80px;
-  color: white;
-  cursor: pointer;
-  height: 35px;
+  margin-left: 80%;
 }
 
 .delete-btn {
-  position: absolute;
-  flex-shrink: 0; /* Prevent button from shrinking */
-  color: white;
+  @extend .btn;
   background-color: rgb(226, 84, 12);
-  width: 80px;
-  height: 35px;
-  cursor: pointer;
 }
+
+.task-container {
+  position: fixed;
+  z-index: 1000;
+  display: flex;
+  overflow: hidden; /* Hide overflow if the text is too long */
+  text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
 .task-name {
-  position: fixed;
-  z-index: 1000;
-  display: flex;
-  overflow: hidden; /* Hide overflow if the text is too long */
-  text-overflow: ellipsis; /* Add ellipsis for overflowing text */
-  white-space: nowrap; /* Prevent text wrapping */
+  /* Additional styles specific to task-name, if any */
 }
 
-
-
-.task-descrition {
-  position: fixed;
-  z-index: 1000;
-  display: flex;
-  overflow: hidden; /* Hide overflow if the text is too long */
-  text-overflow: ellipsis; /* Add ellipsis for overflowing text */
-  white-space: nowrap; /* Prevent text wrapping */
+.task-description { /* Fixed typo */
+  /* Additional styles specific to task-description, if any */
 }
-
-
-  
-  
