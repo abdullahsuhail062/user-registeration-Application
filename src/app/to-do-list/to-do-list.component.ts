@@ -72,7 +72,7 @@ isTaskExist: boolean= false
   onCreateList(){
     this.apiService.addTask(this.taskTitleInput,this.taskDescriptionInput).subscribe({next: (item)=>{
       this.items.push({title: item.title, description: item.description, isEditing: false}); 
-      this.items.unshift(item)
+      //this.items.unshift(item)
       localStorage.setItem('taskId',item.id);
       
     },error: (error)=>{this.handleError(error);
@@ -99,7 +99,7 @@ isTaskExist: boolean= false
      deleteItem(index: number,title: string){
       this.items.splice(index, 1);
       const taskId =this.authService.getTaskId()
-      this.apiService.deleteTask(taskId).subscribe({next:(task)=>{console.log(task);
+      this.apiService.deleteTask(taskId).subscribe({next:(task)=>{this.isTaskExistStatus()
       },error:(error)=>(this.handleError(error))})
 
      }
@@ -148,7 +148,7 @@ isTaskExist: boolean= false
       if (this.items.length===0) {
         this.isTaskExist =true
         
-      }
+      }else {this.isTaskExist=false}
      }
 
 
