@@ -1,5 +1,5 @@
 import { NgClass, NgFor, NgIf } from '@angular/common';
-import { Component, Inject, inject, TemplateRef } from '@angular/core';
+import { Component, Inject, inject, OnInit, TemplateRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatDialog, MatDialogContent } from '@angular/material/dialog';
 import { MatFormField } from '@angular/material/form-field';
@@ -18,7 +18,7 @@ import { error } from 'node:console';
   templateUrl: './to-do-list.component.html',
   styleUrl: './to-do-list.component.scss'
 })
-export class ToDoListComponent {
+export class ToDoListComponent implements OnInit{
 isDisabled: boolean = true 
 isEditing: boolean = false
 title:any
@@ -33,11 +33,13 @@ dialogRef: any
 listItem:any
 taskId: any
   constructor(private authService: AuthService,private dialog: MatDialog, private apiService: ApiServiceService ){}
-  ngOnInIt(){
+ ngOnInit(): void {
+  
     this.apiService.getTasks().subscribe({next:(tasks)=>{this.items=tasks; console.log(tasks);
     },error:(
       error)=>{this.handleTaskFetchingError(error)}})
-  }
+  
+ }
 
   openDialog(templateRef: TemplateRef<any>): void{
      this.dialogRef = this.dialog.open(templateRef,{position:{top:'4%', left: '11%'},height: '250px'})
