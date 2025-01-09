@@ -31,6 +31,7 @@ export class LoginComponent {
   mismatchPasswordsError: any
   generalError: string = ''
   isLoading: boolean = false
+  isLoggingIn: boolean = false
 
   constructor(private cdr: ChangeDetectorRef,private router: Router,private apiService: ApiServiceService, private http: HttpClient){
     this.loginForm = new FormGroup({email: new FormControl('',[Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@example\.(com|org|net)$/)]),password: new FormControl('',[Validators.required,Validators.minLength(8),
@@ -49,6 +50,10 @@ export class LoginComponent {
     this.passwordsMisMatchValidator()
     if (this.loginForm.valid) {
       this.toggleSpinner()
+      if (this.isLoggingIn) {
+        return
+        this.isLoggingIn =true
+      
       this.apiService.loginUser(formData).subscribe({next: (data) => {
       localStorage.setItem('authToken', data.token);
       const token = data.token; // Assume this is the JWT token from backend
@@ -56,9 +61,11 @@ export class LoginComponent {
       localStorage.setItem('authToken', token);
       localStorage.setItem('expiresAt', expiresAt.toString());
       ;this.router.navigate(['/dashboard']);
+      this.isLoggingIn = false
+      
     }, error: (error) => {
       
-
+    
       if (error.status===400 && error.error) {
         this.handleError(error.error)}
 
@@ -68,12 +75,12 @@ export class LoginComponent {
           this.isLoading = false
           this.generalErrorFn(error.error)
           
-          
+        
         }
       
       
     }
-    })}}
+    })}}}
    
       
     handleError(errorMessage:any){
