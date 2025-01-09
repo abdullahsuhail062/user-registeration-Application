@@ -138,7 +138,10 @@ isLoading: boolean =true
       
      }
      isLoadingStatus(){
-      this.isLoading !=this.isLoading
+      if (this.isLoading===true) {
+        this.isLoading=false
+        
+      }
      }
 
 
