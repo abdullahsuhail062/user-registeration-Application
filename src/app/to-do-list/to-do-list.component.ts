@@ -34,7 +34,8 @@ listItem:any
 taskId: any
   constructor(private authService: AuthService,private dialog: MatDialog, private apiService: ApiServiceService ){}
   ngOnInIt(){
-    this.apiService.getTasks().subscribe({next:(tasks)=>{this.items=tasks},error:(
+    this.apiService.getTasks().subscribe({next:(tasks)=>{this.items=tasks; console.log(tasks);
+    },error:(
       error)=>{this.handleTaskFetchingError(error)}})
   }
 
