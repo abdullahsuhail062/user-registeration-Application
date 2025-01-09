@@ -222,6 +222,8 @@
 .mat-list {
   max-height: 400px; /* Limit the height of the list for scrolling */
   overflow-y: auto; /* Enable vertical scrolling */
+  flex-direction: column-reverse; /* Reverse the order of items */
+  
 }
 
 .task-container {
