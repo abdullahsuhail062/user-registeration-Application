@@ -1,4 +1,7 @@
-    <div class="container">
+<div *ngIf="isLoading" class="spinner">
+  <p>Tasks list loading...</p>
+</div>
+   <div class="container">
       <mat-toolbar color="primary">
         <span>ToDoList section</span>
         <span class="spacer"></span>

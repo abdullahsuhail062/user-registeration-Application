@@ -32,10 +32,11 @@ items: { title: string; description: string, isEditing: boolean }[] =[]
 dialogRef: any
 listItem:any
 taskId: any
+isLoading: boolean =true
   constructor(private authService: AuthService,private dialog: MatDialog, private apiService: ApiServiceService ){}
  ngOnInit(): void {
   
-    this.apiService.getTasks().subscribe({next:(tasks)=>{this.items=tasks
+    this.apiService.getTasks().subscribe({next:(tasks)=>{this.items=tasks; this.isLoadingStatus()
     },error:(
       error)=>{this.handleTaskFetchingError(error)}})
   
@@ -135,6 +136,9 @@ taskId: any
      handleTaskFetchingError(error:any){
       console.log(error);
       
+     }
+     isLoadingStatus(){
+      this.isLoading !=this.isLoading
      }
 
 
