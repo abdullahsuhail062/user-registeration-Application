@@ -51,8 +51,7 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       this.toggleSpinner()
       if (this.isLoggingIn) {
-        return
-        this.isLoggingIn =true
+         this.isLoggingIn =true
       
       this.apiService.loginUser(formData).subscribe({next: (data) => {
       localStorage.setItem('authToken', data.token);
