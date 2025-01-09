@@ -33,10 +33,11 @@ dialogRef: any
 listItem:any
 taskId: any
 isLoading: boolean =true
+isTaskExist: boolean= false
   constructor(private authService: AuthService,private dialog: MatDialog, private apiService: ApiServiceService ){}
  ngOnInit(): void {
   
-    this.apiService.getTasks().subscribe({next:(tasks)=>{this.items=tasks; this.isLoadingStatus()
+    this.apiService.getTasks().subscribe({next:(tasks)=>{this.items=tasks; this.isLoadingStatus();this.isTaskExistStatus()
     },error:(
       error)=>{this.handleTaskFetchingError(error)}})
   
@@ -143,6 +144,13 @@ isLoading: boolean =true
         
       }
      }
+     isTaskExistStatus(){
+      if (this.isTaskExist===false) {
+        this.isTaskExist =true
+        
+      }
+     }
+
 
 
 }
