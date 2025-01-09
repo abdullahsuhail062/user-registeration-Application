@@ -185,13 +185,11 @@
 
 
 .edit-btn {
-  flex-shrink: 0;
   width: 80px;
   height: 35px;
   color: white;
   cursor: pointer;
   background-color: rgb(57, 49, 53);
-  margin-left: 80%;
 }
 .edit-btn:hover {
   background-color: rgb(60, 45, 53);
@@ -199,7 +197,6 @@
 }
 
 .delete-btn {
-  flex-shrink: 0;
   width: 80px;
   height: 35px;
   color: white;
@@ -213,12 +210,43 @@
 
 
 
-.task-name {
+// .task-name {
  
+// }
+
+// .task-description { 
+  
+//  //* Fixed typo */
+//   /* Additional styles specific to task-description, if any */
+// }
+.mat-list {
+  max-height: 400px; /* Limit the height of the list for scrolling */
+  overflow-y: auto; /* Enable vertical scrolling */
 }
 
-.task-description { 
-  
- //* Fixed typo */
-  /* Additional styles specific to task-description, if any */
+.task-container {
+  display: flex;
+  justify-content: space-between; /* Push content to the edges */
+  align-items: center; /* Align items vertically */
+  width: 100%; /* Ensure full width of the item */
+}
+
+.task-title {
+  flex-grow: 1; /* Allow the title to take available space */
+  overflow: hidden; /* Hide overflowing text */
+  text-overflow: ellipsis; /* Add ellipsis for long text */
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.task-actions {
+  display: flex;
+  align-items: center; /* Align buttons and checkbox */
+  gap: 8px; /* Add space between elements */
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.edit-btn,
+.delete-btn {
+  flex-shrink: 0; /* Prevent buttons from shrinking */
+  min-width: 64px; /* Optional: Ensure consistent button size */
 }
