@@ -50,9 +50,8 @@ export class LoginComponent {
     this.passwordsMisMatchValidator()
     if (this.loginForm.valid) {
       this.toggleSpinner()
-      if (this.isLoggingIn) {
-         this.isLoggingIn =true
       
+         this.isLoggingIn =true
       this.apiService.loginUser(formData).subscribe({next: (data) => {
       localStorage.setItem('authToken', data.token);
       const token = data.token; // Assume this is the JWT token from backend
@@ -79,7 +78,7 @@ export class LoginComponent {
       
       
     }
-    })}}}
+    })}}
    
       
     handleError(errorMessage:any){
