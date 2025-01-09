@@ -99,6 +99,8 @@ isTaskExist: boolean= false
      deleteItem(index: number,title: string){
       this.items.splice(index, 1);
       const taskId =this.authService.getTaskId()
+      console.log(taskId);
+      
       this.apiService.deleteTask(taskId).subscribe({next:(task)=>{this.isTaskExistStatus()
       },error:(error)=>(this.handleError(error))})
 
