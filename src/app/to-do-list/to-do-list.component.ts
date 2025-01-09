@@ -69,8 +69,8 @@ taskId: any
 
   onCreateList(){
     this.apiService.addTask(this.taskTitleInput,this.taskDescriptionInput).subscribe({next: (item)=>{
-      this.items.push({title: item.title, description: item.description, isEditing: false});item; 
-      //this.items.unshift(item)
+      this.items.push({title: item.title, description: item.description, isEditing: false}); 
+      this.items.unshift(item)
       localStorage.setItem('taskId',item.id);
       
     },error: (error)=>{this.handleError(error);
