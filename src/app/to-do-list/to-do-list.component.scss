@@ -84,6 +84,14 @@
     cursor: pointer;
 
   }
+  .navigate {
+    margin-left: 60%;
+    background-color: darkcyan;
+    color: white;
+    width: 80px;
+    height: 35px;
+    cursor: pointer;
+  }
   
   .create-list-btn:hover {
     background: linear-gradient(45deg, #f50057, #ff4081); /* Reverse gradient on hover */

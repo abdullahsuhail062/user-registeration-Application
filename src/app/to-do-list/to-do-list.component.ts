@@ -10,6 +10,9 @@ import { MatList, MatListItem, MatListModule } from '@angular/material/list';
 import { title } from 'node:process';
 import { AuthService } from '../auth.service';
 import { error } from 'node:console';
+import { Route } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+
  
 @Component({
   selector: 'app-to-do-list',
@@ -34,7 +37,7 @@ listItem:any
 taskId: any
 isLoading: boolean =true
 isTaskExist: boolean= false
-  constructor(private authService: AuthService,private dialog: MatDialog, private apiService: ApiServiceService ){}
+  constructor(private router: Router,private authService: AuthService,private dialog: MatDialog, private apiService: ApiServiceService ){}
  ngOnInit(): void {
   
     this.apiService.getTasks().subscribe({next:(tasks)=>{this.items=tasks; this.isLoadingStatus();this.isTaskExistStatus()
@@ -151,6 +154,11 @@ isTaskExist: boolean= false
         this.isTaskExist =true
         
       }else {this.isTaskExist=false}
+     }
+
+     navigateToHome(){
+      this.router.navigate(['/dashboard'])
+      
      }
 
 
