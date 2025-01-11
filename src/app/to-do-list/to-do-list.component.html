@@ -20,7 +20,7 @@
           <mat-list-item *ngFor="let item of items; let i = index">
             <div *ngIf="!item.isEditing">
               <div class="task-container">
-             <div class="task-title"> <span class="task-name">{{ item.title }}</span> <span class="task-description">{{ item.description }}</span></div>
+             <div class="task-title"> <span class="task-name">{{ item.title }}</span> <br> <span class="task-description">{{ item.description }}</span></div>
              <div class="task-actions"> <button class="edit-btn" mat-button color="primary" (click)="editItem(i)">Edit</button>
               <button class="delete-btn" mat-button color="warn" (click)="deleteItem(i,item.title)">Delete</button>
               <input type="checkbox"  (change)="onTaskChange(task)" />
@@ -48,7 +48,6 @@
     <ng-template #dialogTemplate>
       <h2 mat-dialog-title>Create List</h2>
       <mat-dialog-content class="container">
-          <!-- <input class="titleField"  matInput [(ngModel)]="taskTitleInput" (input)="createTaskTittle()" placeholder="Enter task title`" />
           <input class="descriptionField" matInput [(ngModel)]="taskDescriptionInput" (input)="createTaskDescription()" placeholder="Enter task description" /> -->
              <div class="input-container"><input class="input-title" [(ngModel)]="taskTitleInput" (input)="createTaskTittle()" placeholder="Enter task title..."/>
 
@@ -60,7 +59,6 @@
           (click)="onCreateList()" [ngClass]="{ 'active-button': isActive}">
           Create task list 
         </button>
-          <!-- <button mat-button class="btn" (click)="onCreateTaskDescription()">Create</button> -->
         
          
 
