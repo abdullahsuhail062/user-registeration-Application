@@ -26,6 +26,7 @@ export class RegisterationComponent  {
   hide: boolean = true
   signUpForm: FormGroup
   usernameError: any
+  isSigningUp: boolean= false
   emailError: any
   passwordError: any
   mismatchPasswordsError: any
@@ -56,6 +57,7 @@ export class RegisterationComponent  {
    
     this.passwordsMisMatchValidator()
     if (this.signUpForm.valid) {
+      this.isSigniUpStatus()
     this.apiService.registerUser(formData).subscribe({next: (data) => {localStorage.setItem('isWelcomed', 'false');
       if (data.token){console.log(data.token);
       
@@ -143,6 +145,14 @@ export class RegisterationComponent  {
 
       toggleSpinner() {
         this.isLoading = true
+      }
+
+      isSigniUpStatus(){
+        if (this.isSigningUp===false) {
+          this.isSigningUp =true
+          
+        }
+
       }
 
     
