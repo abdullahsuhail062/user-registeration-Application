@@ -24,7 +24,7 @@
              <div class="task-title"> <span class="task-description">{{ item.description }}</span><br>
               <span class="task-name">{{ item.title }}</span></div>
              <div class="task-actions"> <button class="edit-btn" mat-button color="primary" (click)="editItem(i)">Edit</button>
-              <button class="delete-btn" mat-button color="warn" (click)="deleteItem(i,item.title)">Delete</button>
+              <button class="delete-btn" mat-button color="warn" (click)="deleteItem(i,item.title,dialogTemplateDeletion)">Delete</button>
               <input type="checkbox"  (change)="onTaskChange(task)" />
             </div>
             </div>
@@ -64,4 +64,19 @@
 
   </mat-dialog-content>
   </ng-template>
+</div>
+
+<div class="confirm-deletion-dialog">
+  <ng-template #dialogTemplateDeletion>
+    <h2 mat-dialog-title>Are you sure you want to delete tasks?</h2>
+    <mat-dialog-content class="container">
+           <div class="buttons-container"><button mat-raised-button (click)="deleteAccount(dialogTemplateDeletion)" >Delete account</button>
+          <button mat-raised-button >Cancel</button></div>
+
+       
+      
+       
+
+</mat-dialog-content>
+</ng-template>
 </div>

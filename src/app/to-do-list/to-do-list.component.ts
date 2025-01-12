@@ -99,10 +99,12 @@ isTaskExist: boolean= false
       this.items[index].isEditing = true
      }
 
-     deleteItem(index: number,title: string){
+     deleteItem(index: number,title: string, dialogTemplateDeletion:TemplateRef<any>){
+      this.deleteAccount(dialogTemplateDeletion)
       this.items.splice(index, 1);
       const taskId =this.authService.getTaskId()
       console.log(taskId);
+      
       
       this.apiService.deleteTask(taskId).subscribe({next:(task)=>{this.isTaskExistStatus()
       },error:(error)=>(this.handleError(error))})
@@ -160,7 +162,10 @@ isTaskExist: boolean= false
       this.router.navigate(['/dashboard'])
       
      }
+deleteAccount(dialogTemplateDeletion: TemplateRef<any>): void{
+    this.dialogRef = this.dialog.open(dialogTemplateDeletion,{position:{top:'20%', left: '50%'},height: '250px'})
+ }}
 
 
 
-}
+
