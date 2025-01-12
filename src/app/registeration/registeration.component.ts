@@ -49,7 +49,6 @@ export class RegisterationComponent  {
 
   
   onSubmit(): void{
-    this.toggleSpinner()
    const formData ={username: this.signUpForm.get('username')?.value,
       email: this.signUpForm.get('email')?.value,
       password: this.signUpForm.get('password')?.value
@@ -57,6 +56,7 @@ export class RegisterationComponent  {
    
     this.passwordsMisMatchValidator()
     if (this.signUpForm.valid) {
+      this.toggleSpinner()
       this.signiUpStatus()
     this.apiService.registerUser(formData).subscribe({next: (data) => {localStorage.setItem('isWelcomed', 'false');
       if (data.token){console.log(data.token);
