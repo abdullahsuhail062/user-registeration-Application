@@ -57,7 +57,7 @@ export class RegisterationComponent  {
    
     this.passwordsMisMatchValidator()
     if (this.signUpForm.valid) {
-      this.isSigniUpStatus()
+      this.signiUpStatus()
     this.apiService.registerUser(formData).subscribe({next: (data) => {localStorage.setItem('isWelcomed', 'false');
       if (data.token){console.log(data.token);
       
@@ -147,11 +147,8 @@ export class RegisterationComponent  {
         this.isLoading = true
       }
 
-      isSigniUpStatus(){
-        if (this.isSigningUp===false) {
-          this.isSigningUp =true
-          
-        }
+      signiUpStatus(){
+      this.isSigningUp = !this.isSigningUp 
 
       }
 
