@@ -158,14 +158,22 @@ isTaskExist: boolean= false
       this.router.navigate(['/dashboard'])
       
      }
-deleteAccount(index:number,title: string,dialogRef: TemplateRef<any>): void{
-  const taskId =this.authService.getTaskId()
-  this.apiService.deleteTask(taskId).subscribe({next:(task)=>{ this.dialog.closeAll();  this.items.splice(index, 1);
-    this.isTaskExistStatus();   
-  },error:(error)=>(this.handleError(error))})
-  
-  
- }
+     deleteAccount(index: number, title: string, dialogRef: TemplateRef<any>): void {
+      const taskId = this.authService.getTaskId();
+      
+      // Close the dialog immediately
+      this.dialog.closeAll();
+      
+      // Proceed with the delete task request
+      this.apiService.deleteTask(taskId).subscribe({
+        next: (task) => {
+          this.items.splice(index, 1);
+          this.isTaskExistStatus();
+        },
+        error: (error) => this.handleError(error),
+      });
+    }
+    
 }
 
 
