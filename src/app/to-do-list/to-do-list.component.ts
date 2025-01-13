@@ -164,7 +164,7 @@ deleteAccount(index:number,title: string,dialogRef: TemplateRef<any>): void{
   console.log(taskId);
   
   
-  this.apiService.deleteTask(taskId).subscribe({next:(task)=>{ const dialog = this.dialog.closeAll();this.isTaskExistStatus();   
+  this.apiService.deleteTask(taskId).subscribe({next:(task)=>{ this.dialog.closeAll();this.isTaskExistStatus();   
   },error:(error)=>(this.handleError(error))})
 
 }}
