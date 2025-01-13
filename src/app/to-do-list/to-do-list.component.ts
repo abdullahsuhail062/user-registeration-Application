@@ -48,6 +48,7 @@ isTaskExist: boolean= false
 
   openDialog(templateRef: TemplateRef<any>): void{
      this.dialogRef = this.dialog.open(templateRef,{position:{top:'4%', left: '11%'},height: '250px'})
+     
   }
 
   createTaskTittle(){
@@ -99,9 +100,9 @@ isTaskExist: boolean= false
       this.items[index].isEditing = true
      }
 
-     deleteItem(dialogTemplateDeletion:TemplateRef<any>){
-      this.dialogRef = this.dialog.open(dialogTemplateDeletion,{position:{top:'20%', left: '50%'},height: '250px'})
-      this.deleteAccount( 1,title)
+     deleteItem(dialogRef:TemplateRef<any>){
+     const dialogReferrence = this.dialog.open(dialogRef,{position:{top:'20%', left: '50%'},height: '250px'})
+      
 
     }
      
@@ -157,13 +158,13 @@ isTaskExist: boolean= false
       this.router.navigate(['/dashboard'])
       
      }
-deleteAccount(index:number,title: string): void{
+deleteAccount(index:number,title: string,dialogRef: TemplateRef<any>): void{
   this.items.splice(index, 1);
   const taskId =this.authService.getTaskId()
   console.log(taskId);
   
   
-  this.apiService.deleteTask(taskId).subscribe({next:(task)=>{this.isTaskExistStatus()
+  this.apiService.deleteTask(taskId).subscribe({next:(task)=>{this.isTaskExistStatus(); const dialog = this.dialog.closeAll()   
   },error:(error)=>(this.handleError(error))})
 
 }}
