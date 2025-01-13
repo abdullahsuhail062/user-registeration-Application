@@ -159,16 +159,14 @@ isTaskExist: boolean= false
       
      }
 deleteAccount(index:number,title: string,dialogRef: TemplateRef<any>): void{
-  this.items.splice(index, 1);
   const taskId =this.authService.getTaskId()
-  console.log(taskId);
-  
-  
-  this.apiService.deleteTask(taskId).subscribe({next:(task)=>{ this.dialog.closeAll();this.isTaskExistStatus();   
+  this.apiService.deleteTask(taskId).subscribe({next:(task)=>{ this.dialog.closeAll();  this.items.splice(index, 1);
+    this.isTaskExistStatus();   
   },error:(error)=>(this.handleError(error))})
-
-}}
-
+  
+  
+ }
+}
 
 
 
