@@ -39,8 +39,8 @@ isLoading: boolean =true
 isTaskExist: boolean= false
   constructor(private router: Router,private authService: AuthService,private dialog: MatDialog, private apiService: ApiServiceService ){}
  ngOnInit(): void {
-  
-    this.apiService.getTasks().subscribe({next:(tasks)=>{this.items=tasks; this.isLoadingStatus();this.isTaskExistStatus()
+  const userId =this.authService.getToken()
+    this.apiService.getTasks(userId).subscribe({next:(tasks)=>{this.items=tasks; this.isLoadingStatus();this.isTaskExistStatus()
     },error:(
       error)=>{this.handleTaskFetchingError(error)}})
   
@@ -74,7 +74,8 @@ isTaskExist: boolean= false
   }
 
   onCreateList(){
-    this.apiService.addTask(this.taskTitleInput,this.taskDescriptionInput).subscribe({next: (item)=>{
+    const userId = this.authService.getToken()
+    this.apiService.addTask(this.taskTitleInput,this.taskDescriptionInput,userId).subscribe({next: (item)=>{
       this.items.push({title: item.title, description: item.description, isEditing: false});this.isTaskExistStatus(); 
       //this.items.unshift(item)
       localStorage.setItem('taskId',item.id);

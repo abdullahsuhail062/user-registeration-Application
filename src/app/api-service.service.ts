@@ -34,8 +34,8 @@ export class ApiServiceService {
     return this.http.delete(`${this.apiUrl}/api/deleteAccount`,{headers: { 'Authorization': `Bearer ${token}`}});
   }
 
-  addTask(title:any,description: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/api/tasks`, { description,title });
+  addTask(title:any,description: any,userId: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/api/tasks/${userId}`, { description,title,userId });
 }
 
 saveTask(title:any,description: any,taskId:any): Observable<any>{
@@ -51,8 +51,8 @@ taskCompeletion(completed:boolean,taskId:string | null): Observable<any> {
   return this.http.put(`${this.apiUrl}/api/taskCompeletion`,{completed,taskId})
 }
 
-getTasks(): Observable<any> {
-  return this.http.get(`${this.apiUrl}/api/fetchTasks`)
+getTasks(userId: any): Observable<any> {
+  return this.http.get(`${this.apiUrl}/api/fetchTasks/${userId}`{userId})
 }
 
 
