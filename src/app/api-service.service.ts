@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { environment } from './environments/environment.prod';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from './auth.service';
 
 
@@ -35,7 +35,8 @@ export class ApiServiceService {
   }
 
   addTask(title:any,description: any,userId: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/api/tasks`, { description,title },{headers:{userId}});
+    const header =new HttpHeaders({userId: userId})
+    return this.http.post(`${this.apiUrl}/api/tasks`, { description,title,header });
 }
 
 saveTask(title:any,description: any,taskId:any): Observable<any>{
