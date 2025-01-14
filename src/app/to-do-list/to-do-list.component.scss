@@ -280,17 +280,26 @@
 
 .deleteBtn {
   background-color: rgb(189, 54, 54);
-  width: 80px;
+  width: 90px;
   height: 35px;
   cursor: pointer;
   color: white;
+}
+.deleteBtn:hover {
+  background-color: rgb(202, 25, 25);
+
 }
 
 
 .cancelBtn {
   background-color: rgb(162, 0, 255);
-  width: 80px;
+  width: 90px;
   height: 35px;
   cursor: pointer;
   color: white;
+}
+
+.cancelBtn:hover {
+  background-color: rgb(61, 2, 96);
+
 }
