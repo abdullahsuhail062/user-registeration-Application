@@ -35,7 +35,7 @@ export class ApiServiceService {
   }
 
   addTask(title:any,description: any,userId: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/api/tasks/${userId}`, { description,title },{headers:{userId}});
+    return this.http.post(`${this.apiUrl}/api/tasks`, { description,title },{headers:{userId}});
 }
 
 saveTask(title:any,description: any,taskId:any): Observable<any>{
@@ -51,8 +51,8 @@ taskCompeletion(completed:boolean,taskId:string | null): Observable<any> {
   return this.http.put(`${this.apiUrl}/api/taskCompeletion`,{completed,taskId})
 }
 
-getTasks(userId: any): Observable<any> {
-  return this.http.get(`${this.apiUrl}/api/fetchTasks/${userId}`,{headers:{userId}})
+getTasks(): Observable<any> {
+  return this.http.get(`${this.apiUrl}/api/fetchTasks`)
 }
 
 
