@@ -271,3 +271,23 @@
   flex-shrink: 0; /* Prevent buttons from shrinking */
   min-width: 64px; /* Optional: Ensure consistent button size */
 }
+.btn {
+  gap: 10px;
+}
+
+.deleteBtn {
+  background-color: red;
+  width: 80px;
+  height: 35px;
+  cursor: pointer;
+  color: white;
+}
+
+
+.cancelBtn {
+  background-color: rgb(162, 0, 255);
+  width: 80px;
+  height: 35px;
+  cursor: pointer;
+  color: white;
+}

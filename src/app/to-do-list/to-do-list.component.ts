@@ -101,7 +101,7 @@ isTaskExist: boolean= false
      }
 
      deleteItem(dialogRef:TemplateRef<any>){
-     const dialogReferrence = this.dialog.open(dialogRef,{position:{top:'20%', left: '50%'},height: '250px'})
+     const dialogReferrence = this.dialog.open(dialogRef,{position:{top:'10%', left: '50%'},height: '250px'})
       
 
     }
@@ -172,6 +172,10 @@ isTaskExist: boolean= false
         },
         error: (error) => this.handleError(error),
       });
+    }
+
+    cancelDeletion(dialogRef: TemplateRef<any>){
+      this.dialog.closeAll()
     }
     
 }

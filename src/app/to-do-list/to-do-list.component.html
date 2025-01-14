@@ -31,8 +31,8 @@
               <ng-template #dialogTemplateDeletion>
                 <h2 mat-dialog-title>Are you sure you want to delete tasks?</h2>
                 <mat-dialog-content class="container">
-                       <div class="buttons-container"><button mat-raised-button (click)="deleteAccount(i,item.title,dialogTemplateDeletion)" >Delete account</button>
-                      <button mat-raised-button >Cancel</button></div>
+                       <div class="btn"><button class="deleteBtn" mat-raised-button (click)="deleteAccount(i,item.title,dialogTemplateDeletion)" >Delete account</button>
+                      <button class="cancelBtn" mat-raised-button (click)="cancelDeletion(dialogTemplateDeletion)">Cancel</button></div>
             </mat-dialog-content>
             </ng-template>
             </div>
