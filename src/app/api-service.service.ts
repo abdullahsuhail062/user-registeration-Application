@@ -35,8 +35,8 @@ export class ApiServiceService {
   }
 
   addTask(title:any,description: any,userId: any): Observable<any> {
-    const header =new HttpHeaders({userId: userId})
-    return this.http.post(`${this.apiUrl}/api/tasks`, { description,title,header });
+    
+    return this.http.post(`${this.apiUrl}/api/tasks`, { description,title,userId});
 }
 
 saveTask(title:any,description: any,taskId:any): Observable<any>{
