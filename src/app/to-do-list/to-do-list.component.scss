@@ -272,11 +272,14 @@
   min-width: 64px; /* Optional: Ensure consistent button size */
 }
 .btn {
+  display: flex;
+  justify-content: center;
+  align-content: center;
   gap: 10px;
 }
 
 .deleteBtn {
-  background-color: red;
+  background-color: rgb(189, 54, 54);
   width: 80px;
   height: 35px;
   cursor: pointer;
