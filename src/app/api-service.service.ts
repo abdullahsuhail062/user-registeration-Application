@@ -34,11 +34,11 @@ export class ApiServiceService {
     return this.http.delete(`${this.apiUrl}/api/deleteAccount`,{headers: { 'Authorization': `Bearer ${token}`}});
   }
 
-  addTask(title:any,description: any,userId: any): Observable<any> {
+  addTask(title:any,description: any,token: any): Observable<any> {
     
-    return this.http.post(`${this.apiUrl}/api/tasks`, { description,title,userId});
+    return this.http.post(`${this.apiUrl}/api/tasks`,  {description,title},{headers: { 'Authorization': `Bearer ${token}`}});
 }
-
+    
 saveTask(title:any,description: any,taskId:any): Observable<any>{
   return this.http.put(`${this.apiUrl}/api/updateTask`, { description,title,taskId});
 
