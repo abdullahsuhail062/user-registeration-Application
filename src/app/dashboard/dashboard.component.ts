@@ -83,6 +83,7 @@ export class DashboardComponent implements OnInit {
   
   }
   onAddAnOtherAccont(){
+    this.dialog.closeAll()
     this.authservice.logout()
     this.router.navigate(['/login'])
   }
