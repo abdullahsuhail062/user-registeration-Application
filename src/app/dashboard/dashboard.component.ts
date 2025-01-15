@@ -66,9 +66,13 @@ export class DashboardComponent implements OnInit {
   closeAllDialog(){
     this.dialog.closeAll()
   }
+  onAddAnOtherAccont(){
+    this.authservice.logout()
+    this.router.navigate(['/login'])
+  }
  
   openDeleteAccountDialog(){
-   const dialogRef= this.dialog.open(DeleteAccountDialogComponent,{position:{right:'0px'},width: '400px',data:{onConfirmDelete: ()=> this.confirmDelete(), onCloseAll: ()=> this.closeAllDialog()}})
+   const dialogRef= this.dialog.open(DeleteAccountDialogComponent,{position:{right:'0px'},width: '400px',data:{onConfirmDelete: ()=> this.confirmDelete(), onCloseAll: ()=> this.closeAllDialog(),onAddingAnotherAccount: ()=> this.onAddAnOtherAccont()}})
       dialogRef.afterClosed().subscribe((result)=>{
         if (result ==='confirm') {
           this.confirmDelete()

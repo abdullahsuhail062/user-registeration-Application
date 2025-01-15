@@ -171,7 +171,7 @@ isTaskExist: boolean= false
           this.items.splice(index, 1);
           this.isTaskExistStatus();
         },
-        error: (error) => this.handleError(error),
+        error: (error) => {this.handleError(error)},
       });
     }
 

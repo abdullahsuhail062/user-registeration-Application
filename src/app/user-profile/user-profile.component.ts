@@ -38,6 +38,10 @@ export class UserProfileComponent implements OnInit {
     this.sharedService.triggerTask()
 
   }
+  addAnOtherAccount(){
+    this.data.onAddingAnotherAccount()
+    
+  }
 
 
 }
