@@ -66,13 +66,10 @@ export class DashboardComponent implements OnInit {
   closeAllDialog(){
     this.dialog.closeAll()
   }
-  onAddAnOtherAccont(){
-    this.authservice.logout()
-    this.router.navigate(['/login'])
-  }
+  
  
   openDeleteAccountDialog(){
-   const dialogRef= this.dialog.open(DeleteAccountDialogComponent,{position:{right:'0px'},width: '400px',data:{onConfirmDelete: ()=> this.confirmDelete(), onCloseAll: ()=> this.closeAllDialog(),onAddingAnotherAccount: ()=> this.onAddAnOtherAccont()}})
+   const dialogRef= this.dialog.open(DeleteAccountDialogComponent,{position:{right:'0px'},width: '400px',data:{onConfirmDelete: ()=> this.confirmDelete(), onCloseAll: ()=> this.closeAllDialog()}})
       dialogRef.afterClosed().subscribe((result)=>{
         if (result ==='confirm') {
           this.confirmDelete()
@@ -85,13 +82,17 @@ export class DashboardComponent implements OnInit {
 
   
   }
+  onAddAnOtherAccont(){
+    this.authservice.logout()
+    this.router.navigate(['/login'])
+  }
    
   
   openProfileDialog(): void{
     const dialogConfig = new MatDialogConfig
     dialogConfig.height = '400px'
     this.apiService.fetchUserProfile().subscribe({next: (userdata)=>{
-      this.dialog.open(UserProfileComponent,{position: {top: '55px', right: '0px'},width: '180px', panelClass: 'custom-dialog',data:{username: userdata.username, email: userdata.email, onLogout: () => this.logout(), onNavigateToDashboard: () => this.dashboard(), onOpenDeleteAccountDialog: ()=> this.openDeleteAccountDialog()}})
+      this.dialog.open(UserProfileComponent,{position: {top: '55px', right: '0px'},width: '180px', panelClass: 'custom-dialog',data:{username: userdata.username, email: userdata.email, onLogout: () => this.logout(), onNavigateToDashboard: () => this.dashboard(), onOpenDeleteAccountDialog: ()=> this.openDeleteAccountDialog(),onAddingAnotherAccount: ()=> this.onAddAnOtherAccont()}})
     }, error: (error)=>{this.handleError(error)
     }})
   
