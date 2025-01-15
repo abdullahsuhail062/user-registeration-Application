@@ -52,8 +52,8 @@ taskCompeletion(completed:boolean,taskId:string | null): Observable<any> {
   return this.http.put(`${this.apiUrl}/api/taskCompeletion`,{completed,taskId})
 }
 
-getTasks(): Observable<any> {
-  return this.http.get(`${this.apiUrl}/api/fetchTasks`)
+getTasks(token:any): Observable<any> {
+  return this.http.get(`${this.apiUrl}/api/fetchTasks`,{headers:{'authorization': `Bearer ${token}` }})
 }
 
 
