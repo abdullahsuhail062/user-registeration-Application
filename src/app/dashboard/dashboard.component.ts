@@ -120,6 +120,10 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['/calculator'])
   }
 
+  backToHome(){
+    this.router.navigate(['/dashboard'])
+  }
+
 }
 
 
