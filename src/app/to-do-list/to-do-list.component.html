@@ -6,13 +6,13 @@
 </div>
    <div class="container">
       <mat-toolbar color="primary">
-        <span>ToDoList section</span>
+        <button ma-raised-button class="navigate" (click)="navigateToHome()">Back to home</button>
+        <span class="title">ToDoList section</span>
         <span class="spacer"></span>
         <button mat-raised-button class="create-list-btn" (click)="openDialog(dialogTemplate)">
           <span class="icon">➕</span>
           Create new List
         </button>
-        <button ma-raised-button class="navigate" (click)="navigateToHome()">Home</button>
       </mat-toolbar>
     
       <div class="content">
