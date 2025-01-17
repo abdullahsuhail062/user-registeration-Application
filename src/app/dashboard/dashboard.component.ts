@@ -116,6 +116,10 @@ export class DashboardComponent implements OnInit {
     
   }
 
+  navigateToCalculator(){
+    this.router.navigate(['/calculator'])
+  }
+
 }
 
 
