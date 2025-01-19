@@ -9,9 +9,9 @@ import { Router } from '@angular/router';
   templateUrl: './calculator.component.html',
   styleUrl: './calculator.component.css'
 })
-export class CalculatorComponent implements OnInit {
-  button: number =0
-  buttons: [button: number] = [this.button]
+export class CalculatorComponent {
+
+buttons: {button: number}[] = []
 
   
   constructor(private router: Router){}
@@ -19,9 +19,13 @@ export class CalculatorComponent implements OnInit {
     this.router.navigate(['/dashboard'])
 
   }
+ 
 
-  ngOnInit(): void {
-    this.buttons.push(this.button)
+  onButtonClick(value: string){}
+
+  onCalculate(){
+    
   }
+
 
 }
