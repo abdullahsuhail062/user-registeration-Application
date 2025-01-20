@@ -5,6 +5,14 @@
               <span class="spacer"></span>  
         <!-- Profile Button with Initial -->
       </mat-toolbar>
+      <div class="calculator">
+        <!-- Input field to display or edit the calculation -->
+        <input
+          type="text"
+          [value]="input"
+          readonly
+          class="calculator-display"
+        />
 
       <div class="calculator">
         <button (click)="onButtonClick('7')">7</button>

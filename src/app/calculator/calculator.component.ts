@@ -11,8 +11,7 @@ import { Router } from '@angular/router';
 })
 export class CalculatorComponent {
 
-buttons: {button: number}[] = []
-
+input: string = ''
   
   constructor(private router: Router){}
   navigateBackToHome(){
@@ -21,10 +20,22 @@ buttons: {button: number}[] = []
   }
  
 
-  onButtonClick(value: string){}
+  onButtonClick(value: string): void {
+    this.input += value;
+  }
 
-  onCalculate(){
-    
+  // Calculate the result
+  onCalculate(): void {
+    try {
+      this.input = eval(this.input); // Evaluate the expression (use carefully)
+    } catch (error) {
+      this.input = 'Error'; // Handle invalid expressions
+    }
+  }
+
+  // Clear the input field
+  onClear(): void {
+    this.input = '';
   }
 
 
