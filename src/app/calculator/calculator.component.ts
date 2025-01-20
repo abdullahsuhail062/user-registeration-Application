@@ -37,6 +37,9 @@ input: string = ''
   onClear(): void {
     this.input = '';
   }
+  onDeleteLast(){
+    this.input = this.input.slice(0,-1)
+  }
 
 
 }
