@@ -16,4 +16,7 @@
     <h2>Welcome to the Dashboard!</h2>
     <p>We're glad to have you here.</p>
   </div>
- 
+
+
+  <input class="input" matInput type="text" [(ngModel)]="userPrompt" placeholder="enter prompt">
+ <button mat-raised-button color="primary" (click)="sendRequest()">Get prompt

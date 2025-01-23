@@ -1,24 +1,26 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, NgModule, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { UserProfileComponent } from '../user-profile/user-profile.component';
 import { MatDialog,MatDialogConfig } from '@angular/material/dialog';
 import { ApiServiceService } from '../api-service.service';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { NgIf } from '@angular/common';
+import { NgClass, NgIf } from '@angular/common';
 import { DeleteAccountDialogComponent } from '../delete-account-dialog/delete-account-dialog.component';
 import { SharedService } from '../shared.service';
 import { error } from 'node:console';
+import { FormsModule, NgForm, NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [MatToolbarModule,NgIf],
+  imports: [MatToolbarModule,NgIf,FormsModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent implements OnInit {
   profileInitial: string =''
+  userPrompt: string = ''
   email: any
   showWelcomeMessage: boolean = false;
   constructor(private sharedService: SharedService,private router: Router, private authservice: AuthService, private dialog: MatDialog, private apiService: ApiServiceService){}

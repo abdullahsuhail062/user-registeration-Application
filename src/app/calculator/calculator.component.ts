@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-calculator',
-  imports: [MatToolbarModule,NgFor],
+  imports: [MatToolbarModule],
   templateUrl: './calculator.component.html',
   styleUrl: './calculator.component.css'
 })

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
-import { environment } from './environments/environment.prod';
+import { apiEnvironment, apiKeyEnvironment, environment } from './environments/environment.prod';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from './auth.service';
 
@@ -13,6 +13,8 @@ import { AuthService } from './auth.service';
 export class ApiServiceService {
 
   private apiUrl = environment.apiUrl
+  private aiApiKey = apiKeyEnvironment.apiKey
+  private aiApiUrl = apiEnvironment.apiUrl
 
   constructor(private http: HttpClient, private authService: AuthService) {}
     
@@ -56,8 +58,15 @@ getTasks(token:any): Observable<any> {
   return this.http.get(`${this.apiUrl}/api/fetchTasks`,{headers:{'authorization': `Bearer ${token}` }})
 }
 
-
+getCompletion(body: string): Observable<any> {
+  return this.http.post(`${this.apiUrl}/ask`,{body})
 }
+
+  
+}
+
+
+
  
 
 
