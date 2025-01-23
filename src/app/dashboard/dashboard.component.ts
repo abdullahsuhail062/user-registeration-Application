@@ -10,6 +10,7 @@ import { DeleteAccountDialogComponent } from '../delete-account-dialog/delete-ac
 import { SharedService } from '../shared.service';
 import { error } from 'node:console';
 import { FormsModule, NgForm, NgModel } from '@angular/forms';
+import { response } from 'express';
 
 @Component({
   selector: 'app-dashboard',
@@ -125,8 +126,12 @@ export class DashboardComponent implements OnInit {
   backToHome(){
     this.router.navigate(['/dashboard'])
   }
+  sendRequest(){
+    this.apiService.getCompletion(this.userPrompt).subscribe({next: (response)=>{response}
+  })
 
-}
+
+  }}
 
 
 
