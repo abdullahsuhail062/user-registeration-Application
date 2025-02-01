@@ -1,5 +1,5 @@
 
- export const environment ={production: true, apiUrl: 'https://server-app-chi.vercel.app' }
+ export const environment ={production: true, apiUrl: 'https://server-app-pi.vercel.app' }
 
  export const apiEnvironment ={production: true, apiUrl: 'https://api.aimlapi.com' }
 // src/environments/environment.ts
