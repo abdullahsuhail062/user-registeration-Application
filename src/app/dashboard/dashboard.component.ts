@@ -115,7 +115,7 @@ export class DashboardComponent implements OnInit {
   }
 
   handleError(error:any){
-    console.log(error.error, this.authservice.getToken());
+    console.log(error.error);
     
   }
 
