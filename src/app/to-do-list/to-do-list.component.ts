@@ -170,6 +170,7 @@ isTaskExist: boolean= false
         next: (task) => {
           this.items.splice(index, 1);
           this.isTaskExistStatus();
+          console.log(taskId);
         },
         error: (error) => {this.handleError(error)},
       });
