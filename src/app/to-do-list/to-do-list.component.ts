@@ -151,7 +151,7 @@ isTaskExist: boolean= false
       }
      }
      isTaskExistStatus(){
-      if (this.items.length===0) {
+      if (this.items.length===0 || this.items===null) {
         this.isTaskExist =true
         
       }else {this.isTaskExist=false}
