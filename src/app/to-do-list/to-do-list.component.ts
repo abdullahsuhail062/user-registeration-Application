@@ -150,12 +150,14 @@ isTaskExist: boolean= false
         
       }
      }
-     isTaskExistStatus(){
-      if (this.items.length===0 || this.items===null) {
-        this.isTaskExist =true
-        
-      }else {this.isTaskExist=false}
-     }
+     isTaskExistStatus() {
+      if (!this.items || this.items.length === 0) { 
+        this.isTaskExist = true;
+      } else {
+        this.isTaskExist = false;
+      }
+    }
+    
 
      navigateToHome(){
       this.router.navigate(['/dashboard'])
