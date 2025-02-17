@@ -31,7 +31,7 @@ taskTitleInput: string = ''
 taskDescriptionInput: string = ''
 isDeactive: boolean = true
 isActive: boolean = false
-items: { title: string; description: string, isEditing: boolean, userId:number }[] =[]
+items: { title: string; description: string, isEditing: boolean }[] =[]
 dialogRef: any
 listItem:any
 taskId: any
@@ -40,7 +40,7 @@ isTaskExist: boolean= false
   constructor(private router: Router,private authService: AuthService,private dialog: MatDialog, private apiService: ApiServiceService ){}
  ngOnInit(): void {
   const token =this.authService.getToken()
-    this.apiService.getTasks(token).subscribe({next:(tasks)=>{ this.items = tasks
+    this.apiService.getTasks(token).subscribe({next:(tasks)=>{ console.log(this.items)
     },error:(
       error)=>{this.handleTaskFetchingError(error)}})
   
@@ -77,7 +77,7 @@ isTaskExist: boolean= false
     const token = this.authService.getToken()
     this.apiService.addTask(this.taskDescriptionInput,this.taskTitleInput,token).subscribe({next: (item)=>{console.log(item);
     
-      this.items.push({title: item.title, description: item.description, isEditing: false,userId:0});this.isTaskExistStatus(); 
+      this.items.push({title: item.title, description: item.description, isEditing: false});this.isTaskExistStatus(); 
       //this.items.unshift(item)
       localStorage.setItem('taskId',item.id);
       console.log(item.id);
