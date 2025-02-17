@@ -31,7 +31,7 @@ taskTitleInput: string = ''
 taskDescriptionInput: string = ''
 isDeactive: boolean = true
 isActive: boolean = false
-items: { title: string; description: string, isEditing: boolean }[] =[]
+items: { title: string; description: string, isEditing: boolean, userId:number }[] =[]
 dialogRef: any
 listItem:any
 taskId: any
@@ -81,7 +81,7 @@ isTaskExist: boolean= false
     const token = this.authService.getToken()
     this.apiService.addTask(this.taskTitleInput,this.taskDescriptionInput,token).subscribe({next: (item)=>{console.log(item);
     
-      this.items.push({title: item.title, description: item.description, isEditing: false});this.isTaskExistStatus(); 
+      this.items.push({title: item.title, description: item.description, isEditing: false,userId:0});this.isTaskExistStatus(); 
       //this.items.unshift(item)
       localStorage.setItem('taskId',item.id);
       console.log(item.id);
