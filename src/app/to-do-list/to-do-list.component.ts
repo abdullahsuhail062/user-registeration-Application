@@ -41,7 +41,7 @@ isTaskExist: boolean= false
  ngOnInit(): void {
   const token =this.authService.getToken()
     this.apiService.getTasks(token).subscribe({next:(tasks)=>{if (this.items ===null) {
-      console.log() 
+      console.log(tasks) 
       
     }else{'issue yet to be found!!!'}
     
