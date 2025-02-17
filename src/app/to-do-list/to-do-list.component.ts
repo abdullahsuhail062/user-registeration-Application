@@ -31,7 +31,8 @@ taskTitleInput: string = ''
 taskDescriptionInput: string = ''
 isDeactive: boolean = true
 isActive: boolean = false
-items: { title: string; description: string, isEditing: boolean }[] =[]
+//items: { title: string; description: string, isEditing: boolean }[] =[]
+items: any [] =[]
 dialogRef: any
 listItem:any
 taskId: any
