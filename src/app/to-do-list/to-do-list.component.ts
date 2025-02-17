@@ -40,7 +40,8 @@ isTaskExist: boolean= false
   constructor(private router: Router,private authService: AuthService,private dialog: MatDialog, private apiService: ApiServiceService ){}
  ngOnInit(): void {
   const token =this.authService.getToken()
-    this.apiService.getTasks(token).subscribe({next:(tasks)=>{if (this.items ===null) {
+    this.apiService.getTasks(token).subscribe({next:(tasks)=>{ console.log(tasks);
+     if (this.items ===null) {
       console.log(tasks) 
       
     }else{'issue yet to be found!!!'}
