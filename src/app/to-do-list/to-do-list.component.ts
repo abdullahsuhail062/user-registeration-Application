@@ -31,8 +31,7 @@ taskTitleInput: string = ''
 taskDescriptionInput: string = ''
 isDeactive: boolean = true
 isActive: boolean = false
-//items: { title: string; description: string, isEditing: boolean }[] =[]
-items: any [] =[]
+items: { title: string; description: string, isEditing: boolean }[] =[]
 dialogRef: any
 listItem:any
 taskId: any
@@ -41,7 +40,10 @@ isTaskExist: boolean= false
   constructor(private router: Router,private authService: AuthService,private dialog: MatDialog, private apiService: ApiServiceService ){}
  ngOnInit(): void {
   const token =this.authService.getToken()
-    this.apiService.getTasks(token).subscribe({next:(tasks)=>{this.items = tasks
+    this.apiService.getTasks(token).subscribe({next:(tasks)=>{if (this.items ===null) {
+      this.items = tasks
+      
+    }
     
     },error:(
       error)=>{this.handleTaskFetchingError(error)}})
