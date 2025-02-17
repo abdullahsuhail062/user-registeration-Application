@@ -80,7 +80,7 @@ isTaskExist: boolean= false
 
   onCreateList(){
     const token = this.authService.getToken()
-    this.apiService.addTask(this.taskTitleInput,this.taskDescriptionInput,token).subscribe({next: (item)=>{console.log(item);
+    this.apiService.addTask(this.taskDescriptionInput,this.taskTitleInput,token).subscribe({next: (item)=>{console.log(item);
     
       this.items.push({title: item.title, description: item.description, isEditing: false,userId:0});this.isTaskExistStatus(); 
       //this.items.unshift(item)
