@@ -42,8 +42,11 @@ isTaskExist: boolean= false
   const token =this.authService.getToken()
     this.apiService.getTasks(token).subscribe({next:(tasks)=>{ if (Array.isArray(tasks)) {
       this.items = tasks;
+      console.log(tasks)
     } else {
-      this.items = [tasks]; // Wrap the single task object in an array
+      this.items = [tasks];
+      console.log(tasks)
+      // Wrap the single task object in an array
     }
 
     },error:(
