@@ -37,8 +37,9 @@ export class ApiServiceService {
   }
 
   addTask(title:any,description: any,token: any): Observable<any> {
+    console.log('title',title,'description', description)
     
-    return this.http.post(`${this.apiUrl}/api/tasks`,  {description,title},{headers: { 'Authorization': `Bearer ${token}`}});
+    return this.http.post(`${this.apiUrl}/api/tasks`,  {title,description},{headers: { 'Authorization': `Bearer ${token}`}});
 }
     
 saveTask(title:any,description: any,taskId:any): Observable<any>{
