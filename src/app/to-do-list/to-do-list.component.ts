@@ -142,7 +142,7 @@ isTaskExist: boolean= false
      }
 
      handleError(error:any){
-      if(error.status ===400 && error.error == 'title name exist already, choose an unique name'){
+      if(error.status ===400 && error.error == 'Title already exists. Choose a different one'){
         alert('Title already exists. Choose a different one')
       }
       if (error.statu===404) {
