@@ -146,6 +146,8 @@ isTaskExist: boolean= false
      handleError(error:any){
       if(error.status ===400 && error.error.error == 'Title already exists. Choose a different one'){
         alert('Title already exists. Choose a different one')
+        console.log(error.error.error);
+        
       }
       if (error.statu===404) {
         console.log(error);
