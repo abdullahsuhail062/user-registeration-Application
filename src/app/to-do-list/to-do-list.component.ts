@@ -13,15 +13,18 @@ import { error } from 'node:console';
 import { Route } from '@angular/router';
 import { Router, RouterLink } from '@angular/router';
 
+
  
 @Component({
   selector: 'app-to-do-list',
   standalone: true,
-  imports: [NgIf,MatToolbarModule, MatDialogContent,FormsModule,NgClass,NgFor,MatListItem,MatList,],
+  imports: [NgIf,MatToolbarModule, MatDialogContent,FormsModule,NgClass,NgFor,MatListItem,MatList],
   templateUrl: './to-do-list.component.html',
   styleUrl: './to-do-list.component.scss'
 })
 export class ToDoListComponent implements OnInit{
+titleErrorChecking: boolean=false
+titleError: string = ''
 isDisabled: boolean = true 
 isEditing: boolean = false
 title:any
@@ -100,20 +103,10 @@ isTaskExist: boolean= false
       
     },error: (error)=>{this.handleError(error);
     }})
-     this.dialogRef.close()
-     this.taskTitleInput = ''
-     this.taskDescriptionInput = ''
-
-     }
-
-    
-
-     getDateTime(): string{
-      const date = new Date()
-     const getDate = date.toLocaleDateString()
-     return getDate
      
+
      }
+
 
      editItem(index: number) {
       this.items[index].isEditing = true
@@ -145,28 +138,10 @@ isTaskExist: boolean= false
       const taskCompleleted =true
       const taskId = this.authService.getTaskId()
       this.apiService.taskCompeletion(taskCompleleted,taskId).subscribe({next:(data)=>{console.log(data);
-      },error:(error)=>{this.handleError(error)}})
+      },error:(error)=>{this.titleErrorCheckingFn(error)}})
      }
 
-     handleError(error: any) {
-      if (error.status === 400) {
-        if (error.error?.error === 'Title already exists. Choose a different one') {
-          alert('Title already exists. Choose a different one');
-          console.log(error.error.error);
-        } else {
-          console.error('Bad Request:', error.error);
-          alert('Something went wrong! Please check your input.');
-        }
-      } else if (error.status === 500) {
-        console.error('Server Error:', error);
-        alert('Internal Server Error! Please try again later.');
-      } else {
-        console.error('Unexpected Error:', error);
-        alert('An unexpected error occurred. Please try again.');
-      }
-    }
-    
-     
+          
      isLoadingStatus(){
       if (this.isLoading===true) {
         this.isLoading=false
@@ -202,9 +177,26 @@ isTaskExist: boolean= false
         error: (error) => {this.handleError(error)},
       });
     }
+    handleError(error:any){
+      console.error(error.error.error);
+      
+    }
 
     cancelDeletion(dialogRef: TemplateRef<any>){
       this.dialog.closeAll()
+    }
+    titleErrorCheckingFn(error:any){
+      if (!error.error.error) {
+        this.dialogRef.close()
+     this.taskTitleInput = ''
+     this.taskDescriptionInput = ''
+      }
+      if (error.error.error) {
+        this.titleErrorChecking = true
+        this.titleError = error.error.error  
+      }
+      
+
     }
     
 }

@@ -58,6 +58,9 @@
   <div class="dialog">
     <ng-template #dialogTemplate>
       <h2 mat-dialog-title>Create List</h2>
+      <div *ngIf="titleErrorChecking" class="alert-danger">
+        {{titleError}}
+      </div>
       <mat-dialog-content class="container">
              <div class="input-container"><input class="input-title" [(ngModel)]="taskTitleInput" (input)="createTaskTittle()" placeholder="Enter task title..."/>
               <input class="input-description" [(ngModel)]="taskDescriptionInput" (input)="createTaskDescription()" placeholder="Enter task description..."/></div> 
