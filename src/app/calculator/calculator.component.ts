@@ -2,6 +2,7 @@ import { NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { Router } from '@angular/router';
+import { evaluate } from 'mathjs';
 
 @Component({
   selector: 'app-calculator',
@@ -27,7 +28,7 @@ input: string = ''
   // Calculate the result
   onCalculate(): void {
     try {
-      this.input = eval(this.input); // Evaluate the expression (use carefully)
+      this.input = evaluate(this.input); // Evaluate the expression (use carefully)
     } catch (error) {
       this.input = 'Error'; // Handle invalid expressions
     }
