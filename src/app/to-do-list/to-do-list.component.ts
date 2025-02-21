@@ -53,6 +53,11 @@ isTaskExist: boolean= false
       error)=>{this.handleTaskFetchingError(error)}})
   
  }
+ handleTaskFetchingError(error: any){
+  console.error(error.error.error);
+  
+  
+ }
 
   openDialog(templateRef: TemplateRef<any>): void{
      this.dialogRef = this.dialog.open(templateRef,{position:{top:'4%', left: '11%'},height: '250px'})
@@ -83,7 +88,7 @@ isTaskExist: boolean= false
 
   onCreateList(){
     const token = this.authService.getToken()
-    this.apiService.addTask(this.taskTitleInput,this.taskDescriptionInput,token).subscribe({next: (item)=>{console.log(item);
+    this.apiService.addTask(this.taskDescriptionInput,this.taskTitleInput,token).subscribe({next: (item)=>{console.log(item);
       
       
     
@@ -143,23 +148,25 @@ isTaskExist: boolean= false
       },error:(error)=>{this.handleError(error)}})
      }
 
-     handleError(error:any){
-      if(error.status ===400 && error.error.error == 'Title already exists. Choose a different one'){
-        alert('Title already exists. Choose a different one')
-        console.log(error.error.error);
-        
+     handleError(error: any) {
+      if (error.status === 400) {
+        if (error.error?.error === 'Title already exists. Choose a different one') {
+          alert('Title already exists. Choose a different one');
+          console.log(error.error.error);
+        } else {
+          console.error('Bad Request:', error.error);
+          alert('Something went wrong! Please check your input.');
+        }
+      } else if (error.status === 500) {
+        console.error('Server Error:', error);
+        alert('Internal Server Error! Please try again later.');
+      } else {
+        console.error('Unexpected Error:', error);
+        alert('An unexpected error occurred. Please try again.');
       }
-      if (error.statu===404) {
-        console.log(error);
-        
-        
-      }else{console.log(error);
-      }
-     }
-     handleTaskFetchingError(error:any){
-      console.log(error);
-      
-     }
+    }
+    
+     
      isLoadingStatus(){
       if (this.isLoading===true) {
         this.isLoading=false
