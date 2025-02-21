@@ -101,7 +101,7 @@ isTaskExist: boolean= false
       console.log(item.id);
       
       
-    },error: (error)=>{this.handleError(error);
+    },error: (error)=>{this.titleErrorCheckingFn(error);
     }})
      
 
@@ -138,7 +138,7 @@ isTaskExist: boolean= false
       const taskCompleleted =true
       const taskId = this.authService.getTaskId()
       this.apiService.taskCompeletion(taskCompleleted,taskId).subscribe({next:(data)=>{console.log(data);
-      },error:(error)=>{this.titleErrorCheckingFn(error)}})
+      },error:(error)=>{this.handleError(error)}})
      }
 
           
