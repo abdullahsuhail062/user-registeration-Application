@@ -1,3 +1,4 @@
+import 'zone.js/node'; // Required for SSR
 import {
   AngularNodeAppEngine,
   createNodeRequestHandler,
