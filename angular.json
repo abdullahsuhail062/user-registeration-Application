@@ -33,7 +33,10 @@
             ],
             "scripts": [],
             "server": "src/main.server.ts",
-            "externalDependencies": ["zone.js/node"],
+            "options": {
+              "outputPath": "dist/user-registeration-app/server",
+              "externalDependencies": ["zone.js/node"]
+            },
             "outputMode": "server",
             "ssr": {
               "entry": "src/server.ts"
